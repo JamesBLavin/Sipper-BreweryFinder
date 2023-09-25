@@ -80,7 +80,7 @@ font-family: 'Roboto Flex', sans-serif;
 }
 
 #profile {
-  tex
+  text-decoration: underline;
 }
 
 </style>
