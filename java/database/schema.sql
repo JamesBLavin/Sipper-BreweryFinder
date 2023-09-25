@@ -1,8 +1,9 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS breweries;
+-- Drops all tables when it is run again
+DROP TABLE IF EXISTS users, breweries, beers CASCADE;
 
+-- Created a table for all users
 CREATE TABLE users (
 	user_id SERIAL,
 	username varchar(50) NOT NULL UNIQUE,
@@ -11,17 +12,20 @@ CREATE TABLE users (
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 );
 
+-- Created a table for all breweries
 CREATE TABLE breweries (
     brewery_id SERIAL,
     brewery_name VARCHAR(50) NOT NULL,
     contact_info VARCHAR(500),
     brewery_history VARCHAR(500),
     operating_hours VARCHAR(300),
-    brewery_img_url VARCHAR(500),
-    brewery_address VARCHAR(500),
+    brewery_img_url VARCHAR(200),
+    brewery_address VARCHAR(100),
+    is_active BOOLEAN,
     CONSTRAINT PK_brewery PRIMARY KEY (brewery_id)
 );
 
+-- Created a table for all beers
 CREATE TABLE beers (
    beer_id SERIAL,
    brewery_id INT,
@@ -31,7 +35,10 @@ CREATE TABLE beers (
    ibu INT,
    beer_rating INT,
    beer_review VARCHAR(500),
-   CONSTRAINT PK_beer PRIMARY KEY (beer_id)
+   beer_img_url VARCHAR(200),
+   beer_type VARCHAR(20),
+   CONSTRAINT PK_beer PRIMARY KEY (beer_id),
+   CONSTRAINT FK_beer_brewery FOREIGN KEY(brewery_id) REFERENCES breweries(brewery_id)
 );
 
 COMMIT TRANSACTION;
