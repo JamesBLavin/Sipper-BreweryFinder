@@ -1,5 +1,6 @@
 package com.techelevator.controller;
 
+import com.techelevator.Services.BreweryService;
 import com.techelevator.dao.BreweryDao;
 import com.techelevator.model.Brewery;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,29 +18,29 @@ import java.util.List;
 @CrossOrigin(value="http://localhost:8080")
 public class BreweryController {
     @Autowired
-    private BreweryDao breweryDao;
+    private BreweryService breweryService;
 
-    @RequestMapping(path="/allBreweries", method= RequestMethod.GET)
+    @GetMapping(path="/allBreweries")
     public List<Brewery> getAllBreweries(){
-        return breweryDao.getAllBreweries();
+        return breweryService.getAllBreweries();
     }
 
-    @RequestMapping(path="/brewery/{brewery_id}", method= RequestMethod.GET)
+    @GetMapping(path="/brewery/{brewery_id}")
     public Brewery getBrewery(@PathVariable int brewery_id){
-        return breweryDao.getBrewery(brewery_id);
+        return breweryService.getBrewery(brewery_id);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping(path = "/addBrewery", method = RequestMethod.POST)
+    @PostMapping(path = "/addBrewery")
     public Brewery addBrewery(@RequestBody @Valid Brewery newBrewery) {
-        return breweryDao.addBrewery(newBrewery);
+        return breweryService.addBrewery(newBrewery);
     }
 
-    @RequestMapping(path = "updateBrewery/{brewery_id}", method = RequestMethod.PUT)
+    @PutMapping(path = "updateBrewery/{brewery_id}")
     public Brewery updateBrewery(@RequestBody @Valid Brewery updateBrewery, @PathVariable int brewery_id) {
         updateBrewery.setBrewery_id(brewery_id);
         try {
-            return breweryDao.updateBrewery(updateBrewery);
+            return breweryService.updateBrewery(updateBrewery);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Auction not found", e);
         }

@@ -1,5 +1,6 @@
 package com.techelevator.controller;
 
+import com.techelevator.Services.BeerService;
 import com.techelevator.dao.BeerDao;
 import com.techelevator.model.Beer;
 import com.techelevator.model.Brewery;
@@ -13,39 +14,39 @@ import java.util.List;
 @RestController
 @CrossOrigin(value="http://localhost:8080")
 public class BeerController {
-    private BeerDao beerDao;
+    private BeerService beerService;
 
-    @RequestMapping(path="/allBeers", method= RequestMethod.GET)
+    @GetMapping(path="/allBeers")
     public List<Beer> getAllBeers(){
-        return beerDao.getAllBeers();
+        return beerService.getAllBeers();
     }
 
-    @RequestMapping(path="/beer/{beer_id}", method= RequestMethod.GET)
+    @GetMapping(path="/beer/{beer_id}")
     public Beer getBeer(@PathVariable int beer_id){
-        return beerDao.getBeer(beer_id);
+        return beerService.getBeer(beer_id);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping(path = "/addBeer", method = RequestMethod.POST)
+    @PostMapping(path = "/addBeer")
     public Beer addBeer(@RequestBody @Valid Beer newBeer) {
-        return beerDao.addBeer(newBeer);
+        return beerService.addBeer(newBeer);
     }
 
-    @RequestMapping(path = "updateBeer/{beer_id}", method = RequestMethod.PUT)
+    @PutMapping(path = "updateBeer/{beer_id}")
     public Beer updateBeer(@RequestBody @Valid Beer updateBeer, @PathVariable int beer_id) {
         updateBeer.setBeer_id(beer_id);
         try {
-            return beerDao.updateBeer(updateBeer);
+            return beerService.updateBeer(updateBeer);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Auction not found", e);
         }
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @RequestMapping(path = "/deleteBeer/{beer_id}", method = RequestMethod.DELETE)
+    @DeleteMapping(path = "/deleteBeer/{beer_id}")
     public void deleteBeer(@PathVariable int beer_id) {
         try {
-            int deletedBeerId = beerDao.deleteBeer(beer_id);
+            int deletedBeerId = beerService.deleteBeer(beer_id);
             if (deletedBeerId == -1) {
                 throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Beer not found with ID: " + beer_id);
             }
@@ -54,9 +55,9 @@ public class BeerController {
         }
     }
 
-    @RequestMapping(path = "/beer/{beer_id}/ratingReview", method = RequestMethod.GET)
+    @GetMapping(path = "/beer/{beer_id}/ratingReview")
     public Beer getBeerRatingAndReview(@PathVariable int beer_id) {
-        return beerDao.getBeerRatingAndReview(beer_id);
+        return beerService.getBeerRatingAndReview(beer_id);
     }
 
 }
