@@ -19,6 +19,9 @@ public class Brewery {
 
     private String brewery_address;
 
+    private String brewer;
+    private boolean isActive;
+
     // getters and setters for each
 
     public int getBrewery_id() {
@@ -77,8 +80,37 @@ public class Brewery {
         this.brewery_address = brewery_address;
     }
 
-    //constructor with all properties
-    public Brewery(int brewery_id, String brewery_name, String contact_info, String brewery_history, String operating_hours, String brewery_img_url, String brewery_address) {
+    public String getBrewer() {
+        return brewer;
+    }
+
+    public void setBrewer(String brewer) {
+        this.brewer = brewer;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
+
+    public Brewery() {
+    }
+
+    public Brewery(String brewery_name, String contact_info, String brewery_history, String operating_hours, String brewery_img_url, String brewery_address, String brewer, boolean isActive) {
+        this.brewery_name = brewery_name;
+        this.contact_info = contact_info;
+        this.brewery_history = brewery_history;
+        this.operating_hours = operating_hours;
+        this.brewery_img_url = brewery_img_url;
+        this.brewery_address = brewery_address;
+        this.brewer = brewer;
+        this.isActive = isActive;
+    }
+
+    public Brewery(int brewery_id, String brewery_name, String contact_info, String brewery_history, String operating_hours, String brewery_img_url, String brewery_address, String brewer, boolean isActive) {
         this.brewery_id = brewery_id;
         this.brewery_name = brewery_name;
         this.contact_info = contact_info;
@@ -86,20 +118,8 @@ public class Brewery {
         this.operating_hours = operating_hours;
         this.brewery_img_url = brewery_img_url;
         this.brewery_address = brewery_address;
-    }
-
-    // constructor with all properties minus the id
-    public Brewery(String brewery_name, String contact_info, String brewery_history, String operating_hours, String brewery_img_url, String brewery_address) {
-        this.brewery_name = brewery_name;
-        this.contact_info = contact_info;
-        this.brewery_history = brewery_history;
-        this.operating_hours = operating_hours;
-        this.brewery_img_url = brewery_img_url;
-        this.brewery_address = brewery_address;
-    }
-
-    // empty constructor
-    public Brewery() {
+        this.brewer = brewer;
+        this.isActive = isActive;
     }
 
     // to string
