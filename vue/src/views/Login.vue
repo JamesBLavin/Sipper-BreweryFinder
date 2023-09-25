@@ -1,7 +1,7 @@
 <template>
   <div id="login">
     <form @submit.prevent="login">
-      <h1 >Please Sign In</h1>
+      <h1 >giddy up partner</h1>
       <div role="alert" v-if="invalidCredentials">
         Invalid username and password!
       </div>
@@ -9,11 +9,11 @@
         Thank you for registering, please sign in.
       </div>
       <div class="form-input-group">
-        <label for="username">Username</label>
+        <label for="username">username</label>
         <input type="text" id="username" v-model="user.username" required autofocus />
       </div>
       <div class="form-input-group">
-        <label for="password">Password</label>
+        <label for="password">password</label>
         <input type="password" id="password" v-model="user.password" required />
       </div>
       <button type="submit">Sign in</button>
@@ -67,5 +67,12 @@ export default {
 }
 label {
   margin-right: 0.5rem;
+}
+button {
+  background:tan;
+}
+
+button:hover {
+  background: antiquewhite;
 }
 </style>
