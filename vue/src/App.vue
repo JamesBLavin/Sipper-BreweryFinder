@@ -12,7 +12,7 @@
       <router-link :to="{ name: 'logout' }" v-if="$store.state.token != ''" tag="h2" class="nav-links">logout</router-link>
       </div>
     </div>
-    <router-view />
+    <router-view id="view"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,900&display=swap" rel="stylesheet">
@@ -29,7 +29,9 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import "~@/assets/scss/vendors/bootstrap-vue/index";
+@import "C:\Users\Student\workspace\final-capstone\brewery-finder-final-capstone-starter\vue\src\assets\scss\vendors\bootstrap-vue\custom.css";
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -46,8 +48,10 @@ font-family: 'Roboto Flex', sans-serif;
 #main-logo {
   width: 10%;
   margin: 10px;
+  min-width: 100px;
 }
 
+@import "C:\Users\Student\workspace\final-capstone\brewery-finder-final-capstone-starter\vue\src\assets\scss\vendors\bootstrap-vue\custom.css";
 #nav {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -81,6 +85,10 @@ font-family: 'Roboto Flex', sans-serif;
 
 #profile {
   text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 900;
 }
 
 </style>

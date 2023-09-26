@@ -1,23 +1,24 @@
 <template>
   <div id="register" class="text-center">
+    <img src="../assets/clink.png" alt="beerglasses">
     <form @submit.prevent="register">
-      <h1>Create Account</h1>
+      <h1>create account</h1>
       <div role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
       <div class="form-input-group">
-        <label for="username">Username</label>
-        <input type="text" id="username" v-model="user.username" required autofocus />
+        <label for="username">username</label>
+        <input type="text" id="username" v-model="user.username" required autofocus class="inputboxes"/>
       </div>
       <div class="form-input-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" v-model="user.password" required />
+        <label for="password">password</label>
+        <input type="password" id="password" v-model="user.password" required  class="inputboxes"/>
       </div>
       <div class="form-input-group">
-        <label for="confirmPassword">Confirm Password</label>
-        <input type="password" id="confirmPassword" v-model="user.confirmPassword" required />
+        <label for="confirmPassword">confirm password</label>
+        <input type="password" id="confirmPassword" v-model="user.confirmPassword" required  class="inputboxes"/>
       </div>
-      <button type="submit">Create Account</button>
+      <button type="submit">create account</button>
       <p><router-link :to="{ name: 'login' }">Already have an account? Log in.</router-link></p>
     </form>
   </div>
@@ -79,5 +80,20 @@ export default {
 }
 label {
   margin-right: 0.5rem;
+}
+
+button {
+  background:tan;
+  border: solid 5px tan;
+  border-radius: 10px;
+}
+
+.inputboxes {
+  border: solid 5px white;
+  border-radius: 10px;
+}
+
+button:hover {
+  font-weight: bold;
 }
 </style>

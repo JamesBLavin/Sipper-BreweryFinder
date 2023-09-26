@@ -1,5 +1,6 @@
 <template>
   <div id="login">
+    <img src="../assets/clink.png" alt="beerglasses">
     <form @submit.prevent="login">
       <h1 >giddy up partner</h1>
       <div role="alert" v-if="invalidCredentials">
@@ -9,14 +10,12 @@
         Thank you for registering, please sign in.
       </div>
       <div class="form-input-group">
-        <label for="username">username</label>
-        <input type="text" id="username" v-model="user.username" required autofocus />
+        <input type="text" id="username" class="inputboxes" v-model="user.username" required autofocus placeholder="username"/>
       </div>
       <div class="form-input-group">
-        <label for="password">password</label>
-        <input type="password" id="password" v-model="user.password" required />
+        <input type="password" id="password" class="inputboxes" v-model="user.password" required placeholder="password"/>
       </div>
-      <button type="submit">Sign in</button>
+      <button type="submit">sign in</button>
       <p>
       <router-link :to="{ name: 'register' }">Need an account? Sign up.</router-link></p>
     </form>
@@ -70,9 +69,17 @@ label {
 }
 button {
   background:tan;
+  border: solid 5px tan;
+  border-radius: 10px;
 }
 
 button:hover {
-  background: antiquewhite;
+  font-weight: bold;
+}
+
+.inputboxes {
+  border: solid 5px white;
+  border-radius: 10px;
+
 }
 </style>
