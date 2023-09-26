@@ -22,7 +22,6 @@ public class Brewery {
     private String state;
     private int zip;
 
-    private String brewer;
     private boolean isActive;
 
     // getters and setters for each
@@ -107,13 +106,6 @@ public class Brewery {
         this.zip = zip;
     }
 
-    public String getBrewer() {
-        return brewer;
-    }
-
-    public void setBrewer(String brewer) {
-        this.brewer = brewer;
-    }
 
     public boolean isActive() {
         return isActive;
@@ -133,27 +125,18 @@ public class Brewery {
         this.brewery_history = brewery_history;
         this.operating_hours = operating_hours;
         this.brewery_img_url = brewery_img_url;
-        this.street_address = street_address;
-        this.city = city;
-        this.state = state;
-        this.zip = zip;
-        this.brewer = brewer;
+        this.brewery_address = brewery_address;
         this.isActive = isActive;
     }
 
-    public Brewery(int brewery_id, String brewery_name, String contact_info, String brewery_history, String operating_hours,
-                   String brewery_img_url, String street, String city, String state, int zip, String brewer, boolean isActive) {
+    public Brewery(int brewery_id, String brewery_name, String contact_info, String brewery_history, String operating_hours, String brewery_img_url, String brewery_address, boolean isActive) {
         this.brewery_id = brewery_id;
         this.brewery_name = brewery_name;
         this.contact_info = contact_info;
         this.brewery_history = brewery_history;
         this.operating_hours = operating_hours;
         this.brewery_img_url = brewery_img_url;
-        this.street_address = street_address;
-        this.city = city;
-        this.state = state;
-        this.zip = zip;
-        this.brewer = brewer;
+        this.brewery_address = brewery_address;
         this.isActive = isActive;
     }
 

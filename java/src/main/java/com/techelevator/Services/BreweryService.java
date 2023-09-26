@@ -2,6 +2,7 @@ package com.techelevator.Services;
 
 import com.techelevator.dao.BreweryDao;
 import com.techelevator.model.Brewery;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,6 +10,10 @@ import java.util.List;
 public class BreweryService {
 
     private BreweryDao breweryDao;
+    @Autowired
+    public BreweryService(BreweryDao breweryDao) {
+        this.breweryDao = breweryDao;
+    }
 
     public List<Brewery> getAllBreweries() {
         return breweryDao.getAllBreweries();
