@@ -2,9 +2,10 @@ package com.techelevator.Services;
 
 import com.techelevator.dao.BreweryDao;
 import com.techelevator.model.Brewery;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class BreweryService {
 
     private BreweryDao breweryDao;
