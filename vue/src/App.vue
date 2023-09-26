@@ -31,7 +31,6 @@ export default {
 
 <style lang="scss">
 @import "~@/assets/scss/vendors/bootstrap-vue/index";
-@import "C:\Users\Student\workspace\final-capstone\brewery-finder-final-capstone-starter\vue\src\assets\scss\vendors\bootstrap-vue\custom.css";
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -51,7 +50,7 @@ font-family: 'Roboto Flex', sans-serif;
   min-width: 100px;
 }
 
-@import "C:\Users\Student\workspace\final-capstone\brewery-finder-final-capstone-starter\vue\src\assets\scss\vendors\bootstrap-vue\custom.css";
+
 #nav {
   display: grid;
   grid-template-columns: 1fr 1fr;
