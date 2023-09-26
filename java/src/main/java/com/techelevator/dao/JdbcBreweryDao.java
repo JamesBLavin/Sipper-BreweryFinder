@@ -22,7 +22,8 @@ public class JdbcBreweryDao implements BreweryDao{
     @Override
     public List<Brewery> getAllBreweries() {
         //sql query to select breweries
-        String sql = "SELECT brewery_id, brewery_name, contact_info, brewery_history, operating_hours, brewery_img_url, brewery_address, is_active FROM breweries";
+        String sql = "SELECT brewery_id, brewery_name, contact_info, brewery_history, operating_hours, brewery_img_url, " +
+                "brewery_address, brewery_city, brewery_state, brewery_zip, is_active FROM breweries";
         //where breweries get stored
         List<Brewery> results = new ArrayList<>();
         try{
@@ -45,7 +46,8 @@ public class JdbcBreweryDao implements BreweryDao{
     public Brewery getBrewery(int brewery_id) {
         Brewery brewery = null;
         // sql query to get a brewery by id
-        String sql = "SELECT brewery_id, brewery_name, contact_info, brewery_history, operating_hours, brewery_img_url, brewery_address, is_active FROM breweries WHERE brewery_id = ?";
+        String sql = "SELECT brewery_id, brewery_name, contact_info, brewery_history, operating_hours, brewery_img_url, " +
+                "brewery_address, brewery_city, brewery_state, brewery_zip, is_active FROM breweries WHERE brewery_id = ?";
         try {
             // send query
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, brewery_id);
@@ -61,10 +63,13 @@ public class JdbcBreweryDao implements BreweryDao{
 
     @Override
     public Brewery addBrewery(Brewery newBrewery) {
-        String sql = "INSERT INTO breweries (brewery_name, contact_info, brewery_history, operating_hours, brewery_img_url, brewery_address, is_active) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO breweries (brewery_name, contact_info, brewery_history, operating_hours, brewery_img_url, " +
+                "brewery_address, brewery_city, brewery_state, brewery_zip, is_active) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             int newBreweryId = jdbcTemplate.queryForObject(sql, int.class,
-                    newBrewery.getBrewery_name(), newBrewery.getContact_info(),newBrewery.getBrewery_history(), newBrewery.getOperating_hours(), newBrewery.getBrewery_img_url(), newBrewery.getBrewery_address(), newBrewery.isActive());
+                    newBrewery.getBrewery_name(), newBrewery.getContact_info(),newBrewery.getBrewery_history(), newBrewery.getOperating_hours(),
+                    newBrewery.getBrewery_img_url(), newBrewery.getBrewery_address(), newBrewery.getBrewery_city(), newBrewery.getBrewery_state(),
+                    newBrewery.getBrewery_zip(), newBrewery.isActive());
             newBrewery = getBrewery(newBreweryId);
         } catch (CannotGetJdbcConnectionException e) {
             throw new DataAccessException("Unable to connect to server or database", e) {
@@ -79,9 +84,13 @@ public class JdbcBreweryDao implements BreweryDao{
     @Override
     public Brewery updateBrewery(Brewery updatedBrewery) {
         Brewery brewery = null;
-        String sql = "UPDATE breweries SET brewery_name = ?, contact_info = ?, brewery_history = ?, operating_hours = ?, brewery_img_url = ?, brewery_address = ?, is_active = ? WHERE brewery_id = ?";
+        String sql = "UPDATE breweries SET brewery_name = ?, contact_info = ?, brewery_history = ?, operating_hours = ?," +
+                " brewery_img_url = ?, brewery_address = ?, brewery_city = ?, brewery_state = ?, brewery_zip = ? is_active = ? " +
+                "WHERE brewery_id = ?";
         try {
-            int numberOfRows = jdbcTemplate.update(sql, brewery.getBrewery_name(), brewery.getContact_info(), brewery.getBrewery_history(), brewery.getOperating_hours(), brewery.getBrewery_img_url(), brewery.getBrewery_address(), brewery.isActive());
+            int numberOfRows = jdbcTemplate.update(sql, brewery.getBrewery_name(), brewery.getContact_info(), brewery.getBrewery_history(),
+                    brewery.getOperating_hours(), brewery.getBrewery_img_url(), brewery.getBrewery_address(), brewery.getBrewery_city(),
+                    brewery.getBrewery_state(), brewery.getBrewery_zip(), brewery.isActive());
 
             if (numberOfRows == 0) {
                 throw new DataAccessException("Zero rows affected, expected at least one") {
@@ -107,9 +116,14 @@ public class JdbcBreweryDao implements BreweryDao{
         String operating_hours = row.getString("operating_hours");
         String brewery_img_url = row.getString("brewery_img_url");
         String brewery_address = row.getString("brewery_address");
+        String brewery_city = row.getString("brewery_city");
+        String brewery_state = row.getString("brewery_state");
+        int brewery_zip = row.getInt("brewery_zip");
         boolean isActive = row.getBoolean("is_active");
 
-        brewery = new Brewery(brewery_id, brewery_name, contact_info, brewery_history, operating_hours, brewery_img_url, brewery_address, isActive);
+        brewery = new Brewery(brewery_id, brewery_name, contact_info, brewery_history, operating_hours, brewery_img_url,
+                brewery_address, brewery_city, brewery_state, brewery_zip, isActive);
         return brewery;
+
     }
 }

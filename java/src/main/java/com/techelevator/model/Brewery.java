@@ -16,8 +16,10 @@ public class Brewery {
     private String operating_hours;
 
     private String brewery_img_url;
-
     private String brewery_address;
+    private String brewery_city;
+    private String brewery_state;
+    private int brewery_zip;
 
     private boolean isActive;
 
@@ -79,6 +81,29 @@ public class Brewery {
         this.brewery_address = brewery_address;
     }
 
+    public String getBrewery_city() {
+        return brewery_city;
+    }
+
+    public void setBrewery_city(String brewery_city) {
+        this.brewery_city = brewery_city;
+    }
+
+    public String getBrewery_state() {
+        return brewery_state;
+    }
+
+    public void setBrewery_state(String brewery_state) {
+        this.brewery_state = brewery_state;
+    }
+
+    public int getBrewery_zip() {
+        return brewery_zip;
+    }
+
+    public void setBrewery_zip(int brewery_zip) {
+        this.brewery_zip = brewery_zip;
+    }
 
     public boolean isActive() {
         return isActive;
@@ -91,17 +116,20 @@ public class Brewery {
     public Brewery() {
     }
 
-    public Brewery(String brewery_name, String contact_info, String brewery_history, String operating_hours, String brewery_img_url, String brewery_address, String brewer, boolean isActive) {
+    public Brewery(String brewery_name, String contact_info, String brewery_history, String operating_hours, String brewery_img_url, String brewery_address, String brewery_city, String brewery_state, int brewery_zip, boolean isActive) {
         this.brewery_name = brewery_name;
         this.contact_info = contact_info;
         this.brewery_history = brewery_history;
         this.operating_hours = operating_hours;
         this.brewery_img_url = brewery_img_url;
         this.brewery_address = brewery_address;
+        this.brewery_city = brewery_city;
+        this.brewery_state = brewery_state;
+        this.brewery_zip = brewery_zip;
         this.isActive = isActive;
     }
 
-    public Brewery(int brewery_id, String brewery_name, String contact_info, String brewery_history, String operating_hours, String brewery_img_url, String brewery_address, boolean isActive) {
+    public Brewery(int brewery_id, String brewery_name, String contact_info, String brewery_history, String operating_hours, String brewery_img_url, String brewery_address, String brewery_city, String brewery_state, int brewery_zip, boolean isActive) {
         this.brewery_id = brewery_id;
         this.brewery_name = brewery_name;
         this.contact_info = contact_info;
@@ -109,36 +137,9 @@ public class Brewery {
         this.operating_hours = operating_hours;
         this.brewery_img_url = brewery_img_url;
         this.brewery_address = brewery_address;
+        this.brewery_city = brewery_city;
+        this.brewery_state = brewery_state;
+        this.brewery_zip = brewery_zip;
         this.isActive = isActive;
-    }
-
-    // to string
-
-    @Override
-    public String toString() {
-        return "Brewery{" +
-                "brewery_id=" + brewery_id +
-                ", brewery_name='" + brewery_name + '\'' +
-                ", contact_info='" + contact_info + '\'' +
-                ", brewery_history='" + brewery_history + '\'' +
-                ", operating_hours='" + operating_hours + '\'' +
-                ", brewery_img_url='" + brewery_img_url + '\'' +
-                ", brewery_address='" + brewery_address + '\'' +
-                '}';
-    }
-
-    // equals boolean compares if two breweries are the same
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Brewery brewery = (Brewery) o;
-        return contact_info.equals(brewery.contact_info) && brewery_history.equals(brewery.brewery_history) && operating_hours.equals(brewery.operating_hours) && brewery_img_url.equals(brewery.brewery_img_url) && brewery_address.equals(brewery.brewery_address);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(contact_info, brewery_history, operating_hours, brewery_img_url, brewery_address);
     }
 }
