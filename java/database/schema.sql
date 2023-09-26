@@ -20,7 +20,10 @@ CREATE TABLE breweries (
     brewery_history VARCHAR(500),
     operating_hours VARCHAR(300),
     brewery_img_url VARCHAR(200),
-    brewery_address VARCHAR(100),
+    brewery_address VARCHAR(100) NOT NULL,
+    brewery_city VARCHAR (20) NOT NULL,
+    brewery_state VARCHAR(20) NOT NULL,
+    brewery_zip INT NOT NULL,
     is_active BOOLEAN,
     CONSTRAINT PK_brewery PRIMARY KEY (brewery_id)
 );
