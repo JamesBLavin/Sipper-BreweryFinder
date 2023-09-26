@@ -114,10 +114,10 @@ public class JdbcBreweryDao implements BreweryDao{
         String brewery_history = row.getString("brewery_history");
         String operating_hours = row.getString("operating_hours");
         String brewery_img_url = row.getString("brewery_img_url");
-        String street_address = row.getString("address");
-        String city = row.getString("city");
-        String state = row.getString("state");
-        int zip = row.getInt("zip");
+        String street_address = row.getString("brewery_address");
+        String city = row.getString("brewery_city");
+        String state = row.getString("brewery_state");
+        int zip = row.getInt("brewery_zip");
         String brewer = row.getString("brewer");
         boolean isActive = row.getBoolean("is_active");
 
