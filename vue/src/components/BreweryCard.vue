@@ -3,10 +3,10 @@
     <h2 :class="{ 'centered': show, 'left-aligned': !show }">{{ brewery.brewery_name }}</h2>
     <h3 class="full-details" :class="{ 'centered-text': show }" v-show="show">
       <div class="left-aligned-text">
-        {{ brewery.contact_info }}<br>
+        <p>{{ brewery.contact_info }}</p>
         <p>{{ brewery.brewery_history }}</p>
-        {{ brewery.operating_hours }}<br>
-        {{ brewery.brewery_address }}<br><br>
+        <p>{{ brewery.operating_hours }}</p>
+        <p>{{ brewery.brewery_address }}</p>
       </div>
       <img :src="brewery.brewery_img_url" alt="dust" id="previewpics"/>
     </h3>
@@ -41,35 +41,38 @@ export default {
 
 #previewpics {
   width: 300px;
+  border-radius: 30px;
+  margin-left: 25px;
+  margin-bottom: 25px;
 }
 
 .brewery-card {
   display: flex;
   flex-direction: column;
-  /* border-top: solid white 5px;
-  border-bottom: solid white 5px; */
-  border: solid orange 2px;
-  border-radius: 5% / 50%;
+  border-radius: 20px;
   justify-content: space-between;
+  background: wheat;
+
 }
 
 .full-details {
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
   align-items: center;
 }
 
 .left-align-content {
   text-align: center;
-  width: 100%; /* Adjust the width as needed */
+  width: 100%; 
 }
 
 .left-aligned-text {
   text-align: left;
-  margin: 0 20px; /* Adjust the margin as needed */
+  margin: 20px;
 }
 
 h2 {
+  padding: 7px;
   margin-left: 20px;
 }
 
@@ -86,10 +89,9 @@ h2 {
 }
 
 .brewery-card {
-  margin-bottom: 50px;
+  margin-bottom: 10px;
 }
 
-/* Additional styles to shift the name to the center */
 .left-aligned {
   text-align: left;
 }

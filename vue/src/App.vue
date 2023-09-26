@@ -31,6 +31,11 @@ export default {
 
 <style lang="scss">
 @import "~@/assets/scss/vendors/bootstrap-vue/index";
+
+body {
+  background: rgb(255, 251, 243);
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -38,7 +43,6 @@ export default {
   text-align: center;
   color: orangered;
   margin: 25px;
-  background: wheat;
   font-family: 'Open Sans', sans-serif;
 font-family: 'Roboto', sans-serif;
 font-family: 'Roboto Flex', sans-serif;
@@ -56,7 +60,10 @@ font-family: 'Roboto Flex', sans-serif;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "namelogo links";
   padding-bottom: 5px;
-  border-bottom: solid 5px white;
+  background: wheat;
+  border-radius: 25px;
+  margin-bottom: 10px;
+  margin-top: 25px;
 }
 
 #logo-name {
