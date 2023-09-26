@@ -19,7 +19,6 @@ public class Brewery {
 
     private String brewery_address;
 
-    private String brewer;
     private boolean isActive;
 
     // getters and setters for each
@@ -80,13 +79,6 @@ public class Brewery {
         this.brewery_address = brewery_address;
     }
 
-    public String getBrewer() {
-        return brewer;
-    }
-
-    public void setBrewer(String brewer) {
-        this.brewer = brewer;
-    }
 
     public boolean isActive() {
         return isActive;
@@ -106,11 +98,10 @@ public class Brewery {
         this.operating_hours = operating_hours;
         this.brewery_img_url = brewery_img_url;
         this.brewery_address = brewery_address;
-        this.brewer = brewer;
         this.isActive = isActive;
     }
 
-    public Brewery(int brewery_id, String brewery_name, String contact_info, String brewery_history, String operating_hours, String brewery_img_url, String brewery_address, String brewer, boolean isActive) {
+    public Brewery(int brewery_id, String brewery_name, String contact_info, String brewery_history, String operating_hours, String brewery_img_url, String brewery_address, boolean isActive) {
         this.brewery_id = brewery_id;
         this.brewery_name = brewery_name;
         this.contact_info = contact_info;
@@ -118,7 +109,6 @@ public class Brewery {
         this.operating_hours = operating_hours;
         this.brewery_img_url = brewery_img_url;
         this.brewery_address = brewery_address;
-        this.brewer = brewer;
         this.isActive = isActive;
     }
 
