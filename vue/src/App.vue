@@ -53,7 +53,7 @@ font-family: 'Roboto Flex', sans-serif;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "namelogo links";
   padding-bottom: 5px;
-  border-bottom: solid 5px orange;
+  border-bottom: solid 5px white;
 }
 
 #logo-name {
