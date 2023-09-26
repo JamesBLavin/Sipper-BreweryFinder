@@ -1,7 +1,8 @@
 <template>
-  <div class="brewery-card">
+  <div class="brewery-card" @click="toggleShow">
     <h2>{{brewery.brewery_name}}</h2>
     <img :src="brewery.brewery_img_url" alt="dust" id="previewpics"/>
+    <h3 class="full-details" v-show="show">testing</h3>
   </div>
 </template>
 
@@ -10,14 +11,25 @@ export default {
     name: "brewery-card",
     props: {
       brewery: Object
+    },
+    data() {
+      return {
+        show: false
+      }
+    },
+    methods: {
+      toggleShow() {
+        this.show = !this.show;
+      }
     }
-    }
+}
 
 </script>
 
 <style scoped>
 .brewery-card:hover {
-  color: peru;
+  color: brown;
+  cursor: pointer;
 }
 
 #previewpics {
