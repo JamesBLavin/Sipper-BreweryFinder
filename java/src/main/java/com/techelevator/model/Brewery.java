@@ -17,7 +17,10 @@ public class Brewery {
 
     private String brewery_img_url;
 
-    private String brewery_address;
+    private String street_address;
+    private String city;
+    private String state;
+    private int zip;
 
     private String brewer;
     private boolean isActive;
@@ -72,12 +75,36 @@ public class Brewery {
         this.brewery_img_url = brewery_img_url;
     }
 
-    public String getBrewery_address() {
-        return brewery_address;
+    public String getStreet_address() {
+        return street_address;
     }
 
-    public void setBrewery_address(String brewery_address) {
-        this.brewery_address = brewery_address;
+    public void setStreet_address(String street_address) {
+        this.street_address = street_address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public int getZip() {
+        return zip;
+    }
+
+    public void setZip(int zip) {
+        this.zip = zip;
     }
 
     public String getBrewer() {
@@ -99,25 +126,33 @@ public class Brewery {
     public Brewery() {
     }
 
-    public Brewery(String brewery_name, String contact_info, String brewery_history, String operating_hours, String brewery_img_url, String brewery_address, String brewer, boolean isActive) {
+    public Brewery(String brewery_name, String contact_info, String brewery_history, String operating_hours, String brewery_img_url,
+                   String street_address, String city, String state, int zip, String brewer, boolean isActive) {
         this.brewery_name = brewery_name;
         this.contact_info = contact_info;
         this.brewery_history = brewery_history;
         this.operating_hours = operating_hours;
         this.brewery_img_url = brewery_img_url;
-        this.brewery_address = brewery_address;
+        this.street_address = street_address;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
         this.brewer = brewer;
         this.isActive = isActive;
     }
 
-    public Brewery(int brewery_id, String brewery_name, String contact_info, String brewery_history, String operating_hours, String brewery_img_url, String brewery_address, String brewer, boolean isActive) {
+    public Brewery(int brewery_id, String brewery_name, String contact_info, String brewery_history, String operating_hours,
+                   String brewery_img_url, String street, String city, String state, int zip, String brewer, boolean isActive) {
         this.brewery_id = brewery_id;
         this.brewery_name = brewery_name;
         this.contact_info = contact_info;
         this.brewery_history = brewery_history;
         this.operating_hours = operating_hours;
         this.brewery_img_url = brewery_img_url;
-        this.brewery_address = brewery_address;
+        this.street_address = street_address;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
         this.brewer = brewer;
         this.isActive = isActive;
     }
@@ -133,22 +168,29 @@ public class Brewery {
                 ", brewery_history='" + brewery_history + '\'' +
                 ", operating_hours='" + operating_hours + '\'' +
                 ", brewery_img_url='" + brewery_img_url + '\'' +
-                ", brewery_address='" + brewery_address + '\'' +
+                ", street_address='" + street_address + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", zip=" + zip +
+                ", brewer='" + brewer + '\'' +
+                ", isActive=" + isActive +
                 '}';
     }
 
+
     // equals boolean compares if two breweries are the same
+
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Brewery brewery = (Brewery) o;
-        return contact_info.equals(brewery.contact_info) && brewery_history.equals(brewery.brewery_history) && operating_hours.equals(brewery.operating_hours) && brewery_img_url.equals(brewery.brewery_img_url) && brewery_address.equals(brewery.brewery_address);
+        return zip == brewery.zip && isActive == brewery.isActive && Objects.equals(contact_info, brewery.contact_info) && Objects.equals(brewery_history, brewery.brewery_history) && Objects.equals(operating_hours, brewery.operating_hours) && Objects.equals(brewery_img_url, brewery.brewery_img_url) && Objects.equals(street_address, brewery.street_address) && Objects.equals(city, brewery.city) && Objects.equals(state, brewery.state) && Objects.equals(brewer, brewery.brewer);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(contact_info, brewery_history, operating_hours, brewery_img_url, brewery_address);
+        return Objects.hash(contact_info, brewery_history, operating_hours, brewery_img_url, street_address, city, state, zip, brewer, isActive);
     }
 }
