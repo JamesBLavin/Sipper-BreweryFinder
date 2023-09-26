@@ -23,7 +23,7 @@ public class JdbcBreweryDao implements BreweryDao{
     public List<Brewery> getAllBreweries() {
         //sql query to select breweries
         String sql = "SELECT brewery_id, brewery_name, contact_info, brewery_history, operating_hours, " +
-                "brewery_img_url, address, city, state, zip, brewer, is_active FROM breweries";
+                "brewery_img_url, brewery_address, brewery_city, brewery_state, brewery_zip, brewer, is_active FROM breweries";
         //where breweries get stored
         List<Brewery> results = new ArrayList<>();
         try{
@@ -47,7 +47,7 @@ public class JdbcBreweryDao implements BreweryDao{
         Brewery brewery = null;
         // sql query to get a brewery by id
         String sql = "SELECT brewery_id, brewery_name, contact_info, brewery_history, operating_hours," +
-                " brewery_img_url, address, city, state, zip, brewer, is_active FROM breweries WHERE brewery_id = ?";
+                " brewery_img_url, brewery_address, brewery_city, brewery_state, brewery_zip, brewer, is_active FROM breweries WHERE brewery_id = ?";
         try {
             // send query
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, brewery_id);
@@ -64,7 +64,7 @@ public class JdbcBreweryDao implements BreweryDao{
     @Override
     public Brewery addBrewery(Brewery newBrewery) {
         String sql = "INSERT INTO breweries (brewery_name, contact_info, brewery_history, operating_hours," +
-                " brewery_img_url, address, city, state, zip, brewer, is_active) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                " brewery_img_url, brewery_address, brewery_city, brewery_state, brewery_zip, brewer, is_active) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             int newBreweryId = jdbcTemplate.queryForObject(sql, int.class,
                     newBrewery.getBrewery_name(), newBrewery.getContact_info(),newBrewery.getBrewery_history(),
@@ -85,7 +85,7 @@ public class JdbcBreweryDao implements BreweryDao{
     public Brewery updateBrewery(Brewery updatedBrewery) {
         Brewery brewery = null;
         String sql = "UPDATE breweries SET brewery_name = ?, contact_info = ?, brewery_history = ?, operating_hours = ?," +
-                " brewery_img_url = ?, address = ?, city = ?, state = ?, xip = ?, brewer = ?, is_active = ? WHERE brewery_id = ?";
+                " brewery_img_url = ?, brewery_address = ?, brewery_city = ?, brewery_state = ?, brewery_zip = ?, brewer = ?, is_active = ? WHERE brewery_id = ?";
         try {
             int numberOfRows = jdbcTemplate.update(sql, brewery.getBrewery_name(), brewery.getContact_info(), brewery.getBrewery_history(),
                     brewery.getOperating_hours(), brewery.getBrewery_img_url(), brewery.getStreet_address(), brewery.getCity(),
