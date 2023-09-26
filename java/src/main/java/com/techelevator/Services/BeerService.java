@@ -3,11 +3,12 @@ package com.techelevator.Services;
 import com.techelevator.dao.BeerDao;
 import com.techelevator.model.Beer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class BeerService {
-    @Autowired
+
     private BeerDao beerDao;
     public BeerService(BeerDao beerDao) {
         this.beerDao = beerDao;
