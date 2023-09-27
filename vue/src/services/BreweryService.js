@@ -6,5 +6,7 @@ export default {
         return axios.get('/allBreweries');
     },
 
-    
+    addBrewery(brewery) {
+        return axios.post('/addBrewery', brewery)
+    }
 }

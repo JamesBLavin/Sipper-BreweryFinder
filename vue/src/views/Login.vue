@@ -82,4 +82,12 @@ button:hover {
   border-radius: 10px;
 
 }
+
+div {
+  background: wheat;
+  max-width: 33%;
+  margin-left: 33%;
+  align-content: center;
+  border-radius: 25px;
+}
 </style>

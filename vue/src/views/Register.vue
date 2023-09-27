@@ -2,7 +2,7 @@
   <div id="register" class="text-center">
     <img src="../assets/clink.png" alt="beerglasses">
     <form @submit.prevent="register">
-      <h1>create account</h1>
+      <h1>join the club</h1>
       <div role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
@@ -95,5 +95,13 @@ button {
 
 button:hover {
   font-weight: bold;
+}
+
+div {
+  background: wheat;
+  max-width: 33%;
+  margin-left: 33%;
+  align-content: center;
+  border-radius: 25px;
 }
 </style>

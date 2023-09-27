@@ -8,7 +8,8 @@
      <div id="links">
       <router-link :to="{ name: 'home' }" tag="h2" class="nav-links">home</router-link>
       <router-link :to="{ name: 'breweries' }" tag="h2" class="nav-links">breweries</router-link>
-      <router-link :to="{ name: 'my-beers' }" v-if="$store.state.token != ''" tag="h2" class="nav-links" id="profile">{{ this.$store.state.user.username }}</router-link>
+      <router-link :to="{ name: 'profile' }" v-if="$store.state.token != ''" tag="h2" class="nav-links" id="profile">{{ this.$store.state.user.username }}</router-link>
+      <router-link :to="{ name: 'add-brewery' }" tag="h2" class="nav-links" v-show="this.$store.state.user.username == 'admin'">+ brewery</router-link>
       <router-link :to="{ name: 'logout' }" v-if="$store.state.token != ''" tag="h2" class="nav-links">logout</router-link>
       </div>
     </div>
@@ -33,7 +34,7 @@ export default {
 @import "~@/assets/scss/vendors/bootstrap-vue/index";
 
 body {
-  background: rgb(255, 251, 243);
+  background: #f0ebdf;
 }
 
 #app {
