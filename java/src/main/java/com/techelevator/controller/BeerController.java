@@ -55,9 +55,4 @@ public class BeerController {
         }
     }
 
-    @GetMapping(path = "/beer/{beer_id}/ratingReview")
-    public Beer getBeerRatingAndReview(@PathVariable int beer_id) {
-        return beerService.getBeerRatingAndReview(beer_id);
-    }
-
 }
