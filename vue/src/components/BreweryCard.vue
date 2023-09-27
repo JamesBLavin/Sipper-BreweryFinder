@@ -10,8 +10,7 @@
         <p>{{ brewery.contact_info }}</p>
         <p>{{ brewery.brewery_history }}</p>
         <p>{{ brewery.operating_hours }}</p>
-        <p>{{ brewery.brewery_address }}</p>
-        <p>{{ brewery.brewery_city }}, {{ brewery.brewery_state }} {{ brewery.brewery_zip }}</p>
+        <p><a :href="getGoogleMapsLink(brewery.brewery_name + ' ' + brewery.brewery_address)" target="_blank">{{ brewery.brewery_address }}, {{ brewery.brewery_city }}, {{ brewery.brewery_state }} {{ brewery.brewery_zip }}</a></p>
       </div>
     </h3>
   </div>
@@ -29,6 +28,9 @@ export default {
     methods: {
       toggleShow() {
         this.show = !this.show;
+      },
+      getGoogleMapsLink(address) {
+        return `https://www.google.com/maps?q=${(address)}`;
       }
     }
 }
