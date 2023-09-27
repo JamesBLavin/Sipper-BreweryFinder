@@ -1,6 +1,6 @@
 <template>
 <div>
-  <form>
+  <form @submit.prevent="addBrewery">
       <h1>add an establishment</h1>
       <div class="form-input-group">
       <input type="text" placeholder="brewery name" required class="inputboxes" v-model="brewery.brewery_name">
@@ -47,8 +47,9 @@ export default {
     }, methods: {
         addBrewery() {
             breweryService.addBrewery(this.brewery).then(rspns => {
-                if(rspns.status == 201) {
+                if(rspns.status == 201 || rspns.status == 200) {
                     window.alert('Brewery added!');
+                    this.brewery= {};
                 }
             }).catch(err => {
                 console.log(err);

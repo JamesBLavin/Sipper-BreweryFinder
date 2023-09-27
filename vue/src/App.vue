@@ -12,6 +12,7 @@
       <router-link :to="{ name: 'add-brewery' }" tag="h2" class="nav-links" v-show="this.$store.state.user.username == 'admin'">+ brewery</router-link>
       <router-link :to="{ name: 'logout' }" v-if="$store.state.token != ''" tag="h2" class="nav-links">logout</router-link>
       </div>
+      <!-- this.$store.state.user.authorities[0].name == 'ROLE_ADMIN' -->
     </div>
     <router-view id="view"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
