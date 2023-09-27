@@ -1,14 +1,17 @@
 <template>
   <div class="brewery-card" @click="toggleShow">
     <h2 :class="{ 'centered': show, 'left-aligned': !show }">{{ brewery.brewery_name }}</h2>
-    <h3 class="full-details" :class="{ 'centered-text': show }" v-show="show">
-      <div class="left-aligned-text">
+    <h3 class="full-details" v-show="show">
+      <div class="left-side">
+        <img :src="brewery.brewery_img_url" alt="dust" id="previewpics"/>
+      </div>
+      <div class="right-side">
         <p>{{ brewery.contact_info }}</p>
         <p>{{ brewery.brewery_history }}</p>
         <p>{{ brewery.operating_hours }}</p>
         <p>{{ brewery.brewery_address }}</p>
+        <p>{{ brewery.brewery_city }}, {{ brewery.brewery_state }} {{ brewery.brewery_zip }}</p>
       </div>
-      <img :src="brewery.brewery_img_url" alt="dust" id="previewpics"/>
     </h3>
   </div>
 </template>
@@ -16,9 +19,7 @@
 <script>
 export default {
     name: "brewery-card",
-    props: {
-      brewery: Object
-    },
+    props: ["brewery"],
     data() {
       return {
         show: false
@@ -30,7 +31,6 @@ export default {
       }
     }
 }
-
 </script>
 
 <style scoped>
@@ -42,8 +42,7 @@ export default {
 #previewpics {
   width: 300px;
   border-radius: 30px;
-  margin-left: 25px;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
 }
 
 .brewery-card {
@@ -57,18 +56,17 @@ export default {
 
 .full-details {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   align-items: center;
 }
 
-.left-align-content {
-  text-align: center;
-  width: 100%; 
+.left-side {
+  flex: 1;
 }
 
-.left-aligned-text {
+.right-side {
+  flex: 2;
   text-align: left;
-  margin: 20px;
 }
 
 h2 {
@@ -84,19 +82,8 @@ h2 {
   text-align: left;
 }
 
-.centered-text {
-  text-align: center;
-}
-
 .brewery-card {
   margin-bottom: 10px;
 }
 
-.left-aligned {
-  text-align: left;
-}
-
-.centered h2.left-aligned {
-  text-align: center;
-}
 </style>
