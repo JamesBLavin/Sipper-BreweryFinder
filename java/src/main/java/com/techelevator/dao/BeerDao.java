@@ -16,6 +16,6 @@ public interface BeerDao {
 
     public int deleteBeer(int beer_id);
 
-    public Beer getBeerRatingAndReview(int beer_id);
+
 
 }

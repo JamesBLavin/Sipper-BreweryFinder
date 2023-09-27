@@ -110,21 +110,7 @@ public class JdbcBeerDao implements BeerDao{
     }
 
 
-    @Override
-    public Beer getBeerRatingAndReview(int beer_id) {
-        Beer beer = null;
-        String sql = "SELECT beer_rating, beer_review FROM beers WHERE beer_id = ?";
-        try {
-            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, beer_id);
-            if (results.next()) {
-                beer = mapBeer(results);
-            }
-        } catch (Exception e) {
-            System.out.println("Error occurred when connecting to the database. Exception is: ");
-            e.printStackTrace();
-        }
-        return beer;
-    }
+
 
     private Beer mapBeer(SqlRowSet row){
         Beer beer = new Beer();
