@@ -1,6 +1,7 @@
 package com.techelevator.Services;
 
 import com.techelevator.dao.BreweryDao;
+import com.techelevator.dao.UserDao;
 import com.techelevator.model.Brewery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +25,7 @@ public class BreweryService {
     }
 
     public Brewery addBrewery(Brewery newBrewery) {
+            breweryDao.updateUserRoleToBrewer(newBrewery);
         return breweryDao.addBrewery(newBrewery);
     }
 

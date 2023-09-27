@@ -49,7 +49,18 @@ export default {
             breweryService.addBrewery(this.brewery).then(rspns => {
                 if(rspns.status == 201 || rspns.status == 200) {
                     window.alert('Brewery added!');
-                    this.brewery= {};
+                    this.brewery= {
+                        brewery_name: '',
+                        brewery_brewer: '',
+                        contact_info: '',
+                        brewery_history: '',
+                        operating_hours: '',
+                        brewery_img_url: '',
+                        brewery_address: '',
+                        brewery_city: '',
+                        brewery_state: '',
+                        brewery_zip: ''
+                    };
                 }
             }).catch(err => {
                 console.log(err);

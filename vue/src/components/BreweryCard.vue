@@ -1,6 +1,7 @@
 <template>
   <div class="brewery-card" @click="toggleShow">
-    <h2 :class="{ 'centered': show, 'left-aligned': !show }">{{ brewery.brewery_name }}</h2>
+    
+    <h2 :class="{ 'centered': show, 'left-aligned': !show }">{{ brewery.brewery_name }} | {{ brewery.brewery_city }} , {{ brewery.brewery_state }}</h2>
     <h3 class="full-details" v-show="show">
       <div class="left-side">
         <img :src="brewery.brewery_img_url" alt="dust" id="previewpics"/>

@@ -13,4 +13,6 @@ public interface BreweryDao {
 
     public Brewery updateBrewery(Brewery updatedBrewery);
 
+    public void updateUserRoleToBrewer(Brewery brewery);
+
 }
