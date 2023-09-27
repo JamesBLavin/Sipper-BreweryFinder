@@ -24,7 +24,7 @@ public class JdbcBreweryDao implements BreweryDao{
     public List<Brewery> getAllBreweries() {
         //sql query to select breweries
         String sql = "SELECT brewery_id, brewery_name, contact_info, brewery_history, operating_hours, brewery_img_url, " +
-                "brewery_address, brewery_city, brewery_state, brewery_zip, is_active FROM breweries";
+                "brewery_address, brewery_city, brewery_state, brewery_zip, is_active FROM breweries ORDER BY brewery_name;";
         //where breweries get stored
         List<Brewery> results = new ArrayList<>();
         try{
@@ -93,7 +93,7 @@ public class JdbcBreweryDao implements BreweryDao{
         Brewery brewery = null;
         String sql = "UPDATE breweries SET brewery_name = ?, contact_info = ?, brewery_history = ?, operating_hours = ?," +
                 " brewery_img_url = ?, brewery_address = ?, brewery_city = ?, brewery_state = ?, brewery_zip = ? is_active = ? " +
-                "WHERE brewery_id = ?";
+                "WHERE brewery_id = ?;";
         try {
             int numberOfRows = jdbcTemplate.update(sql, brewery.getBrewery_name(), brewery.getContact_info(), brewery.getBrewery_history(),
                     brewery.getOperating_hours(), brewery.getBrewery_img_url(), brewery.getBrewery_address(), brewery.getBrewery_city(),
