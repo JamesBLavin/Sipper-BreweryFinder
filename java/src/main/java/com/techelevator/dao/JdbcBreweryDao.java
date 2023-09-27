@@ -64,12 +64,12 @@ public class JdbcBreweryDao implements BreweryDao{
     @Override
     public Brewery addBrewery(Brewery newBrewery) {
         String sql = "INSERT INTO breweries (brewery_name, contact_info, brewery_history, operating_hours, brewery_img_url, " +
-                "brewery_address, brewery_city, brewery_state, brewery_zip, is_active) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                "brewery_address, brewery_city, brewery_state, brewery_zip, is_active, brewer) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, true, ?) RETURNING brewery_id;";
         try {
-            int newBreweryId = jdbcTemplate.queryForObject(sql, int.class,
+            Integer newBreweryId = jdbcTemplate.queryForObject(sql, Integer.class,
                     newBrewery.getBrewery_name(), newBrewery.getContact_info(),newBrewery.getBrewery_history(), newBrewery.getOperating_hours(),
                     newBrewery.getBrewery_img_url(), newBrewery.getBrewery_address(), newBrewery.getBrewery_city(), newBrewery.getBrewery_state(),
-                    newBrewery.getBrewery_zip(), newBrewery.isActive());
+                    newBrewery.getBrewery_zip(), newBrewery.getBrewer());
             newBrewery = getBrewery(newBreweryId);
         } catch (CannotGetJdbcConnectionException e) {
             throw new DataAccessException("Unable to connect to server or database", e) {

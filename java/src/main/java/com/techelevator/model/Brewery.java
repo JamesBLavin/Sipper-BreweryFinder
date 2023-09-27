@@ -22,6 +22,7 @@ public class Brewery {
     private int brewery_zip;
 
     private boolean isActive;
+    private String brewer;
 
     // getters and setters for each
 
@@ -113,10 +114,18 @@ public class Brewery {
         isActive = active;
     }
 
+    public String getBrewer() {
+        return brewer;
+    }
+
+    public void setBrewer(String brewer) {
+        this.brewer = brewer;
+    }
+
     public Brewery() {
     }
 
-    public Brewery(String brewery_name, String contact_info, String brewery_history, String operating_hours, String brewery_img_url, String brewery_address, String brewery_city, String brewery_state, int brewery_zip, boolean isActive) {
+    public Brewery(String brewery_name, String contact_info, String brewery_history, String operating_hours, String brewery_img_url, String brewery_address, String brewery_city, String brewery_state, int brewery_zip, boolean isActive, String brewer) {
         this.brewery_name = brewery_name;
         this.contact_info = contact_info;
         this.brewery_history = brewery_history;
@@ -127,6 +136,22 @@ public class Brewery {
         this.brewery_state = brewery_state;
         this.brewery_zip = brewery_zip;
         this.isActive = isActive;
+        this.brewer = brewer;
+    }
+
+    public Brewery(int brewery_id, String brewery_name, String contact_info, String brewery_history, String operating_hours, String brewery_img_url, String brewery_address, String brewery_city, String brewery_state, int brewery_zip, boolean isActive, String brewer) {
+        this.brewery_id = brewery_id;
+        this.brewery_name = brewery_name;
+        this.contact_info = contact_info;
+        this.brewery_history = brewery_history;
+        this.operating_hours = operating_hours;
+        this.brewery_img_url = brewery_img_url;
+        this.brewery_address = brewery_address;
+        this.brewery_city = brewery_city;
+        this.brewery_state = brewery_state;
+        this.brewery_zip = brewery_zip;
+        this.isActive = isActive;
+        this.brewer = brewer;
     }
 
     public Brewery(int brewery_id, String brewery_name, String contact_info, String brewery_history, String operating_hours, String brewery_img_url, String brewery_address, String brewery_city, String brewery_state, int brewery_zip, boolean isActive) {

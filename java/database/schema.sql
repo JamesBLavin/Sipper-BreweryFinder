@@ -25,7 +25,9 @@ CREATE TABLE breweries (
     brewery_state VARCHAR(50),
     brewery_zip INT,
     is_active BOOLEAN,
-    CONSTRAINT PK_brewery PRIMARY KEY (brewery_id)
+    brewer VARCHAR(50),
+    CONSTRAINT PK_brewery PRIMARY KEY (brewery_id),
+    CONSTRAINT FK_brewery_user FOREIGN KEY (brewer) REFERENCES users (username)
 );
 
 -- Created a table for all beers
