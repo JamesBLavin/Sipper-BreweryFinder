@@ -4,6 +4,7 @@ import com.techelevator.Services.BeerService;
 import com.techelevator.dao.BeerDao;
 import com.techelevator.model.Beer;
 import com.techelevator.model.Brewery;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -14,6 +15,7 @@ import java.util.List;
 @RestController
 @CrossOrigin(value="http://localhost:8080")
 public class BeerController {
+    @Autowired
     private BeerService beerService;
 
     @GetMapping(path="/allBeers")

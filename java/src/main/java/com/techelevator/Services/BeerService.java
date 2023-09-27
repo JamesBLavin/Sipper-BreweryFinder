@@ -10,6 +10,7 @@ import java.util.List;
 public class BeerService {
 
     private BeerDao beerDao;
+    @Autowired
     public BeerService(BeerDao beerDao) {
         this.beerDao = beerDao;
     }

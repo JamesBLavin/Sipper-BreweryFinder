@@ -5,6 +5,7 @@ import java.util.Objects;
 public class Beer {
 
     private int beer_id;
+    private int brewery_id;
     private String beer_name;
     private String beer_description;
 
@@ -45,6 +46,13 @@ public class Beer {
         this.abv = abv;
     }
 
+    public int getBrewery_id() {
+        return brewery_id;
+    }
+    public void setBrewery_id(int brewery_id) {
+        this.brewery_id = brewery_id;
+    }
+
     public int getIbu() {
         return ibu;
     }
@@ -72,7 +80,8 @@ public class Beer {
     public Beer() {
     }
 
-    public Beer(String beer_name, String beer_description, double abv, int ibu, String beer_img_url, String beer_type) {
+    public Beer(int brewery_id, String beer_name, String beer_description, double abv, int ibu, String beer_img_url, String beer_type) {
+        this.brewery_id = brewery_id;
         this.beer_name = beer_name;
         this.beer_description = beer_description;
         this.abv = abv;
@@ -81,8 +90,9 @@ public class Beer {
         this.beer_type = beer_type;
     }
 
-    public Beer(int beer_id, String beer_name, String beer_description, double abv, int ibu, String beer_img_url, String beer_type) {
+    public Beer(int beer_id, int brewery_id, String beer_name, String beer_description, double abv, int ibu, String beer_img_url, String beer_type) {
         this.beer_id = beer_id;
+        this.brewery_id = brewery_id;
         this.beer_name = beer_name;
         this.beer_description = beer_description;
         this.abv = abv;
