@@ -85,10 +85,10 @@ INSERT INTO beers (brewery_id, beer_name, beer_description, abv, ibu, beer_img_u
                                                                                                       (12, 'Sho Nuff Stout', 'Malt: pale, roasted barley, chocolate. Hops: black, crystal.', 7.5, 15, 'https://assets.untappd.com/photos/2023_07_08/53670639f3e8e613cd8f7cf3a98bad97_640x640.jpg', 'Stout-Other'),
                                                                                                       (12, 'Rye Knot?', 'Rye IPA made with Pale, Rye, and Pale Crystal malts as well as Chinook, Bravo, and Mosiac hops.', 7.5, 58, 'https://assets.untappd.com/photos/2023_09_03/d2a89667bc271694456ae129329d244e_raw.jpg', 'IPA-Rye');
 
-                                                                                                      (13, 'Sin City Stout', 'Notes of roast and citrus.', 5.5, 10, 'https://assets.untappd.com/photos/2021_07_10/44578fa7bc7e0fa8f98436829728cecc_raw.jpg', 'Stout-American'),
-                                                                                                      (13, 'Sin City Stout', 'Notes of roast and citrus.', 5.5, 10, 'https://assets.untappd.com/photos/2021_07_10/44578fa7bc7e0fa8f98436829728cecc_raw.jpg', 'Stout-American'),
-                                                                                                      (13, 'Sin City Stout', 'Notes of roast and citrus.', 5.5, 10, 'https://assets.untappd.com/photos/2021_07_10/44578fa7bc7e0fa8f98436829728cecc_raw.jpg', 'Stout-American'),
-                                                                                                      (13, 'Sin City Stout', 'Notes of roast and citrus.', 5.5, 10, 'https://assets.untappd.com/photos/2021_07_10/44578fa7bc7e0fa8f98436829728cecc_raw.jpg', 'Stout-American'),
+--                                                                                                      (13, 'Sin City Stout', 'Notes of roast and citrus.', 5.5, 10, 'https://assets.untappd.com/photos/2021_07_10/44578fa7bc7e0fa8f98436829728cecc_raw.jpg', 'Stout-American'),
+--                                                                                                      (13, 'Sin City Stout', 'Notes of roast and citrus.', 5.5, 10, 'https://assets.untappd.com/photos/2021_07_10/44578fa7bc7e0fa8f98436829728cecc_raw.jpg', 'Stout-American'),
+--                                                                                                      (13, 'Sin City Stout', 'Notes of roast and citrus.', 5.5, 10, 'https://assets.untappd.com/photos/2021_07_10/44578fa7bc7e0fa8f98436829728cecc_raw.jpg', 'Stout-American'),
+--                                                                                                      (13, 'Sin City Stout', 'Notes of roast and citrus.', 5.5, 10, 'https://assets.untappd.com/photos/2021_07_10/44578fa7bc7e0fa8f98436829728cecc_raw.jpg', 'Stout-American'),
 
 
 --Created beer reviews
