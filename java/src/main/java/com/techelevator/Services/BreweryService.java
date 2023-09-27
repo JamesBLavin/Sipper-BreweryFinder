@@ -12,7 +12,6 @@ import java.util.List;
 public class BreweryService {
 
     private BreweryDao breweryDao;
-    private UserDao userDao;
     @Autowired
     public BreweryService(BreweryDao breweryDao) {
         this.breweryDao = breweryDao;
@@ -26,7 +25,7 @@ public class BreweryService {
     }
 
     public Brewery addBrewery(Brewery newBrewery) {
-            userDao.updateUserRoleToBrewer(newBrewery);
+            breweryDao.updateUserRoleToBrewer(newBrewery);
         return breweryDao.addBrewery(newBrewery);
     }
 

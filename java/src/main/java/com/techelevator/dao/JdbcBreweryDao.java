@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Brewery;
+import com.techelevator.model.User;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
@@ -78,6 +79,12 @@ public class JdbcBreweryDao implements BreweryDao{
             throw new DataIntegrityViolationException("Data integrity violation", e);
         }
         return newBrewery;
+    }
+
+    @Override
+    public void updateUserRoleToBrewer(Brewery brewery) {
+        String sql1 = "UPDATE users SET role = 'ROLE_BREWER' WHERE username = ?;";
+        jdbcTemplate.update(sql1, brewery.getBrewer());
     }
 
 

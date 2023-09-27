@@ -83,19 +83,6 @@ public class JdbcUserDao implements UserDao {
         return jdbcTemplate.update(insertUserSql, username, password_hash, ssRole) == 1;
     }
 
-    @Override
-    public User updateUserRoleToBrewer(Brewery brewery) {
-        String sql1 = "UPDATE users SET role = 'ROLE_BREWER' WHERE username = ?;";
-        String sql2 = "SELECT user_id FROM users WHERE username = ?;";
-        int changedUserId = 0;
-        jdbcTemplate.update(sql1, brewery.getBrewer());
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql2, brewery.getBrewer());
-        if (results.next()) {
-            changedUserId = results.getInt("user_id");
-        }
-        return getUserById(changedUserId);
-    }
-
 
     private User mapRowToUser(SqlRowSet rs) {
         User user = new User();
