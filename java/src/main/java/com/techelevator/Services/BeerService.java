@@ -33,8 +33,6 @@ public class BeerService {
         return beerDao.deleteBeer(beer_id);
     }
 
-    public Beer getBeerRatingAndReview(int beer_id) {
-        return beerDao.getBeerRatingAndReview(beer_id);
-    }
+
 
 }
