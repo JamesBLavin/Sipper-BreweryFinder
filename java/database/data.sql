@@ -32,4 +32,45 @@ INSERT INTO beers (brewery_id, beer_name, beer_description, abv, ibu, beer_ratin
 INSERT INTO beers (brewery_id, beer_name, beer_description, abv, ibu, beer_rating, beer_review, beer_img_url, beer_type) VALUES ('3', 'Blue Moon', 'A wheat beer brewed with orange peel for a subtle sweetness and bright, citrus aroma. Blue Moon® Belgian White Belgian-Style Wheat Ale is garnished with an orange slice to heighten the citrus aroma and taste.', 5.4, 13, 5, 'Best Beer on god!', 'https://siestaspirits.com/cdn/shop/products/blue_moon_bot_glass.jpg?v=1571264406', 'Wheat Ale');
 INSERT INTO beers (brewery_id, beer_name, beer_description, abv, ibu, beer_rating, beer_review, beer_img_url, beer_type) VALUES ('4', 'Iron Hill Light Lager', 'Our lightest beer. Brewed to give a crisp, clean, refreshing taste with very subtle malt and hop flavor.', 4.0, 10, 2, 'This Jawn triflin bruh!', 'https://media-cdn.tripadvisor.com/media/photo-m/1280/16/27/86/44/iron-hill-light-lager.jpg', 'Lager');
 
+
+--Created beer reviews
+INSERT INTO reviews (beer_name, star_rating, review_comments) VALUES ('Pumpkin Loaf', 5, 'This beer is perfect for the fall. It made me feel warm and cozy.');
+INSERT INTO reviews (beer_name, star_rating, review_comments) VALUES ('Pumpkin Loaf', 3, 'Pumpkin Loaf is alright, but this place should just stick to the classic flavors we all know and love.');
+INSERT INTO reviews (beer_name, star_rating, review_comments) VALUES ('Pumpkin Loaf', 5, 'BBE. Best. Beer. Ever');
+INSERT INTO reviews (beer_name, star_rating, review_comments) VALUES ('Iron Hill Light Lager', 5, 'My all time favorite beer. I recommend it to all beer lovers');
+INSERT INTO reviews (beer_name, star_rating, review_comments) VALUES ('Iron Hill Light Lager', 1, 'Disgusting. Wouldn''t drink it again, if you paid me.');
+INSERT INTO reviews (beer_name, star_rating, review_comments) VALUES ('Iron Hill Light Lager', 4, 'Subtle, yet strong. Just the way I like it.');
+INSERT INTO reviews (beer_name, star_rating, review_comments) VALUES ('American Blonde', 4, 'Mediocre.');
+INSERT INTO reviews (beer_name, star_rating, review_comments) VALUES ('American Blonde', 2, 'Not the worst I''ve ever had.');
+INSERT INTO reviews (beer_name, star_rating, review_comments) VALUES ('American Blonde', 5, 'This beer is just a classic. Plain and simple.');
+INSERT INTO reviews (beer_name, star_rating, review_comments) VALUES ('Hollowed Winter', 1, 'The name is fitting. This beer reminds me a dark, cold place I do not want to visit.');
+INSERT INTO reviews (beer_name, star_rating, review_comments) VALUES ('Hollowed Winter', 1, 'You might as well drink toilet water if you''re thinking of trying this.');
+INSERT INTO reviews (beer_name, star_rating, review_comments) VALUES ('Hollowed Winter', 4, 'Par for the course.');
+INSERT INTO reviews (beer_name, star_rating, review_comments) VALUES ('Supersaurus Rex', 4, 'Super close to being one of my favorites, but not quite there yet.');
+INSERT INTO reviews (beer_name, star_rating, review_comments) VALUES ('Supersaurus Rex', 3, 'Only tried this beer for the name. Nothing to write home about.');
+INSERT INTO reviews (beer_name, star_rating, review_comments) VALUES ('Supersaurus Rex', 1, 'Just as the name implies, this beer is childish. Give me something strong.');
+INSERT INTO reviews (beer_name, star_rating, review_comments) VALUES ('Bolaris Winter Ale', 1, 'Bolaris? More like Yuck-aris!.');
+INSERT INTO reviews (beer_name, star_rating, review_comments) VALUES ('Bolaris Winter Ale', 2, 'Meh, it''s not the worst. The recipe could use some revamping for sure.');
+INSERT INTO reviews (beer_name, star_rating, review_comments) VALUES ('Bolaris Winter Ale', 5, 'Would rate this 10 stars if I could!');
+INSERT INTO reviews (beer_name, star_rating, review_comments) VALUES ('Belgian Amber/Dubbel Doink', 3, 'This beer needs to pick a vibe and stick to it.');
+INSERT INTO reviews (beer_name, star_rating, review_comments) VALUES ('Belgian Amber/Dubbel Doink', 4, 'Fantastic beer.');
+INSERT INTO reviews (beer_name, star_rating, review_comments) VALUES ('Belgian Amber/Dubbel Doink', 2, 'I''ve tasted much better than this.');
+INSERT INTO reviews (beer_name, star_rating, review_comments) VALUES ('Pickette Fence Double IPA', 5, 'Makes me feel like I''m at home having a grand old time.');
+INSERT INTO reviews (beer_name, star_rating, review_comments) VALUES ('Pickette Fence Double IPA', 1, 'Worst tasting drink I''ve ever had.);
+INSERT INTO reviews (beer_name, star_rating, review_comments) VALUES ('Pickette Fence Double IPA', 3, 'Not a fan of IPAs to be honest, but this one isn''t half bad.);
+INSERT INTO reviews (beer_name, star_rating, review_comments) VALUES ('Just a Small Town gourd', 2, 'Does not do the song justice.');
+INSERT INTO reviews (beer_name, star_rating, review_comments) VALUES ('Just a Small Town gourd', 3, 'Almost as good as the Journey song.');
+INSERT INTO reviews (beer_name, star_rating, review_comments) VALUES ('Just a Small Town gourd', 5, 'I''m just a small town girl who loves this beer.');
+INSERT INTO reviews (beer_name, star_rating, review_comments) VALUES ('Drop Towel', 5, 'This beer is heaven in a glass.');
+INSERT INTO reviews (beer_name, star_rating, review_comments) VALUES ('Drop Towel', 1, 'I''m at a loss for words. Not in a good way.');
+INSERT INTO reviews (beer_name, star_rating, review_comments) VALUES ('Drop Trowel', 3, 'Would have liked a higher abu.');
+INSERT INTO reviews (beer_name, star_rating, review_comments) VALUES ('Chocolate Covered Pretzel Stout', 1, 'Wish I was having pretzels instead of this..');
+INSERT INTO reviews (beer_name, star_rating, review_comments) VALUES ('Chocolate Covered Pretzel Stout', 3, 'This beer is a hit with my friends.');
+INSERT INTO reviews (beer_name, star_rating, review_comments) VALUES ('Chocolate Covered Pretzel Stout', 4, 'Just like reaching for pretzels, I couldn''t stop reaching for another sip of this drink.');
+INSERT INTO reviews (beer_name, star_rating, review_comments) VALUES ('Citrus Mistress', 2, 'Feels like I''m on vacation with every sip.');
+INSERT INTO reviews (beer_name, star_rating, review_comments) VALUES ('Citrus Mistress', 4, 'Unexpected delight.');
+INSERT INTO reviews (beer_name, star_rating, review_comments) VALUES ('Citrus Mistress', 4, 'It''s a bittersweet beer.');
+
+
+
 COMMIT TRANSACTION;

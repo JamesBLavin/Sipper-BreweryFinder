@@ -31,11 +31,13 @@ public class BreweryController {
     }
 
     @ResponseStatus(HttpStatus.CREATED)
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping(path = "/addBrewery")
     public Brewery addBrewery(@RequestBody @Valid Brewery newBrewery) {
         return breweryService.addBrewery(newBrewery);
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_BREWER')")
     @PutMapping(path = "updateBrewery/{brewery_id}")
     public Brewery updateBrewery(@RequestBody @Valid Brewery updateBrewery, @PathVariable int brewery_id) {
         updateBrewery.setBrewery_id(brewery_id);
