@@ -125,44 +125,43 @@ INSERT INTO beers (brewery_id, beer_name, beer_description, abv, ibu, beer_img_u
 
 
 --Created beer reviews
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (1, 5, 'This beer is perfect for the fall. It made me feel warm and cozy.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (1, 3, 'Pumpkin Loaf is alright, but this place should just stick to the classic flavors we all know and love.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (1, 5, 'BBE. Best. Beer. Ever');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (13, 5, 'My all time favorite beer. I recommend it to all beer lovers');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (13, 1, 'Disgusting. Wouldn''t drink it again, if you paid me.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (13, 4, 'Subtle, yet strong. Just the way I like it.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (2, 4, 'Mediocre.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (2, 2, 'Not the worst I''ve ever had.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (2, 5, 'This beer is just a classic. Plain and simple.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (3, 1, 'The name is fitting. This beer reminds me a dark, cold place I do not want to visit.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (3, 1, 'You might as well drink toilet water if you''re thinking of trying this.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (3, 4, 'Par for the course.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (4, 4, 'Super close to being one of my favorites, but not quite there yet.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (4, 3, 'Only tried this beer for the name. Nothing to write home about.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (4, 1, 'Just as the name implies, this beer is childish. Give me something strong.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (5, 1, 'Bolaris? More like Yuck-aris!.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (5, 2, 'Meh, it''s not the worst. The recipe could use some revamping for sure.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (5, 5, 'Would rate this 10 stars if I could!');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (7, 3, 'This beer needs to pick a vibe and stick to it.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (7, 4, 'Fantastic beer.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (7, 2, 'I''ve tasted much better than this.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (6, 5, 'Makes me feel like I''m at home having a grand old time.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (6, 1, 'Worst tasting drink I''ve ever had.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (6, 3, 'Not a fan of IPAs to be honest, but this one isn''t half bad.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (8, 2, 'Does not do the song justice.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (8, 3, 'Almost as good as the Journey song.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (8, 5, 'I''m just a small town girl who loves this beer.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (9, 5, 'This beer is heaven in a glass.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (9, 1, 'I''m at a loss for words. Not in a good way.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (9, 3, 'Would have liked a higher abu.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (10, 1, 'Wish I was having pretzels instead of this..');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (10, 3, 'This beer is a hit with my friends.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (10, 4, 'Just like reaching for pretzels, I couldn''t stop reaching for another sip of this drink.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (11, 2, 'Feels like I''m on vacation with every sip.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (11, 4, 'Unexpected delight.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (11, 4, 'It''s a bittersweet beer.');
-
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (12, 5, 'Tiny Brick is a splendid beer.'),
+INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES  (1, 5, 'This beer is perfect for the fall. It made me feel warm and cozy.'),
+                                                                    (1, 3, 'Pumpkin Loaf is alright, but this place should just stick to the classic flavors we all know and love.'),
+                                                                    (1, 5, 'BBE. Best. Beer. Ever'),
+                                                                    (13, 5, 'My all time favorite beer. I recommend it to all beer lovers'),
+                                                                    (13, 1, 'Disgusting. Wouldn''t drink it again, if you paid me.'),
+                                                                    (13, 4, 'Subtle, yet strong. Just the way I like it.'),
+                                                                    (2, 4, 'Mediocre.'),
+                                                                    (2, 2, 'Not the worst I''ve ever had.'),
+                                                                    (2, 5, 'This beer is just a classic. Plain and simple.'),
+                                                                    (3, 1, 'The name is fitting. This beer reminds me a dark, cold place I do not want to visit.'),
+                                                                    (3, 1, 'You might as well drink toilet water if you''re thinking of trying this.'),
+                                                                    (3, 4, 'Par for the course.'),
+                                                                    (4, 4, 'Super close to being one of my favorites, but not quite there yet.'),
+                                                                    (4, 3, 'Only tried this beer for the name. Nothing to write home about.'),
+                                                                    (4, 1, 'Just as the name implies, this beer is childish. Give me something strong.'),
+                                                                    (5, 1, 'Bolaris? More like Yuck-aris!.'),
+                                                                    (5, 2, 'Meh, it''s not the worst. The recipe could use some revamping for sure.'),
+                                                                    (5, 5, 'Would rate this 10 stars if I could!'),
+                                                                    (7, 3, 'This beer needs to pick a vibe and stick to it.'),
+                                                                    (7, 4, 'Fantastic beer.'),
+                                                                    (7, 2, 'I''ve tasted much better than this.'),
+                                                                    (6, 5, 'Makes me feel like I''m at home having a grand old time.'),
+                                                                    (6, 1, 'Worst tasting drink I''ve ever had.'),
+                                                                    (6, 3, 'Not a fan of IPAs to be honest, but this one isn''t half bad.'),
+                                                                    (8, 2, 'Does not do the song justice.'),
+                                                                    (8, 3, 'Almost as good as the Journey song.'),
+                                                                    (8, 5, 'I''m just a small town girl who loves this beer.'),
+                                                                    (9, 5, 'This beer is heaven in a glass.'),
+                                                                    (9, 1, 'I''m at a loss for words. Not in a good way.'),
+                                                                    (9, 3, 'Would have liked a higher abu.'),
+                                                                    (10, 1, 'Wish I was having pretzels instead of this..'),
+                                                                    (10, 3, 'This beer is a hit with my friends.'),
+                                                                    (10, 4, 'Just like reaching for pretzels, I couldn''t stop reaching for another sip of this drink.'),
+                                                                    (11, 2, 'Feels like I''m on vacation with every sip.'),
+                                                                    (11, 4, 'Unexpected delight.'),
+                                                                    (11, 4, 'It''s a bittersweet beer.'),
+                                                                    (12, 5, 'Tiny Brick is a splendid beer.'),
                                                                     (12, 4, 'Not too bitter, not too sweet.'),
                                                                     (12, 1, 'Yummy yummy in my tummy.'),
                                                                     (14, 5, 'This brew takes your taste buds on a wild hoppy ride. The citrusy notes are like a burst of sunshine in every sip.'),
@@ -316,11 +315,43 @@ INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (12, 5, 'Tiny
                                                                     (63, 3, 'Overpriced for the quality.'),
                                                                     (63, 5, 'Hopworts Express is boss.'),
                                                                     (64, 4, 'This was recommended to me by a friend - great choice!!'),
-                                                                    (64, 5, 'This beer is so good they had to cut me off last night.'),
+                                                                    (64, 5, 'This beer is so good they had to cut me off last night.'), --nitwit
                                                                     (64, 3, 'A fine beer for a fine brewery.'),
-                                                                    (65, 5, 'BEST BEER I HAVE EVER HAD'),
+                                                                    (65, 5, 'BEST BEER I HAVE EVER HAD'), --blackpowder
                                                                     (65, 2, 'Mediocre beer. Not my favorite'),
-                                                                    (65, 5, 'I''ve tasted better');
+                                                                    (65, 5, 'I''ve tasted better'),
+                                                                    (66, 2, 'I regret trying this.'), --dubbel dip
+                                                                    (66, 4, 'This beer goes down smooth like water.'),
+                                                                    (66, 5, 'Wish I''d found this beer sooner!'),
+                                                                    (67, 5, 'With this beer, every day is a good day.'), -- no bad days
+                                                                    (67, 1, 'Just stay away from this horrid liquid.'),
+                                                                    (67, 3, 'I don''t hate it, I don''t love it.'),
+                                                                    (68, 2, 'No comment.'), --cosmic cows
+                                                                    (68, 4, 'Sincerely a good option'),
+                                                                    (68, 1, 'Crappy beer.'),
+                                                                    (69, 4, 'Deliciously brewed.'), --glazed and confused
+                                                                    (69, 5, 'You''ll love this if you love sweets.'),
+                                                                    (69, 5, 'A sweet treat!'),
+                                                                    (70, 1, 'No comment.'), --boat day
+                                                                    (70, 3, '*Radio silence*'),
+                                                                    (70, 4, 'This is my go-to when my number one choice isn''t available.'),
+                                                                    (71, 4, 'Splendid beer.'), --solar power
+                                                                    (71, 5, 'I get this beer every single time.'),
+                                                                    (71, 2, 'This drink makes me feel like I am in cosmic bliss'),
+                                                                    (72, 5, 'Love love looove this beer.'), --noir et bleu
+                                                                    (72, 2, 'Too strong for me.'),
+                                                                    (72, 2, 'I wouldn''t mind drinking this beer if it were free.'),
+                                                                    (73, 3, 'I appreciate the time it takes to brew this beer, but it''s just not my cup of tea.'), --on point
+                                                                    (73, 4, 'My only concern is that I wish it had more carbonation.'),
+                                                                    (73, 1, 'This beer is actually not on point.'),
+                                                                    (74, 5, 'Light and crisp. I love it'), --atlantico
+                                                                    (74, 3, 'I think this beer is missing a fruity flavor.'),
+                                                                    (74, 5, 'This beer has quickly become my favorite.'),
+                                                                    (75, 2, 'Too mild.'), --shuck it
+                                                                    (75, 4, 'Balanced and elegant.'),
+                                                                    (75, 1, '*crickets*');
+
+
 
 
 
