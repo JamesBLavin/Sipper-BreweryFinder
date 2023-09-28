@@ -2,7 +2,7 @@ package com.techelevator.model;
 
 import java.util.Objects;
 
-public class Brewery {
+public class  Brewery {
 
     //these are the 5 required properties to show when a user views brewery info, plus an id
 

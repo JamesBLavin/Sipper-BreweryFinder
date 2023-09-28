@@ -22,7 +22,8 @@ export default {
     },
     created() {
         beerService.getBeerByID(this.$route.params.id).then(response => {
-            this.beer = response.data;
+             this.beer = response.data;
+             
         })
         .catch(error => {
             console.error("Error fetching beer details:", error);
