@@ -73,7 +73,7 @@ font-family: 'Roboto Flex', sans-serif;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "namelogo links";
-  padding-bottom: 50vw;
+  padding-bottom: 30vw;
   border-radius: 25px;
   margin-bottom: 10px;
   margin-top: 25px;

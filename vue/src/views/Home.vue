@@ -1,13 +1,15 @@
 <template>
   <div class="home">
+    <h1 id="welcome">welcome to sipper, the coolest spot to keep up with the breweries you love and maybe find a new fav</h1>
     <div class="search-container">
       <form class="search-bar" @submit.prevent="toggleShowBr">
         <div class="mb-3">
           <input
-            type="email"
+            type="text"
             class="form-control"
             id="exampleFormControlInput1"
-            placeholder="name@example.com"
+            placeholder="Search by city, state, or zip"
+            v-model="filteredText"
           />
         </div>
         <div>
@@ -18,22 +20,21 @@
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
-          >
-            Dropdown button
+          >{{ buttonText }}
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a @click.prevent="updateButtonText('City')" class="dropdown-item" href="#">City</a>
+            <a @click.prevent="updateButtonText('State')" class="dropdown-item" href="#">State</a>
+            <a @click.prevent="updateButtonText('Zip Code')" class="dropdown-item" href="#">Zip Code</a>
           </div>
         </div>
-        <button>Save</button>
+        <button id="search-btn">search</button>
       </form>
     </div>
-    <h1 v-show="$store.state.token != ''">
+    <h1 v-show="$store.state.token != ''" id="login-greeting">
       thanks for drinking with us, {{ this.$store.state.user.username }}!
     </h1>
-    <breweries v-show="this.showBr"/>
+    <breweries :filter="filter" v-show="this.showBr" id="listing"/>
   </div>
 </template>
 
@@ -44,13 +45,28 @@ export default {
   name: "home",
   data() {
     return {
-      showBr: false
+      showBr: false,
+      buttonText: '',
+      filter: {
+        brewery_name: '',
+        brewery_city: '',
+        brewery_zip: '' 
+        
+      }
+    }
+  },
+  computed: {
+    buttonTxt() {
+      return this.buttonText;
     }
   },
   methods: {
     toggleShowBr() {
       this.showBr = !this.showBr;
       return this.showBr;
+    },
+    updateButtonText( btnText ) {
+      this.buttonText = btnText;
     }
   }
 };
@@ -71,20 +87,65 @@ h1 {
   padding-right: -20%;
   margin-left: 33%;
   justify-content: center; */
-  border: black solid 3px;
-  border-radius: 10px;
-  margin-top: -60%;
-  margin-bottom: 25%;
-  padding: 10px;
-  background: white;
+  border-radius: 25px;
+  margin-top: -75%;
+  margin-bottom: 50%;
+  padding: 3%;
   display: flex;
   justify-content: center;
+  padding: 20px 100px 20px 100px;
+  align-items: flex-end;
+  position: relative;
+  right: 100px;
+  
 }
 
 .search-container {
-  display: flex;
-  margin-left: 40%;
+  margin-top: 100vh;
 }
 
+.btn-secondary {
+    color: orangered;
+    background-color: white;
+    border-color: orangered;
+}
 
+.mb-3 {
+  margin: 10vw 1vw 10vw 10vw;
+  width: 50vw;
+  background: orangered;
+  border: orangered 20px solid;
+  border-radius: 25px;
+}
+
+#dropdownMenuButton {
+  border: orangered 20px solid;
+  border-radius: 25px;
+  margin-bottom: 25%;
+}
+
+#search-btn {
+  border: orangered 20px solid;
+  border-radius: 25px;
+  margin-bottom: 1%;
+  margin-left: 1%;
+}
+
+#listing {
+  margin-top: 0%;
+}
+
+#welcome {
+  position: absolute;
+  left: 250px;
+  background: orangered;
+  padding: 10px;
+  border-radius: 25px;
+  color: white;
+}
+
+#login-greeting {
+  color: black;
+  margin-top: -38%;
+}
 </style>

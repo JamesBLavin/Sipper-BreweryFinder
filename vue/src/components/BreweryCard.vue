@@ -81,8 +81,8 @@ export default {
   flex-direction: column;
   border-radius: 20px;
   justify-content: space-between;
-  background: wheat;
-
+  background-color: #4287f5;
+  color: white;
 }
 
 
