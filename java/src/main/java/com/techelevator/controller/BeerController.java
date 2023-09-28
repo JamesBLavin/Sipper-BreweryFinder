@@ -28,6 +28,11 @@ public class BeerController {
         return beerService.getBeer(beer_id);
     }
 
+    @GetMapping(path = "/beers/{brewery_id}")
+    public List<Beer> getBeersByBrewery(@PathVariable int brewery_id){
+        return beerService.getBeersByBrewery(brewery_id);
+    }
+
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(path = "/addBeer")
     public Beer addBeer(@RequestBody @Valid Beer newBeer) {

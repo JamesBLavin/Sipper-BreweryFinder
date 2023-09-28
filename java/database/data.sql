@@ -32,10 +32,10 @@ INSERT INTO beers (brewery_id, beer_name, beer_description, abv, ibu, beer_img_u
                                                                                                       (1, 'Hallowed Winter', 'Incredibly dark and silky smooth, this enlightened Imperial Stout has a strong roasted malt backbone with a mild sweetness and lingering chocolate notes. As we enter this hallowed season, the nights are long, dark, and cold. But they’re also clear, majestic, and beautiful. Savor the winter with an eye towards spring (and a strong drink in hand).', 12.0, 20, 'https://assets.untappd.com/photos/2023_03_31/92e75446132428c3172febd021c7eb9f_raw.jpg', 'Stout - Imperial/Double'),
                                                                                                       (1, 'Supersaurus Rex', 'The Supersaurus is a somewhat obscure dinosaur (that looks nothing like our label, mind you), but it definitely sparks the nostalgia of our childhood fascination with those real, but seemingly mythical, creatures. Ultimately, we decided to give this beer a label that any parent would be proud to hang on their fridge.', 6.5, 35, 'https://assets.untappd.com/photos/2023_09_22/0c60c296a9588e876a995430f51e519a_raw.jpg', 'IPA - New England/Hazy'),
 
-                                                                                                      (2, 'Bolaris Winter Ale', 'When the winter weather forecast calls for trouble you turn to Bolaris. Our new seasonal winter ale brewed in the style of a scotch wee-heavy. 9.2% ABV, a dark, malty body, a heavy dose of maple syrup, and a touch of cinnamon and vanilla will keep you warm through whatever old-man winter has in store', 9.2, 19, 'https://assets.untappd.com/photos/2023_02_18/b0e6525fce400cf3ae9b1730100c6379_640x640.jpg', 'Scotch Ale/Wee Heavy'),
+                                                                                                      (2, 'Bolaris Winter Ale', 'When the winter weather forecast calls for trouble you turn to Bolaris. Our new seasonal winter ale brewed in the style of a scotch wee-heavy. 9.2% ABV, a dark, malty body, a heavy dose of maple syrup, and a touch of cinnamon and vanilla will keep you warm through whatever old-man winter has in store', 9.2, 19, 'https://assets.untappd.com/photos/2023_02_19/5d29b3284cb5e1445e7ac1236cb0865e_640x640.jpg', 'Scotch Ale/Wee Heavy'),
                                                                                                       (2, 'Pickett Fence Double IPA', 'Our double IPA, malty with just the right hop balance. We blended Nugget, Citra, Zythos, Simcoe, and Pacifica hops for a distinct bitterness and unique aroma. A great beer to share with your neighbor', 8.1, 76, 'https://assets.untappd.com/photo/2023_02_18/75d6eb2f9dcd1601d369ae806e84a123_c_1249152815_raw.jpg', 'IPA-Imperial/Double'),
                                                                                                       (2, 'Belgian Amber/Dubbel Doink', 'Our take on the classic Belgian dubbel brewed in seclusion for centuries by monks. This version was brewed in a converted 2-car garage off an alley in Middletown using some very special ingredients from Acme…Nailed it', 7.3, 42, 'https://assets.untappd.com/photos/2019_08_31/d464ad2f320f56f02420cd0789c74b03_raw.jpg', 'Belgian Dubbel'),
-                                                                                                      (2, 'Just a Small Town Gourd', 'This is one of our favorite beers to brew. We start with 60 pounds of roasted ‘autumn buckskin’ pumpkins grown in the fields of Middletown’s Filasky Farm. The grains include a balanced mix of pilsner, local Delaware 2-row barley, and Belgian specialty grains. We rounded out the brew with brown sugar, cinnamon, and pumpkin spice. This ale requires a little extra elbow grease but it’s uniquely Middletown, perfect for late October nights and on only tap for a limited time.', 8.0, 25, 'https://assets.untappd.com/photos/2023_09_25/a060022ede1d50f4bfb38ff71953f403_raw.jpg', 'Pumpkin/Yam Beer'),
+                                                                                                      (2, 'Just a Small Town Gourd', 'This is one of our favorite beers to brew. We start with 60 pounds of roasted ‘autumn buckskin’ pumpkins grown in the fields of Middletown’s Filasky Farm. The grains include a balanced mix of pilsner, local Delaware 2-row barley, and Belgian specialty grains. We rounded out the brew with brown sugar, cinnamon, and pumpkin spice. This ale requires a little extra elbow grease but it’s uniquely Middletown, perfect for late October nights and on only tap for a limited time.', 8.0, 25, 'https://assets.untappd.com/photos/2022_12_31/0d4bfe6a2f0d290ee3dd7ff0a19f1c3b_640x640.jpg', 'Pumpkin/Yam Beer'),
 
                                                                                                       (3, 'Drop Trowel', 'Brewed and Dry Hopped with Citra, El Dorado and Cascade hops. This juicy, unfiltered IPA contains tropical and pithy grapefruit notes.', 6.7, 44, 'https://assets.untappd.com/photos/2023_09_26/9ed6b13b7c369b6fca4c4f4298f497ab_raw.jpg', 'IPA-American'),
                                                                                                       (3, 'Chocolate Covered Pretzel Stout', 'A stout brewed with salt, chocolate and wheat designed to embody the delights of a chocolate covered pretzel.', 4.0, 10, 'https://assets.untappd.com/photos/2023_09_26/9d99a56f33396da57eac9e6eb0cce809_raw.jpg', 'Stout-American'),
@@ -85,7 +85,7 @@ INSERT INTO beers (brewery_id, beer_name, beer_description, abv, ibu, beer_img_u
                                                                                                       (12, 'Sho Nuff Stout', 'Malt: pale, roasted barley, chocolate. Hops: black, crystal.', 7.5, 15, 'https://assets.untappd.com/photos/2023_07_08/53670639f3e8e613cd8f7cf3a98bad97_640x640.jpg', 'Stout-Other'),
                                                                                                       (12, 'Rye Knot?', 'Rye IPA made with Pale, Rye, and Pale Crystal malts as well as Chinook, Bravo, and Mosiac hops.', 7.5, 58, 'https://assets.untappd.com/photos/2023_09_03/d2a89667bc271694456ae129329d244e_raw.jpg', 'IPA-Rye'),
 
-                                                                                                      (13, 'Amazön Lederhösen', 'Brewed with all German Munich malt, noble hops and lager yeast, Amazön Lederhösen is a traditional märzen beer that''s filled with luscious layers of maltiness. The perfect pint for the season, its aromas and flavors will have you thinking you''re right there, at the largest beer drinking event in the world ... Oktoberfest in Germany! So grab your glass (or stein) and raise it high! Prost to good beer and happy times!', 5.3, 25, 'https://assets.untappd.com/photos/2023_09_25/a9a68c8135c93525df4fdae701a29046_raw.jpg', 'Märzen'),
+                                                                                                      (13, 'Amazön Lederhösen', 'Brewed with all German Munich malt, noble hops and lager yeast, Amazön Lederhösen is a traditional märzen beer that''s filled with luscious layers of maltiness. The perfect pint for the season, its aromas and flavors will have you thinking you''re right there, at the largest beer drinking event in the world ... Oktoberfest in Germany! So grab your glass (or stein) and raise it high! Prost to good beer and happy times!', 5.3, 25, 'https://assets.untappd.com/photos/2023_09_27/d2326f7b2a2ee556c9e984c37f80b55d_640x640.jpg', 'Märzen'),
                                                                                                       (13, 'Smooth Jamz', 'As fall approaches, thoughts of cooler nights and stouts start to creep In. With that in mind we wanted to give you something that would be good in the heat of the day and the cool evenings. This beer accomplishes that with its roasty cocoa notes from the dark malts and hints of a fall strawberry preserves from the hops and yeast with the smoothness of a Nitro pour.', 6.4, 59, 'https://assets.untappd.com/photos/2023_09_24/903ef416186ebe41ba20b89f2284eb03_640x640.jpg', 'Stout-American'),
                                                                                                       (13, 'Slightly Mighty', 'A lo-cal IPA that is slight in cals and carbs with mighty hop flavor! Slightly Mighty has all the flavor and tropical aromas of a world class IPA, but with only 95 calories, 3.6g carbs, 1g protein and 0g fat. Brewed with locally-grown barley, and a touch of monk fruit that delivers body and complexity but adds zero calories or carbs, Slightly Mighty is light-bodied and offers a lingering balanced sweetness.', 4.0, 30, 'https://assets.untappd.com/photos/2023_09_26/7b133dcaa8f56a463af36a1679c5108a_raw.jpg', 'IPA-Session'),
                                                                                                       (13, 'BoDeGose', 'Together with our pals at Talea Beer Co. We explored Brooklyn bodegas to discover an amazing bounty of beautiful ingredients. This small batch sour beer features ripe cherries & exotic guava accented by the earthy spice of pink peppercorns.', 5.0, 7, 'https://assets.untappd.com/photos/2023_09_25/d7d26ddd4f7958f3debf3f9e7431e209_raw.jpg', 'Sour-Fruited Gose'),
@@ -96,14 +96,14 @@ INSERT INTO beers (brewery_id, beer_name, beer_description, abv, ibu, beer_img_u
                                                                                                       (14, 'Eloquation', 'A mind numbing blend of honey and victory malts. The suggestion of orange blossoms is due to an addition of honey and a delicious combination of citra, simcoe and nugget dry hopping. NOTE: Eloquation is a legal SCRABBLETM move in our taproom! (20 Points)', 11.9, 100, 'https://assets.untappd.com/photos/2023_09_02/11111cedc1f6e9a596e41ad7c037eeb2_raw.jpg', 'IPA-Triple'),
 
                                                                                                       (15, 'XII APA', 'Perfectly sessionable ale with aroma of orange peel and bread, citrus throughout, sticky hops and biscuit finish.', 5.3, 37, 'https://assets.untappd.com/photos/2023_07_26/760b1812bbed0b76c1ae8a68dd7b8090_raw.jpg', 'Pale Ale-American'),
-                                                                                                      (15, 'Midnight Porter', 'Our award winning porter starts coffee and chocolate on the nose and finishes with a chocolate covered toffee.', 4.5, 26, 'https://assets.untappd.com/photos/2022_11_20/a7523e05d26ab7d8a0f01338f1747a1e_640x640.jpg', 'Porter-English'),
+                                                                                                      (15, 'Midnight Porter', 'Our award winning porter starts coffee and chocolate on the nose and finishes with a chocolate covered toffee.', 4.5, 26, 'https://assets.untappd.com/photos/2022_11_12/f5c73bf10b3dc73e010811b169647868_640x640.jpg', 'Porter-English'),
                                                                                                       (15, 'Your Mom', 'A blonde ale brewed for our brewer’s mother, made with 300 pounds of raspberries, vanilla beans and lactose. It’s refreshing, it’s light, and its perfect for cooling off on a hot day.', 4.5, 17, 'https://assets.untappd.com/photos/2023_07_17/24b460ef00eec2c5e114299672efc4e7_640x640.jpg', 'Fruit Beer'),
                                                                                                       (15, 'Sundown Saison', 'A classic Saison with notes of sage, banana, lemon zest, and a hint of cracked pepper.', 5.7, 29, 'https://assets.untappd.com/photos/2023_08_12/3d246c41d036f4bac51c0c6f0b606c20_raw.jpg', 'Farmhouse Ale-Saison'),
 
-                                                                                                      (16, 'Orange Street Ale', 'One of our flagships, this easy drinker combines a classic cream ale with Orange blossom honey and sweet orange peel to create a delicious and refreshing beer.', 5.8, 20, 'https://assets.untappd.com/photos/2023_09_20/c5e1126b1869c39f5f26ea0676859d97_640x640.jpg', 'Cream Ale'),
-                                                                                                      (16, 'Small Wonder IPA', 'Taking from our states nickname, this IPA my be light in alcohol but packs a big hop punch!', 5.0, 40, 'https://assets.untappd.com/photos/2023_08_23/d9ef73249374e5416a5145160dd7d1a7_640x640.jpg', 'IPA-American'),
+                                                                                                      (16, 'Orange Street Ale', 'One of our flagships, this easy drinker combines a classic cream ale with Orange blossom honey and sweet orange peel to create a delicious and refreshing beer.', 5.8, 20, 'https://assets.untappd.com/photos/2023_08_10/5d13dd5aabd94fa2750c921c88ec2d06_640x640.jpg', 'Cream Ale'),
+                                                                                                      (16, 'Small Wonder IPA', 'Taking from our states nickname, this IPA my be light in alcohol but packs a big hop punch!', 5.0, 40, 'https://assets.untappd.com/photos/2023_08_20/55a57f79c36bf6786bdc29a27a77d4d5_640x640.jpg', 'IPA-American'),
                                                                                                       (16, 'Oat-Face Killah', 'Straight back to the 36 chambers of hops plus lots of oats.', 6.6, 55, 'https://assets.untappd.com/photos/2023_09_16/167cb69d8e54f10e8809679f33af39bd_raw.jpg', 'IPA-New England/Hazy'),
-                                                                                                      (16, 'Kiamensi Kolsch', 'A light crisp lager-like ale. Brewed with pilsner malt and German noble hops for a clean refreshing beer.', 5.0, 27, 'https://assets.untappd.com/photos/2023_06_10/c7ec55f52b36c36115c4dbd5d4bf4604_640x640.jpg', 'Kölsch'),
+                                                                                                      (16, 'Kiamensi Kolsch', 'A light crisp lager-like ale. Brewed with pilsner malt and German noble hops for a clean refreshing beer.', 5.0, 27, 'https://assets.untappd.com/photos/2023_04_22/bffb6acbce009a85965940ca9e1d1544_640x640.jpg', 'Kölsch'),
 
                                                                                                       (17, 'Hopworts Express', 'Tropical flavor, w/ passion fruit,guava,lime,pine, citrus. Smooth.', 6.5, 60, 'https://assets.untappd.com/photos/2023_08_20/5ca8954d150f9cd44e593732752d3ca6_640x640.jpg', 'IPA-American'),
                                                                                                       (17, 'Nit Wit', 'A traditional Belgian White Beer (Witbier) crafted with mixture of pale and wheat malts. Czech Kazabek Hops, and a mixture of unique spices. Classic Belgian whit yeast will yield a spicy, low Phenolic flavor.', 5.0, 17, 'https://assets.untappd.com/photos/2023_04_23/e5cfed56119f4ae210e4994a808b2687_640x640.jpg', 'Wheat Beer-Witbier/Blanche'),
@@ -125,42 +125,234 @@ INSERT INTO beers (brewery_id, beer_name, beer_description, abv, ibu, beer_img_u
 
 
 --Created beer reviews
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (1, 5, 'This beer is perfect for the fall. It made me feel warm and cozy.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (1, 3, 'Pumpkin Loaf is alright, but this place should just stick to the classic flavors we all know and love.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (1, 5, 'BBE. Best. Beer. Ever');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (13, 5, 'My all time favorite beer. I recommend it to all beer lovers');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (13, 1, 'Disgusting. Wouldn''t drink it again, if you paid me.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (13, 4, 'Subtle, yet strong. Just the way I like it.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (2, 4, 'Mediocre.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (2, 2, 'Not the worst I''ve ever had.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (2, 5, 'This beer is just a classic. Plain and simple.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (3, 1, 'The name is fitting. This beer reminds me a dark, cold place I do not want to visit.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (3, 1, 'You might as well drink toilet water if you''re thinking of trying this.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (3, 4, 'Par for the course.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (4, 4, 'Super close to being one of my favorites, but not quite there yet.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (4, 3, 'Only tried this beer for the name. Nothing to write home about.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (4, 1, 'Just as the name implies, this beer is childish. Give me something strong.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (5, 1, 'Bolaris? More like Yuck-aris!.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (5, 2, 'Meh, it''s not the worst. The recipe could use some revamping for sure.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (5, 5, 'Would rate this 10 stars if I could!');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (7, 3, 'This beer needs to pick a vibe and stick to it.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (7, 4, 'Fantastic beer.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (7, 2, 'I''ve tasted much better than this.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (6, 5, 'Makes me feel like I''m at home having a grand old time.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (6, 1, 'Worst tasting drink I''ve ever had.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (6, 3, 'Not a fan of IPAs to be honest, but this one isn''t half bad.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (8, 2, 'Does not do the song justice.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (8, 3, 'Almost as good as the Journey song.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (8, 5, 'I''m just a small town girl who loves this beer.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (9, 5, 'This beer is heaven in a glass.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (9, 1, 'I''m at a loss for words. Not in a good way.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (9, 3, 'Would have liked a higher abu.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (10, 1, 'Wish I was having pretzels instead of this..');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (10, 3, 'This beer is a hit with my friends.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (10, 4, 'Just like reaching for pretzels, I couldn''t stop reaching for another sip of this drink.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (11, 2, 'Feels like I''m on vacation with every sip.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (11, 4, 'Unexpected delight.');
-INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (11, 4, 'It''s a bittersweet beer.');
+INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES  (1, 5, 'This beer is perfect for the fall. It made me feel warm and cozy.'),
+                                                                    (1, 3, 'Pumpkin Loaf is alright, but this place should just stick to the classic flavors we all know and love.'),
+                                                                    (1, 5, 'BBE. Best. Beer. Ever'),
+                                                                    (13, 5, 'My all time favorite beer. I recommend it to all beer lovers'),
+                                                                    (13, 1, 'Disgusting. Wouldn''t drink it again, if you paid me.'),
+                                                                    (13, 4, 'Subtle, yet strong. Just the way I like it.'),
+                                                                    (2, 4, 'Mediocre.'),
+                                                                    (2, 2, 'Not the worst I''ve ever had.'),
+                                                                    (2, 5, 'This beer is just a classic. Plain and simple.'),
+                                                                    (3, 1, 'The name is fitting. This beer reminds me a dark, cold place I do not want to visit.'),
+                                                                    (3, 1, 'You might as well drink toilet water if you''re thinking of trying this.'),
+                                                                    (3, 4, 'Par for the course.'),
+                                                                    (4, 4, 'Super close to being one of my favorites, but not quite there yet.'),
+                                                                    (4, 3, 'Only tried this beer for the name. Nothing to write home about.'),
+                                                                    (4, 1, 'Just as the name implies, this beer is childish. Give me something strong.'),
+                                                                    (5, 1, 'Bolaris? More like Yuck-aris!.'),
+                                                                    (5, 2, 'Meh, it''s not the worst. The recipe could use some revamping for sure.'),
+                                                                    (5, 5, 'Would rate this 10 stars if I could!'),
+                                                                    (7, 3, 'This beer needs to pick a vibe and stick to it.'),
+                                                                    (7, 4, 'Fantastic beer.'),
+                                                                    (7, 2, 'I''ve tasted much better than this.'),
+                                                                    (6, 5, 'Makes me feel like I''m at home having a grand old time.'),
+                                                                    (6, 1, 'Worst tasting drink I''ve ever had.'),
+                                                                    (6, 3, 'Not a fan of IPAs to be honest, but this one isn''t half bad.'),
+                                                                    (8, 2, 'Does not do the song justice.'),
+                                                                    (8, 3, 'Almost as good as the Journey song.'),
+                                                                    (8, 5, 'I''m just a small town girl who loves this beer.'),
+                                                                    (9, 5, 'This beer is heaven in a glass.'),
+                                                                    (9, 1, 'I''m at a loss for words. Not in a good way.'),
+                                                                    (9, 3, 'Would have liked a higher abu.'),
+                                                                    (10, 1, 'Wish I was having pretzels instead of this..'),
+                                                                    (10, 3, 'This beer is a hit with my friends.'),
+                                                                    (10, 4, 'Just like reaching for pretzels, I couldn''t stop reaching for another sip of this drink.'),
+                                                                    (11, 2, 'Feels like I''m on vacation with every sip.'),
+                                                                    (11, 4, 'Unexpected delight.'),
+                                                                    (11, 4, 'It''s a bittersweet beer.'),
+                                                                    (12, 5, 'Tiny Brick is a splendid beer.'),
+                                                                    (12, 4, 'Not too bitter, not too sweet.'),
+                                                                    (12, 1, 'Yummy yummy in my tummy.'),
+                                                                    (14, 5, 'This brew takes your taste buds on a wild hoppy ride. The citrusy notes are like a burst of sunshine in every sip.'),
+                                                                    (14, 2, 'It''s like a pinecone in a glass. Not my cup of tea... or beer.'),
+                                                                    (14, 1, 'I was expecting a burst of citrus, but it was more like a faint hint. It left me craving more flavor. It''s not as refreshing as it claims to be.'),
+                                                                    (15, 4, 'It''s rich, velvety, and full of flavor.'),
+                                                                    (15, 2, 'The notes were just too intense. I prefer something lighter.'),
+                                                                    (15, 5, 'It''s like a beach vacation for your taste buds.'),
+                                                                    (16, 5, 'It''s a safe choice if you''re not looking for anything too adventurous'),
+                                                                    (16, 3, 'It''s drinkable, but I wouldn''t go out of my way to order it again'),
+                                                                    (16, 4, 'It''s worth trying if you''re into barrel-aged beers, but it didn''t leave me in a state of euphoria.'),
+                                                                    (17, 3, 'Nothing extraordinary, but it''s a decent choice if you''re in the mood for a simple beer.'),
+                                                                    (17, 1, 'I expected a sweet and smooth experience, but it was more like drinking syrup.'),
+                                                                    (17, 3, 'A beer that won''t wow you but won''t disappoint you either.'),
+                                                                    (18, 1, 'It''s a hard pass'),
+                                                                    (18, 2, 'Avoid this one if you value your taste buds'),
+                                                                    (18, 1, 'It''s like drinking liquid wood. I prefer my beers with more balance and subtlety.'),
+                                                                    (19, 1, 'Downtown Donut Brown is a unique brew, no doubt. The mix of grains, malts, and donuts is intriguing. However, I found it a tad too sweet for my liking. If you have a sweet tooth, this one might be worth a try.'),
+                                                                    (19, 1, 'It''s a no for me.'),
+                                                                    (19, 1, 'The dessert-like qualities are there, but the high ABV is somewhat hidden.'),
+                                                                    (20, 4, 'Cocoa Nut Joe Porter is an interesting blend of flavors. The coconut and cacao notes are nice, and the coffee gives it a pleasant bitterness. It''s a good porter, but it doesn''t stand out in the crowded world of craft beer. Worth trying if you''re a fan of the style'),
+                                                                    (20, 1, 'It''s a no for me.'),
+                                                                    (20, 5, 'Definitely my favorite beer, and not just because of the cool name.'),
+                                                                    (21, 3, 'Top Of The World boasts a complex profile, but it didn''t live up to my expectations. The dark fruit and malt flavors were there, but the high alcohol content was a bit overpowering. It lacked the balance I was hoping for. Not my top choice for a dark ale.'),
+                                                                    (21, 5, 'A beer that makes me feel like I’’m on top of the world.'),
+                                                                    (21, 4, 'I know it''s not super popular but I enjoy it.'),
+                                                                    (22, 4, 'Black Satin is a chocolate lover''s dream. The dark chocolate and hazelnut blend beautifully, making it a delightful treat. Rich and indulgent, perfect for a winter evening. However, it could be a touch smoother. Still, it''s a solid porter.'),
+                                                                    (22, 4, 'If you like chocolate, this is the beer for you!'),
+                                                                    (22, 1, 'I''m a believer of not mixing sweets with beer.'),
+                                                                    (23, 3, 'Body & Soul is a malt bomb, just as advertised. The caramelization process adds depth, and the full body is evident. However, it might be a bit too heavy for some. It''s a slow sipper, so be prepared to savor it.'),
+                                                                    (23, 1, 'Gross. Idk what else to say.'),
+                                                                    (23, 2, 'Meh.'),
+                                                                    (24, 3, 'Honeysuckle Rose is a delightful Belgian Blond Ale. The subtle complexity and the hints of orange and lemon make it a pleasant choice. Not overly sweet, and the dry finish is quite satisfying. A solid representation of the style'),
+                                                                    (24, 4, 'I love honeysuckle so this is just the beer for me.'),
+                                                                    (24, 5, 'All around good beer'),
+                                                                    (25, 5, 'Swishy Pants is an absolute delight for anyone who appreciates a well-crafted IPA. It pours a beautiful hazy golden hue and greets you with a burst of tropical fruit aromas as soon as you crack open the can. The taste is a symphony of juicy mango, pineapple, and a hint of citrus, all perfectly balanced with a subtle malt sweetness. Swishy Pants is the kind of beer that will make you a fan of hazy IPAs if you weren''t already. It''s an excellent choice for a sunny day or any time you want a refreshing and flavorful beer.'),
+                                                                    (25, 1, 'Swishy Pants might have an interesting name, but it fails to deliver on its promise. From the first sip, it''s apparent that this beer is all hype and no substance. The hazy appearance is there, but the aroma is underwhelming, with only a faint hint of fruit. The taste is a disappointment, with a muddled blend of flavors that never quite come together. It''s as if they threw a bunch of random fruits into the brew without any thought to balance. The mouthfeel is mediocre at best, lacking the expected smoothness of a good hazy IPA. The finish leaves a lingering bitterness that''s more unpleasant than enjoyable. Overall, Swishy Pants is a letdown and not worth the hype.'),
+                                                                    (25, 2, 'Would not drink again.'),
+                                                                    (26, 4, 'Secret Machine-Triple is an extraordinary beer that showcases the artistry of brewing. It pours a gorgeous deep amber with a rich, creamy head that lingers. The aroma is an inviting mix of caramel, toffee, and a touch of spice.'),
+                                                                    (26, 5, 'The taste is an explosion of flavor, with notes of dark fruits, Belgian yeast, and a subtle warming alcohol presence that''s just right for a triple. The mouthfeel is velvety and smooth, making each sip a true pleasure. The finish is long and complex, leaving you with a satisfying sweetness. Secret Machine-Triple is a masterpiece of a beer, perfect for sipping and savoring on a special occasion.'),
+                                                                    (26, 1, 'It pours a murky brown with a weak, fizzy head that dissipates quickly. The aroma is overly sweet, almost cloying, and lacks the subtlety you''d expect from a Belgian triple.'),
+                                                                    (27, 5, 'The taste is rich and decadent, with a perfect balance of bitter and sweet flavors'),
+                                                                    (27, 5, 'The mouthfeel is silky smooth, making each sip a luxurious experience. The finish is long and satisfying, leaving you craving another sip. Hot Wax is a must-try for stout lovers.'),
+                                                                    (27, 3, 'Decent beer.'),
+                                                                    (28, 1, 'Futuristic Future tries too hard to be different and ends up losing its way.'),
+                                                                    (28, 4, 'Futuristic Future is a forward-thinking beer that''s perfect for those looking to explore the cutting edge of brewing.'),
+                                                                    (28, 4, 'The aroma is a burst of citrus and tropical fruit, promising a refreshing experience.'),
+                                                                    (29, 4, 'Oak Barrel Stout is a true gem for lovers of rich, robust stouts. This beer pours a deep, velvety black with a creamy tan head that lingers.'),
+                                                                    (29, 2, 'While it may appear impressive with its dark hue, the aroma is disappointingly weak, with only faint hints of roasted malt and no discernible oak notes.'),
+                                                                    (29, 1, 'The finish is forgettable and leaves you wondering where all the promised oak flavor went.'),
+                                                                    (30, 4, 'Double D is a double IPA that packs a punch in all the right ways.'),
+                                                                    (30, 5, 'Double D is a delightful choice for hopheads looking for a bold and flavorful beer.'),
+                                                                    (30, 3, 'The mouthfeel is overly carbonated and leaves a harsh sensation on the palate. Double D is a letdown for those seeking a well-crafted, enjoyable hoppy beer.'),
+                                                                    (31, 5, 'Great beer for those looking to explore the world of Belgian ales, offering complexity and nuance in every sip.'),
+                                                                    (31, 5, 'The taste is a harmonious blend of sweet malt, Belgian yeast, and a subtle floral note.'),
+                                                                    (31, 3, 'Good to have with a burger and fries.'),
+                                                                    (32, 1, 'Fell short of my expectations.'),
+                                                                    (32, 2, 'Lacks the caramel richness you''d expect from an amber ale.'),
+                                                                    (32, 4, 'Leaves you with a pleasant, malty aftertaste.'),
+                                                                    (33, 4, 'Beach Escape is a perfect beach-day beer.'),
+                                                                    (33, 3, 'It''s light, crisp, and has a hint of citrus.'),
+                                                                    (33, 2, 'Like drinking water.'),
+                                                                    (34, 4, 'Smooth and easy-going beer.'),
+                                                                    (34, 2, 'Don''t get your hopes up for this beer.'),
+                                                                    (34, 2, 'No standout qualities.'),
+                                                                    (35, 5, 'Hawaii feel. The perfect choice for a summer day by the pool.'),
+                                                                    (35, 3, 'Wai Ola is okay, but it doesn''t quite live up to the hype.'),
+                                                                    (35, 1, 'Trash.'),
+                                                                    (36, 3, 'A hearty oatmeal stout that''s good for a cozy evening indoors.'),
+                                                                    (36, 3, 'Just another oatmeal stout.'),
+                                                                    (36, 5, 'If you''re a fan of stouts, this one won''t disappoint.'),
+                                                                    (37, 4, '7 Day IPA is a classic'),
+                                                                    (37, 3, 'If you''ve had one IPA, you''ve pretty much had this one. It''s not bad, but it''s not exceptional either.'),
+                                                                    (37, 2, 'Doesn''t bring anything new to the table.'),
+                                                                    (38, 5, 'This beer made me ponder. Ya’’ll don’’t be pondering like I do.'),
+                                                                    (38, 5, 'This beer made me feel wavy.'),
+                                                                    (38, 5, 'Wavy Grainy is a unique and intriguing beer.'),
+                                                                    (39, 2, 'Satisfied my thirst.'),
+                                                                    (39, 2, 'The finish is relatively short and leaves you with a mild roasted aftertaste.'),
+                                                                    (39, 4, 'Sin City Stout is a rich and indulgent treat for stout aficionados.'),
+                                                                    (40, 3, 'Flute Lupulin is a decent choice for hop enthusiasts but may be overwhelming for those seeking a more balanced beer.'),
+                                                                    (40, 1, 'Overly carbonated and leaves a prickly sensation on the tongue.'),
+                                                                    (40, 3, 'A little bitter.'),
+                                                                    (41, 5, 'Shadow is a mysterious and captivating beer that beckons you into the darkness.'),
+                                                                    (41, 1, 'They forgot to add the flavor.'),
+                                                                    (41, 3, 'Moderate beer.'),
+                                                                    (42, 4, 'Exquisite taste.'),
+                                                                    (42, 4, 'So good I had to call my friends and family and let them know.'),
+                                                                    (42, 2, 'Texture. The name says it all.'),
+                                                                    (43, 1, 'Big Stitch Nick. Big Stitch let down.'),
+                                                                    (43, 2, 'Big Disappointment..'),
+                                                                    (43, 5, 'Big bold flavor. I love it..'),
+                                                                    (44, 4, 'This beer is a must-try!'),
+                                                                    (44, 2, 'The taste is a mishmash of flavors that seem thrown together without much thought.'),
+                                                                    (44, 1, 'This was a fun drink.'),
+                                                                    (45, 4, 'Reliable choice for an all around good beer!'),
+                                                                    (45, 3, 'The taste is a mishmash of flavors that seem thrown together without much thought.'),
+                                                                    (45, 4, 'This was a fun drink.'),
+                                                                    (46, 4, 'Rye Not? is a delightful and unique beer that stands out from the crowd.'),
+                                                                    (46, 1, 'It''s is abrupt and leaves an odd aftertaste.'),
+                                                                    (46, 5, 'Rye Not? is an excellent choice for those seeking a flavorful and well-crafted beer with a rye kick.'),
+                                                                    (47, 4, 'Lush flavor profile.'),
+                                                                    (47, 5, 'Rich blend of exotic spices, tropical fruits, and a subtle earthiness'),
+                                                                    (47, 3, 'Interesting drink for sure.'),
+                                                                    (48, 4, 'Smooth Jazz is the beer equivalent of a mellow, late-night jazz session.'),
+                                                                    (48, 4, 'Exudes sophistication and relaxation.'),
+                                                                    (48, 3, 'This brew is perfect for unwinding after a long day, setting the mood for a tranquil evening.'),
+                                                                    (49, 2, 'Ok for a lite beer.'),
+                                                                    (49, 4, 'This beer manages to deliver a surprisingly robust taste profile while keeping the calories in check.'),
+                                                                    (49, 3, 'Ideal choice for those seeking a lighter yet flavorful beer.'),
+                                                                    (50, 5, 'This modern take on the classic Gose style offers a delightful twist with its bold flavors of sea salt, coriander, and a tangy citrus zing.'),
+                                                                    (50, 1, 'You couldn''t pay me enough to drink this again.'),
+                                                                    (50, 4, 'Delicious beer.'),
+                                                                    (51, 3, 'The taste is alright, with a decent balance of hops and malt, although it doesn''t particularly stand out.'),
+                                                                    (51, 2, 'I really didn''t enjoy Lupulin Enlightenment.'),
+                                                                    (51, 3, 'Okay-ish.'),
+                                                                    (52, 4, 'Beer that lives up to its unique name!'),
+                                                                    (52, 2, 'Superfluous Nomenclature is an okay imperial stout.'),
+                                                                    (52, 2, 'I was really disappointed.'),
+                                                                    (53, 1, 'Beer that lives up to its unique name!'),
+                                                                    (53, 2, 'An okay imperial stout..'),
+                                                                    (53, 2, 'I was really disappointed.'),
+                                                                    (54, 1, 'Eloquation is a masterpiece! This beer is a true work of art, showcasing the brewer''s talent and creativity.'),
+                                                                    (54, 2, 'The taste is a symphony of flavors, with notes of clove, banana, and a subtle hint of citrus.'),
+                                                                    (54, 2, 'I was really disappointed.'),
+                                                                    (55, 5, 'XII APA is a true gem in the world of craft beers.'),
+                                                                    (55, 5, 'It''s a solid choice if you''re looking for a traditional amber ale.'),
+                                                                    (55, 4, 'It''s wonderfully complex yet incredibly drinkable.'),
+                                                                    (56, 3, 'Not impressed.'),
+                                                                    (56, 5, 'Midnight Porter is a real winner!'),
+                                                                    (56, 2, 'I found this particular brew to be quite forgettable.'),
+                                                                    (57, 1, 'Your Mom sucks.'),
+                                                                    (57, 2, 'Your Mom was a disappointment.'),
+                                                                    (57, 5, 'Your Mom is a cheeky and surprisingly good beer! This brown ale pours a deep amber with a sweet, malty aroma that''s inviting. The taste is pleasantly smooth, featuring caramel and toffee notes with a hint of nuttiness. It''s a playful and enjoyable brew that leaves you with a smile on your face.'),
+                                                                    (58, 4, 'Sundown Saison is a delightful and refreshing farmhouse ale.'),
+                                                                    (58, 2, 'I was expecting more from a saison, this one missed the mark for me.'),
+                                                                    (58, 1, 'It had a strange aftertaste that I found off-putting, and the flavors didn''t come together well.'),
+                                                                    (59, 1, 'Orange Street Ale is not good.'),
+                                                                    (59, 2, 'Too sweet.'),
+                                                                    (59, 4, 'A sweet treat.'),
+                                                                    (60, 5, 'A small joy.'),
+                                                                    (60, 3, 'I think the name is fitting for this beer. It''s good but I wish it had more pizazz.'),
+                                                                    (60, 2, 'I would not recommend this beer to anyone in my life. Not even my worst enemy.'),
+                                                                    (61, 5, 'Smooth beer for an oat milk lover!'),
+                                                                    (61, 5, 'This beer tricks my brain into thinking I''m being healthy and I love it.'),
+                                                                    (61, 4, 'This beer is a solid choice for a fine afternoon.'),
+                                                                    (62, 5, 'Kiamensi is, hands down, my favorite beer!'),
+                                                                    (62, 4, 'This beer was recommended to be my a neighbor, and I''m glad I tried it because I was pleasantly surprised.'),
+                                                                    (62, 1, 'This beer made me want to become sober.'),
+                                                                    (63, 1, 'They could use this beer to clean with and maybe it would be worth something.'),
+                                                                    (63, 3, 'Overpriced for the quality.'),
+                                                                    (63, 5, 'Hopworts Express is boss.'),
+                                                                    (64, 4, 'This was recommended to me by a friend - great choice!!'),
+                                                                    (64, 5, 'This beer is so good they had to cut me off last night.'), --nitwit
+                                                                    (64, 3, 'A fine beer for a fine brewery.'),
+                                                                    (65, 5, 'BEST BEER I HAVE EVER HAD'), --blackpowder
+                                                                    (65, 2, 'Mediocre beer. Not my favorite'),
+                                                                    (65, 5, 'I''ve tasted better'),
+                                                                    (66, 2, 'I regret trying this.'), --dubbel dip
+                                                                    (66, 4, 'This beer goes down smooth like water.'),
+                                                                    (66, 5, 'Wish I''d found this beer sooner!'),
+                                                                    (67, 5, 'With this beer, every day is a good day.'), -- no bad days
+                                                                    (67, 1, 'Just stay away from this horrid liquid.'),
+                                                                    (67, 3, 'I don''t hate it, I don''t love it.'),
+                                                                    (68, 2, 'No comment.'), --cosmic cows
+                                                                    (68, 4, 'Sincerely a good option'),
+                                                                    (68, 1, 'Crappy beer.'),
+                                                                    (69, 4, 'Deliciously brewed.'), --glazed and confused
+                                                                    (69, 5, 'You''ll love this if you love sweets.'),
+                                                                    (69, 5, 'A sweet treat!'),
+                                                                    (70, 1, 'No comment.'), --boat day
+                                                                    (70, 3, '*Radio silence*'),
+                                                                    (70, 4, 'This is my go-to when my number one choice isn''t available.'),
+                                                                    (71, 4, 'Splendid beer.'), --solar power
+                                                                    (71, 5, 'I get this beer every single time.'),
+                                                                    (71, 2, 'This drink makes me feel like I am in cosmic bliss'),
+                                                                    (72, 5, 'Love love looove this beer.'), --noir et bleu
+                                                                    (72, 2, 'Too strong for me.'),
+                                                                    (72, 2, 'I wouldn''t mind drinking this beer if it were free.'),
+                                                                    (73, 3, 'I appreciate the time it takes to brew this beer, but it''s just not my cup of tea.'), --on point
+                                                                    (73, 4, 'My only concern is that I wish it had more carbonation.'),
+                                                                    (73, 1, 'This beer is actually not on point.'),
+                                                                    (74, 5, 'Light and crisp. I love it'), --atlantico
+                                                                    (74, 3, 'I think this beer is missing a fruity flavor.'),
+                                                                    (74, 5, 'This beer has quickly become my favorite.'),
+                                                                    (75, 2, 'Too mild.'), --shuck it
+                                                                    (75, 4, 'Balanced and elegant.'),
+                                                                    (75, 1, '*crickets*');
+
+
+
 
 
 
