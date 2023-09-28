@@ -34,7 +34,7 @@ public class BeerController {
         return beerService.addBeer(newBeer);
     }
 
-    @PutMapping(path = "updateBeer/{beer_id}")
+    @PutMapping(path = "/updateBeer/{beer_id}")
     public Beer updateBeer(@RequestBody @Valid Beer updateBeer, @PathVariable int beer_id) {
         updateBeer.setBeer_id(beer_id);
         try {
