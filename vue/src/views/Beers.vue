@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="beer-container">
       <beer-card v-for="beer in beers" :key="beer.beer_id" :beer="beer"></beer-card>
   </div>
 </template>
@@ -31,5 +31,9 @@ export default {
 </script>
 
 <style scoped>
-
+.beer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 </style>

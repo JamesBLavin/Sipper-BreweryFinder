@@ -10,25 +10,42 @@
         <p>{{ brewery.contact_info }}</p>
         <p>{{ brewery.brewery_history }}</p>
         <p>{{ brewery.operating_hours }}</p>
-        <p>{{ brewery.brewery_address }}</p>
-        <p>{{ brewery.brewery_city }}, {{ brewery.brewery_state }} {{ brewery.brewery_zip }}</p>
+        <p><a :href="getGoogleMapsLink(brewery.brewery_name + ' ' + brewery.brewery_address)" target="_blank">{{ brewery.brewery_address }}, {{ brewery.brewery_city }}, {{ brewery.brewery_state }} {{ brewery.brewery_zip }}</a></p>
+      </div>
+      <div v-show="show && brewery.beers && brewery.beers.length > 0">
+        <h4>Associated Beers:</h4>
+        <ul>
+          <li v-for="beer in brewery.beers" :key="beer.beer_id">
+            {{ beer.beer_name }}
+          </li>
+        </ul>
       </div>
     </h3>
   </div>
 </template>
 
 <script>
+import breweryService from '../services/BreweryService';
+
 export default {
     name: "brewery-card",
     props: ["brewery"],
     data() {
       return {
-        show: false
+        show: false,
+        breweryBeers: []
       }
     },
     methods: {
-      toggleShow() {
-        this.show = !this.show;
+    async toggleShow() {
+      this.show = !this.show;
+      if (this.show) {
+        const response = await breweryService.getBeersByBreweryId(this.brewery.brewery_id);
+        this.breweryBeers = response.data.beers;
+      }
+    },
+      getGoogleMapsLink(address) {
+        return `https://www.google.com/maps?q=${(address)}`;
       }
     }
 }
@@ -39,6 +56,19 @@ export default {
   color: brown;
   cursor: pointer;
 }
+
+.full-details a {
+  color: orangered;
+  text-decoration: none;
+}
+
+.full-details a:hover {
+  color: brown;
+}
+
+/* .full-details a:visited {
+  color: purple;
+} */
 
 #previewpics {
   width: 300px;
@@ -54,6 +84,7 @@ export default {
   background: wheat;
 
 }
+
 
 .full-details {
   display: flex;
