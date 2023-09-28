@@ -5,6 +5,7 @@ import com.techelevator.dao.BeerDao;
 import com.techelevator.model.Beer;
 import com.techelevator.model.Brewery;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -49,16 +50,13 @@ public class BeerController {
         }
     }
 
-    @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping(path = "/deleteBeer/{beer_id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteBeer(@PathVariable int beer_id) {
         try {
-            int deletedBeerId = beerService.deleteBeer(beer_id);
-            if (deletedBeerId == -1) {
-                throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Beer not found with ID: " + beer_id);
-            }
+            beerService.deleteBeer(beer_id);
         } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Error deleting beer with ID: " + beer_id, e);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Error deleting beer");
         }
     }
 
