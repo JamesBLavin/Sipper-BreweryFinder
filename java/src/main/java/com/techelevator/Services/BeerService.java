@@ -21,6 +21,9 @@ public class BeerService {
     public Beer getBeer(int beer_id) {
         return beerDao.getBeer(beer_id);
     }
+    public List<Beer> getBeersByBrewery(int brewery_id){
+        return beerDao.getBeersByBrewery(brewery_id);
+    }
 
     public Beer addBeer(Beer newBeer) {
         return beerDao.addBeer(newBeer);
