@@ -38,7 +38,7 @@ public class BreweryController {
     }
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_BREWER')")
-    @PutMapping(path = "updateBrewery/{brewery_id}")
+    @PutMapping(path = "/updateBrewery/{brewery_id}")
     public Brewery updateBrewery(@RequestBody @Valid Brewery updateBrewery, @PathVariable int brewery_id) {
         updateBrewery.setBrewery_id(brewery_id);
         try {
