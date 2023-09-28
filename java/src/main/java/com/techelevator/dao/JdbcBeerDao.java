@@ -15,7 +15,7 @@ import java.util.List;
 
 @Component
 public class JdbcBeerDao implements BeerDao{
-    //TODO Need a get beer by brewery_id method for front end!
+
 
     private final JdbcTemplate jdbcTemplate;
     public JdbcBeerDao(DataSource dataSource){
