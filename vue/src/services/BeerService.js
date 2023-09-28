@@ -8,6 +8,9 @@ export default {
     getBeerByID(id) {
         return axios.get(`/beers/${id}`)
     },
+    getBeersByBreweryId(breweryId) {
+        return axios.get(`/breweries/${breweryId}/beers`);
+    },
     addBeer(beer) {
         return axios.post('addBeer', beer)
     },

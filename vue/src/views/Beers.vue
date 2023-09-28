@@ -1,6 +1,9 @@
 <template>
   <div class="beer-container">
-      <beer-card v-for="beer in beers" :key="beer.beer_id" :beer="beer"></beer-card>
+    <h1>List of All Beers</h1>
+    <div class="beer-list">
+      <beer-card class="card" v-for="beer in beers" :key="beer.beer_id" :beer="beer"></beer-card>
+    </div>
   </div>
 </template>
 
@@ -23,7 +26,6 @@ export default {
   },
   created() {
     beerService.getBeers().then(response => {
-       console.log('Fetched beers:', response.data);
       this.beers = response.data;
     })
   }
@@ -31,9 +33,10 @@ export default {
 </script>
 
 <style scoped>
-.beer-container {
+.beer-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
 </style>

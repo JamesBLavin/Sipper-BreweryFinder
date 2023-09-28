@@ -17,8 +17,8 @@ import java.util.List;
 public class JdbcBreweryDao implements BreweryDao{
 
     private final JdbcTemplate jdbcTemplate;
-    public JdbcBreweryDao(DataSource dataSource){
-        jdbcTemplate = new JdbcTemplate(dataSource);
+    public JdbcBreweryDao(JdbcTemplate jdbcTemplate){
+        this.jdbcTemplate = jdbcTemplate;
     }
     @Override
     public List<Brewery> getAllBreweries() {

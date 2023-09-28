@@ -15,11 +15,11 @@ import java.util.List;
 
 @Component
 public class JdbcBeerDao implements BeerDao{
-    //TODO Need a get beer by brewery_id method for front end!
+
 
     private final JdbcTemplate jdbcTemplate;
-    public JdbcBeerDao(DataSource dataSource){
-        jdbcTemplate = new JdbcTemplate(dataSource);
+    public JdbcBeerDao(JdbcTemplate jdbcTemplate){
+        this.jdbcTemplate = jdbcTemplate;
     }
     @Override
     public List<Beer> getAllBeers() {
