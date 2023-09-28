@@ -55,6 +55,25 @@ public class JdbcBeerDao implements BeerDao{
     }
 
     @Override
+    public List<Beer> getBeersByBrewery(int brewery_id) {
+        String sql = "SELECT beer_id, brewery_id, beer_name, beer_description, abv, ibu, beer_img_url, beer_type FROM beers WHERE brewery_id = ?;";
+        List<Beer> beers = new ArrayList<>();
+
+        try {
+            SqlRowSet queryResults = jdbcTemplate.queryForRowSet(sql, brewery_id);
+            while (queryResults.next()) {
+                Beer currentBeer = mapBeer(queryResults);
+                beers.add(currentBeer);
+            }
+        }catch (Exception e){
+            System.out.println("Error occurred when connecting to the database. Exception is: ");
+            e.printStackTrace();
+        }
+        return beers;
+    }
+
+
+    @Override
     public Beer addBeer(Beer newBeer) {
         String sql = "INSERT INTO beers (brewery_id, beer_name, beer_description, abv, ibu, beer_img_url, beer_type) VALUES (?, ?, ?, ?, ?, ?, ?)";
         try {
