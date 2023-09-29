@@ -34,5 +34,21 @@ export default {
 </script>
 
 <style>
+.beer-details{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #2d7cfa;
+    border-radius: 25px;
+    padding: 40px;
+    margin-left: 20%;
+    margin-right: 20%;
+}
 
+.beer-image img {
+    width: 40%;
+    height: auto;
+    border-radius: 30px;
+}
 </style>
