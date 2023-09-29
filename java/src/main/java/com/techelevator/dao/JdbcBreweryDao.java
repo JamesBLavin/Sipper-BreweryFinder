@@ -47,6 +47,21 @@ public class JdbcBreweryDao implements BreweryDao{
     }
 
     @Override
+    public List<Brewery> getAllBreweriesByName() {
+        return null;
+    }
+
+    @Override
+    public List<Brewery> getAllBreweriesByCity() {
+        return null;
+    }
+
+    @Override
+    public List<Brewery> getAllBreweriesByZip() {
+        return null;
+    }
+
+    @Override
     public Brewery getBrewery(int brewery_id) {
         Brewery brewery = null;
         // sql query to get a brewery by id
