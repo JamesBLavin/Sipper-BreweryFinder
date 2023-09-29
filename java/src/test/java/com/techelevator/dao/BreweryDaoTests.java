@@ -23,13 +23,24 @@ public class BreweryDaoTests extends BaseDaoTests {
     @Before
     public void setup() {
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-        sut = new JdbcBreweryDao(dataSource);
+        sut = new JdbcBreweryDao(jdbcTemplate);
     }
 
     @Test
     public void getAllBreweries_BringsBackAllBreweries() {
         List<Brewery> breweries = sut.getAllBreweries();
-        Assert.assertEquals("Should return all breweries", 19, breweries.size());
+        Assert.assertEquals("Should return all breweries", 3, breweries.size());
+    }
+
+    @Test
+    public void getBrewery_ReturnsCorrectBrewery() {
+        Brewery brewery = sut.getBrewery(1);
+        Assert.assertEquals("Should return brewery for brewery_id 1", BREWERY_1, brewery);
+    }
+
+    @Test
+    public void addBrewery_ReturnsNewBrewery() {
+        
     }
 
     private void assertBreweriesMatch(Brewery expected, Brewery actual) {
@@ -45,8 +56,6 @@ public class BreweryDaoTests extends BaseDaoTests {
         Assert.assertEquals("The brewery zips do not match", expected.getBrewery_zip(), actual.getBrewery_zip());
         Assert.assertEquals("The breweries do not have the same active/inactive status", expected.isActive(), actual.isActive());
     }
-
-
 
 
 }
