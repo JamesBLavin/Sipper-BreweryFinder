@@ -3,6 +3,13 @@ BEGIN TRANSACTION;
 -- Created users to put it in the database
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
+INSERT INTO users (username,password_hash,role) VALUES ('elliefl','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('jameslav','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('mackeral','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('rxndiii','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('mverlander','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+
+
 
 -- Created breweries to put in the database
 INSERT INTO breweries (brewery_name, contact_info, brewery_history, operating_hours, brewery_img_url, brewery_address, brewery_city, brewery_state, brewery_zip, is_active) VALUES ('Autumn Arch', '(302)-294-1126', 'Local brewery located in Delaware. Opened in 2023.', 'Wed: 4-9pm, Thurs: 3-10pm, Fri: 12-10pm, Sat: 12-10pm, Sun: 12-8pm', 'https://s3-media0.fl.yelpcdn.com/bphoto/9UOIKbaZNCsSQ0f0Cwi2LA/348s.jpg', '810 Pencader Drive Suite C', 'Newark', 'DE', 19702, true);
