@@ -1,7 +1,8 @@
 <template>
 <div class="beer-details">
-  <span class="description"><strong>{{ beer.beer_description }}</strong></span>
-  <span class="beer-type"><strong>Beer Type: {{ beer.beer_type }}</strong></span>
+    <h2>{{beer.beer_name}}</h2>
+  <span class="description"><strong>{{ beer.beer_description }}</strong><br></span>
+  <span class="beer-type"><strong>Beer Type: {{ beer.beer_type }}</strong><br></span>
   <span class="alcohol-info"><strong>ABV: {{ beer.abv }}%,  {{ beer.ibu }} IBU</strong></span>
     <div class="beer-image">
         <img :src="beer.beer_img_url" alt="dust" id="beerpics"/>
