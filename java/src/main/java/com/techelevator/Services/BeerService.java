@@ -29,8 +29,8 @@ public class BeerService {
         return beerDao.addBeer(newBeer);
     }
 
-    public Beer updateBeer(Beer updatedBeer) {
-        return beerDao.updateBeer(updatedBeer);
+    public Beer updateBeer(Beer updatedBeer, int id) {
+        return beerDao.updateBeer(updatedBeer, id);
     }
 
     public int deleteBeer(int beer_id) {

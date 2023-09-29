@@ -2,6 +2,7 @@ package com.techelevator.controller;
 
 import com.techelevator.Services.BeerService;
 import com.techelevator.dao.BeerDao;
+import com.techelevator.exception.ResourceNotFoundException;
 import com.techelevator.model.Beer;
 import com.techelevator.model.Brewery;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -26,6 +29,14 @@ public class BeerController {
 
     @GetMapping(path="/beer/{beer_id}")
     public Beer getBeer(@PathVariable int beer_id){
+        Beer returnedBeer = beerService.getBeer(beer_id);
+        if (returnedBeer == null){
+            try {
+                throw new ResourceNotFoundException("This beer id does not exist!");
+            } catch (ResourceNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+        }
         return beerService.getBeer(beer_id);
     }
 
@@ -44,9 +55,9 @@ public class BeerController {
     public Beer updateBeer(@RequestBody @Valid Beer updateBeer, @PathVariable int beer_id) {
         updateBeer.setBeer_id(beer_id);
         try {
-            return beerService.updateBeer(updateBeer);
+            return beerService.updateBeer(updateBeer, beer_id);
         } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Auction not found", e);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Error updating beer", e);
         }
     }
 
@@ -58,6 +69,11 @@ public class BeerController {
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Error deleting beer");
         }
+    }
+
+    @ExceptionHandler
+    public void handleResourceNotFoundException(ResourceNotFoundException e, HttpServletResponse response) throws IOException {
+        response.sendError(HttpServletResponse.SC_NOT_FOUND);
     }
 
 }

@@ -75,7 +75,7 @@ public class JdbcBeerDao implements BeerDao{
 
     @Override
     public Beer addBeer(Beer newBeer) {
-        String sql = "INSERT INTO beers (brewery_id, beer_name, beer_description, abv, ibu, beer_img_url, beer_type) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO beers (brewery_id, beer_name, beer_description, abv, ibu, beer_img_url, beer_type) VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING beer_id";
         try {
             int newBeerId = jdbcTemplate.queryForObject(sql, int.class,
                     newBeer.getBrewery_id(), newBeer.getBeer_name(), newBeer.getBeer_description(), newBeer.getAbv(), newBeer.getIbu(), newBeer.getBeer_img_url(), newBeer.getBeer_type());
@@ -90,18 +90,13 @@ public class JdbcBeerDao implements BeerDao{
     }
 
     @Override
-    public Beer updateBeer(Beer updatedBeer) {
-        Beer beer = null;
+    public Beer updateBeer(Beer updatedBeer, int id) {
         String sql = "UPDATE beers SET brewery_id = ?, beer_name = ?, beer_description = ?, abv = ?, ibu = ?, beer_img_url = ?, beer_type = ? WHERE beer_id = ?";
-        try {
-            int numberOfRows = jdbcTemplate.update(sql, beer.getBrewery_id(), beer.getBeer_name(), beer.getBeer_description(), beer.getAbv(), beer.getIbu(), beer.getBeer_img_url(), beer.getBeer_type());
 
-            if (numberOfRows == 0) {
-                throw new DataAccessException("Zero rows affected, expected at least one") {
-                };
-            } else {
-                updatedBeer = getBeer(beer.getBeer_id());
-            }
+        updatedBeer.setBeer_id(id);
+        try {
+            jdbcTemplate.update(sql, updatedBeer.getBrewery_id(), updatedBeer.getBeer_name(), updatedBeer.getBeer_description(), updatedBeer.getAbv(), updatedBeer.getIbu(), updatedBeer.getBeer_img_url(), updatedBeer.getBeer_type(), updatedBeer.getBeer_id());
+
         } catch (CannotGetJdbcConnectionException e) {
             throw new DataAccessException("Unable to connect to server or database", e) {
             };
