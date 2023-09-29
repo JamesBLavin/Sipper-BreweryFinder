@@ -9,7 +9,7 @@
             class="form-control"
             id="exampleFormControlInput1"
             placeholder="Search by city, state, or zip"
-            v-model="filteredText"
+            v-model="searchQuery"
           />
         </div>
         <div>
@@ -23,9 +23,9 @@
           >{{ buttonText }}
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a @click.prevent="updateButtonText('City')" class="dropdown-item" href="#">City</a>
-            <a @click.prevent="updateButtonText('State')" class="dropdown-item" href="#">State</a>
-            <a @click.prevent="updateButtonText('Zip Code')" class="dropdown-item" href="#">Zip Code</a>
+            <a @click.prevent="updateButton('City')" class="dropdown-item" href="#">City</a>
+            <a @click.prevent="updateButton('Brewery Name')" class="dropdown-item" href="#">Brewery Name</a>
+            <a @click.prevent="updateButton('Zip Code')" class="dropdown-item" href="#">Zip Code</a>
           </div>
         </div>
         <button id="search-btn">search</button>
@@ -47,14 +47,9 @@ export default {
     return {
       showBr: false,
       buttonText: '',
-      filter: {
-        brewery_name: '',
-        brewery_city: '',
-        brewery_zip: '' 
-        
+      searchQuery: '',
       }
-    }
-  },
+    },
   computed: {
     buttonTxt() {
       return this.buttonText;
@@ -65,8 +60,16 @@ export default {
       this.showBr = !this.showBr;
       return this.showBr;
     },
-    updateButtonText( btnText ) {
+    updateButton( btnText ) {
+      let searchBy = '';
       this.buttonText = btnText;
+      this.buttonText == 'City' ? searchBy = 'brewery_city' : 
+      this.buttonText == 'Brewery Name' ? searchBy = "brewery_name" : 
+      this.buttonText == 'Zip Code' ? searchBy = "brewery_zip" : searchBy = '';
+      this.$store.commit('CHANGE_FILTER', searchBy);
+    },
+    commitTextToStore( searchQuery ) {
+      this.$store.coomit('CHANGE_QUERY', searchQuery);
     }
   }
 };

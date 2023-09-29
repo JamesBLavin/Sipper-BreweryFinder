@@ -47,18 +47,72 @@ public class JdbcBreweryDao implements BreweryDao{
     }
 
     @Override
-    public List<Brewery> getAllBreweriesByName() {
-        return null;
+    public List<Brewery> getAllBreweriesByName(String query) {
+        //sql query to select breweries by brewery name
+        String sql = "SELECT brewery_id, brewery_name, contact_info, brewery_history, operating_hours, brewery_img_url, " +
+                "brewery_address, brewery_city, brewery_state, brewery_zip, is_active FROM breweries WHERE brewery_name ILIKE ? ORDER BY brewery_name;";
+        //where breweries get stored
+        List<Brewery> results = new ArrayList<>();
+        try{
+            //send query
+            SqlRowSet queryResults = jdbcTemplate.queryForRowSet(sql, query);
+            while(queryResults.next()){
+                //call helper method to map results
+                Brewery currentBrewery = mapBrewery(queryResults);
+                //add brewery to list
+                results.add(currentBrewery);
+            }
+        }catch (Exception e){
+            System.out.println("Error occurred when connecting to the database. Exception is: ");
+            e.printStackTrace();
+        }
+        return results;
     }
 
     @Override
-    public List<Brewery> getAllBreweriesByCity() {
-        return null;
+    public List<Brewery> getAllBreweriesByCity(String query) {
+        //sql query to select breweries bt city name
+        String sql = "SELECT brewery_id, brewery_name, contact_info, brewery_history, operating_hours, brewery_img_url, " +
+                "brewery_address, brewery_city, brewery_state, brewery_zip, is_active FROM breweries WHERE brewery_city ILIKE ? ORDER BY brewery_name;";
+        //where breweries get stored
+        List<Brewery> results = new ArrayList<>();
+        try{
+            //send query
+            SqlRowSet queryResults = jdbcTemplate.queryForRowSet(sql, query);
+            while(queryResults.next()){
+                //call helper method to map results
+                Brewery currentBrewery = mapBrewery(queryResults);
+                //add brewery to list
+                results.add(currentBrewery);
+            }
+        }catch (Exception e){
+            System.out.println("Error occurred when connecting to the database. Exception is: ");
+            e.printStackTrace();
+        }
+        return results;
     }
 
     @Override
-    public List<Brewery> getAllBreweriesByZip() {
-        return null;
+    public List<Brewery> getAllBreweriesByZip(int query) {
+        //sql query to select breweries by zip code
+        String sql = "SELECT brewery_id, brewery_name, contact_info, brewery_history, operating_hours, brewery_img_url, " +
+                "brewery_address, brewery_city, brewery_state, brewery_zip, is_active FROM breweries WHERE brewery_zip = ? ORDER BY brewery_name;";
+        //where breweries get stored
+        List<Brewery> results = new ArrayList<>();
+        try{
+            //send query
+            SqlRowSet queryResults = jdbcTemplate.queryForRowSet(sql, query);
+            while(queryResults.next()){
+                //call helper method to map results
+                Brewery currentBrewery = mapBrewery(queryResults);
+                //add brewery to list
+                results.add(currentBrewery);
+            }
+        }catch (Exception e){
+            System.out.println("Error occurred when connecting to the database. Exception is: ");
+            e.printStackTrace();
+        }
+        return results;
     }
 
     @Override

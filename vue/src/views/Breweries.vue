@@ -1,6 +1,6 @@
 <template>
 <div>
-  <brewery-card :brewery="brewery" v-for="brewery in filteredBreweries" :key="brewery.brewery_id"></brewery-card>
+  <brewery-card :brewery="brewery" v-for="brewery in breweries" :key="brewery.brewery_id"></brewery-card>
 </div>
 </template>
 
@@ -14,22 +14,21 @@ export default {
   },
   data() {
     return {
-      filter: '',
       breweries: []
     }
   },
   computed: {
     filteredBreweries() {
       let sortedBreweries = this.breweries;
-      if (this.filter.brewery_name != '') {
+      if (this.$store.state.filter == 'brewery_name') {
       sortedBreweries = sortedBreweries.filter((brwry) => {
         return brwry.brewery_name.toLowerCase().includes(this.filter.brewery_name)
       });
-      } else if (this.filter.brewery_city != '') {
+      } else if (this.$store.state.filter == 'brewery_city') {
       sortedBreweries = sortedBreweries.filter((brwry) => {
         return brwry.brewery_city.toLowerCase().includes(this.filter.brewery_city)
       });
-      } else if (this.filter.brewery_zip != ''){
+      } else if (this.$store.state.filter == 'brewery_zip'){
       sortedBreweries = sortedBreweries.filter((brwry) => {
         return brwry.brewery_zip == this.filter.brewery_zip
       });

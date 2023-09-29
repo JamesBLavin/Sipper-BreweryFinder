@@ -7,9 +7,9 @@ import java.util.List;
 public interface BreweryDao {
 
     public List<Brewery> getAllBreweries();
-    public List<Brewery> getAllBreweriesByName();
-    public List<Brewery> getAllBreweriesByCity();
-    public List<Brewery> getAllBreweriesByZip();
+    public List<Brewery> getAllBreweriesByName(String query);
+    public List<Brewery> getAllBreweriesByCity(String query);
+    public List<Brewery> getAllBreweriesByZip(int query);
     public Brewery getBrewery(int brewery_id);
 
     public Brewery addBrewery(Brewery newBrewery);

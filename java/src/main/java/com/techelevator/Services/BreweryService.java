@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 @Service
 public class BreweryService {
@@ -17,9 +18,22 @@ public class BreweryService {
         this.breweryDao = breweryDao;
     }
 
-    public List<Brewery> getAllBreweries() {
-        return breweryDao.getAllBreweries();
+    public List<Brewery> getAllBreweries(String query, String searchType) {
+        List<Brewery> breweries = new ArrayList<>();
+        if (query.equalsIgnoreCase("")) {
+            breweries = breweryDao.getAllBreweries();
+        } else if (searchType.equalsIgnoreCase("brewery_name")) {
+            query = "%" + query + "%";
+            breweries = breweryDao.getAllBreweriesByName(query);
+        } else if (searchType.equalsIgnoreCase("brewery_city")) {
+            query = "%" + query + "%";
+            breweries = breweryDao.getAllBreweriesByCity(query);
+        } else if (searchType.equalsIgnoreCase("brewery_zip")) {
+            breweries = breweryDao.getAllBreweriesByZip(Integer.parseInt(query));
+        }
+        return breweries;
     }
+
     public Brewery getBrewery(int brewery_id) {
         return breweryDao.getBrewery(brewery_id);
     }

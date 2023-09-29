@@ -21,8 +21,9 @@ public class BreweryController {
     private BreweryService breweryService;
 
     @GetMapping(path="/allBreweries")
-    public List<Brewery> getAllBreweries(){
-        return breweryService.getAllBreweries();
+    public List<Brewery> getAllBreweries(@RequestParam(defaultValue = "") String query,
+                                         @RequestParam(defaultValue = "") String searchType){
+        return breweryService.getAllBreweries(query, searchType);
     }
 
     @GetMapping(path="/brewery/{brewery_id}")
