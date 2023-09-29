@@ -1,8 +1,12 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Beer;
+import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
+
+import java.util.List;
 
 
 public class JdbcBeerDaoTests extends BaseDaoTests {
@@ -15,7 +19,22 @@ public class JdbcBeerDaoTests extends BaseDaoTests {
 
     @Before
     public void setUp() {
+
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         sut = new JdbcBeerDao(jdbcTemplate);
     }
+
+    @Test
+    public void getAllBeers() {
+        List<Beer> beers = sut.getAllBeers();
+        Assert.assertEquals("This should return all beers", 3, beers.size());
+    }
+
+    @Test
+    public void getBeerById() {
+        Beer beer1 = sut.getBeer(1);
+        Assert.assertEquals(1, BEER_1.getBeer_id());
+    }
+
+
 }
