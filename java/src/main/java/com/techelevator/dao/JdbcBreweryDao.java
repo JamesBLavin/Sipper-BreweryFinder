@@ -117,6 +117,7 @@ public class JdbcBreweryDao implements BreweryDao{
         return updatedBrewery;
     }
 
+
     private Brewery mapBrewery(SqlRowSet row){
         Brewery brewery = new Brewery();
         int brewery_id = row.getInt("brewery_id");
