@@ -48,7 +48,7 @@ public class ReviewController {
     public Review updateReview(@RequestBody @Valid Review updateReview, @PathVariable int review_id) {
         updateReview.setReview_id(review_id);
         try {
-            return reviewService.updateReview(updateReview);
+            return reviewService.updateReview(updateReview, review_id);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Auction not found", e);
         }

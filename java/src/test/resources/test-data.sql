@@ -12,4 +12,8 @@ INSERT INTO beers (brewery_id, beer_name, beer_description, abv, ibu, beer_img_u
 INSERT INTO beers (brewery_id, beer_name, beer_description, abv, ibu, beer_img_url, beer_type) VALUES (1, 'beer2', 'This is another beer', 2.2, 20, 'http://beer2.com', 'Stout');
 INSERT INTO beers (brewery_id, beer_name, beer_description, abv, ibu, beer_img_url, beer_type) VALUES (2, 'beer3', 'This is even more beer', 3.3, 30, 'http://beer3.com', 'Lager');
 
+INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (1, 5, 'Great beer.');
+INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (2, 5, 'Good beer.');
+INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (3, 5, 'Ok beer.');
+
 COMMIT TRANSACTION;

@@ -24,8 +24,8 @@ public class ReviewService {
     public Review addReview(Review newReview) {
         return reviewDao.addReview(newReview);
     }
-    public Review updateReview(Review updatedReview) {
-        return reviewDao.updateReview(updatedReview);
+    public Review updateReview(Review updatedReview, int id) {
+        return reviewDao.updateReview(updatedReview, id);
     }
     public int deleteReview(int review_id) {
         return reviewDao.deleteReview(review_id);

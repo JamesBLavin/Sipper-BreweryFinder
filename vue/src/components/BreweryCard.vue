@@ -11,21 +11,31 @@
         <p>{{ brewery.brewery_history }}</p>
         <p>{{ brewery.operating_hours }}</p>
         <p><a :href="getGoogleMapsLink(brewery.brewery_name + ' ' + brewery.brewery_address)" target="_blank">{{ brewery.brewery_address }}, {{ brewery.brewery_city }}, {{ brewery.brewery_state }} {{ brewery.brewery_zip }}</a></p>
-      </div>
-      <div v-show="show && brewery.beers && brewery.beers.length > 0">
-        <h4>Associated Beers:</h4>
-        <ul>
-          <li v-for="beer in brewery.beers" :key="beer.beer_id">
-            {{ beer.beer_name }}
-          </li>
-        </ul>
+        <h2>Flagship Beers</h2>
+       <div v-if="breweryBeers.length >= 4">
+         <ul>
+           <router-link class="detailsLink" :to="{ name: 'beer-details', params: { id: breweryBeers[0].beer_id } }">
+             <li>{{breweryBeers[0].beer_name}}</li>
+           </router-link> 
+           <router-link class="detailsLink" :to="{ name: 'beer-details', params: { id: breweryBeers[1].beer_id } }">
+             <li>{{breweryBeers[1].beer_name}}</li>
+            </router-link> 
+           <router-link class="detailsLink" :to="{ name: 'beer-details', params: { id: breweryBeers[2].beer_id } }">
+             <li>{{breweryBeers[2].beer_name}}</li>
+            </router-link> 
+           <router-link class="detailsLink" :to="{ name: 'beer-details', params: { id: breweryBeers[3].beer_id } }">
+             <li>{{breweryBeers[3].beer_name}}</li>
+            </router-link> 
+         </ul>
+        </div>
+         <p v-else>No beers to display</p>
       </div>
     </h3>
   </div>
 </template>
 
 <script>
-import breweryService from '../services/BreweryService';
+import beerService from '../services/BeerService';
 
 export default {
     name: "brewery-card",
@@ -37,17 +47,18 @@ export default {
       }
     },
     methods: {
-    async toggleShow() {
+   toggleShow() {
       this.show = !this.show;
-      if (this.show) {
-        const response = await breweryService.getBeersByBreweryId(this.brewery.brewery_id);
-        this.breweryBeers = response.data.beers;
-      }
     },
       getGoogleMapsLink(address) {
         return `https://www.google.com/maps?q=${(address)}`;
       }
-    }
+    },
+    created() {
+      beerService.getBeersByBreweryId(this.brewery.brewery_id).then(response => {
+             this.breweryBeers = response.data;
+    });
+  }
 }
 </script>
 
@@ -65,10 +76,6 @@ export default {
 .full-details a:hover {
   color: cyan;
 }
-
-/* .full-details a:visited {
-  color: purple;
-} */
 
 #previewpics {
   width: 300px;
@@ -99,6 +106,10 @@ export default {
 .right-side {
   flex: 2;
   text-align: left;
+}
+
+ul {
+  columns: 2;
 }
 
 h2 {
