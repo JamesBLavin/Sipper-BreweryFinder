@@ -1,21 +1,17 @@
 package com.techelevator.dao;
 
-import com.techelevator.Services.BreweryService;
 import com.techelevator.model.Brewery;
-import com.techelevator.model.User;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import javax.sql.DataSource;
 import java.util.List;
 
 import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class BreweryDaoTests extends BaseDaoTests {
+public class JdbcBreweryDaoTests extends BaseDaoTests {
 
     private static final Brewery BREWERY_1 = new Brewery(1, "Cool name", "(302)444-7788", "Fun and vibey place", "Mon-Fri 1-10pm", "image.test.com", "123 Fun Road", "Middletwon", "OR", 12345, true, "user1");
 
@@ -63,7 +59,6 @@ public class BreweryDaoTests extends BaseDaoTests {
     @Test
     public void updateBrewery_ReturnsUpdatedBrewery() {
         Brewery testBrewery = new Brewery("Updated Name", "(123)456-7890", "New brewery description", "Mon-Fri 9am-5pm", "newbrewery.com", "456 Elm St", "Springfield", "IL", 12345, true, "user1");
-
         Brewery updatedBrewery = sut.updateBrewery(testBrewery, 1);
         Assert.assertEquals("Updated Name", updatedBrewery.getBrewery_name());
     }
