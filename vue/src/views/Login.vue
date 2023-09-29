@@ -17,7 +17,7 @@
       </div>
       <button type="submit">sign in</button>
       <p>
-      <router-link :to="{ name: 'register' }">Need an account? Sign up.</router-link></p>
+      <router-link :to="{ name: 'register' }" id="reg-link">Need an account? Sign up.</router-link></p>
     </form>
   </div>
 </template>
@@ -68,8 +68,8 @@ label {
   margin-right: 0.5rem;
 }
 button {
-  background:tan;
-  border: solid 5px tan;
+  background:white;
+  border: solid 5px white;
   border-radius: 10px;
 }
 
@@ -84,10 +84,15 @@ button:hover {
 }
 
 div {
-  background: wheat;
+  background: #2d7cfa;
   max-width: 33%;
   margin-left: 33%;
   align-content: center;
   border-radius: 25px;
+  color: white;
+}
+
+#reg-link {
+  color: white;
 }
 </style>

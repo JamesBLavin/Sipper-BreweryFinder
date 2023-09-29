@@ -18,6 +18,8 @@ import com.techelevator.dao.UserDao;
 import com.techelevator.security.jwt.JWTFilter;
 import com.techelevator.security.jwt.TokenProvider;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin
 public class AuthenticationController {
@@ -58,6 +60,12 @@ public class AuthenticationController {
         } catch (UsernameNotFoundException e) {
             userDao.create(newUser.getUsername().toLowerCase(),newUser.getPassword(), newUser.getRole());
         }
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping(path = "/users")
+    public List<User> getAllUsers() {
+        return userDao.findAll();
     }
 
 }

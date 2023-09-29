@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1 id="welcome">welcome to sipper, the coolest spot to keep up with the breweries you love and maybe find a new fav</h1>
+    <h1 id="welcome">welcome to sipper, the coolest spot to keep up with the breweries you love and find your new fav</h1>
     <div class="search-container">
       <form class="search-bar" @submit.prevent="toggleShowBr">
         <div class="mb-3">
@@ -105,27 +105,27 @@ h1 {
 }
 
 .btn-secondary {
-    color: orangered;
+    color: #2d7cfa;
     background-color: white;
-    border-color: orangered;
+    border-color: #2d7cfa;
 }
 
 .mb-3 {
   margin: 10vw 1vw 10vw 10vw;
   width: 50vw;
-  background: orangered;
-  border: orangered 20px solid;
+  background: #2d7cfa;
+  border: #2d7cfa 20px solid;
   border-radius: 25px;
 }
 
 #dropdownMenuButton {
-  border: orangered 20px solid;
+  border: #2d7cfa 20px solid;
   border-radius: 25px;
   margin-bottom: 25%;
 }
 
 #search-btn {
-  border: orangered 20px solid;
+  border: #2d7cfa 20px solid;
   border-radius: 25px;
   margin-bottom: 1%;
   margin-left: 1%;
@@ -138,8 +138,8 @@ h1 {
 #welcome {
   position: absolute;
   left: 250px;
-  background: orangered;
-  padding: 10px;
+  background: #2d7cfa;
+  padding: 10px 50px 10px 50px;
   border-radius: 25px;
   color: white;
 }

@@ -19,7 +19,7 @@
         <input type="password" id="confirmPassword" v-model="user.confirmPassword" required  class="inputboxes"/>
       </div>
       <button type="submit">create account</button>
-      <p><router-link :to="{ name: 'login' }">Already have an account? Log in.</router-link></p>
+      <p><router-link :to="{ name: 'login' }" id="log-link" >Already have an account? Log in.</router-link></p>
     </form>
   </div>
 </template>
@@ -83,8 +83,8 @@ label {
 }
 
 button {
-  background:tan;
-  border: solid 5px tan;
+  background: white;
+  border: solid 5px white;
   border-radius: 10px;
 }
 
@@ -98,10 +98,15 @@ button:hover {
 }
 
 div {
-  background: wheat;
+  background: #2d7cfa;
   max-width: 33%;
   margin-left: 33%;
   align-content: center;
   border-radius: 25px;
+  color: white;
+}
+
+#log-link {
+  color: white;
 }
 </style>

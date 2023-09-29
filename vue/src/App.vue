@@ -88,7 +88,7 @@ font-family: 'Roboto Flex', sans-serif;
 #logo-name {
   grid-area: namelogo;
   display: flex;
-  background: orangered;
+  background: #2d7cfa;
   border-radius: 10px;
   padding: 10px;
   margin: 15px;
@@ -110,7 +110,7 @@ font-family: 'Roboto Flex', sans-serif;
 }
 
 .nav-links:hover {
-  color: brown;
+  color: lightgray;
   cursor: pointer;
 }
 
@@ -123,7 +123,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-links {
-  background: orangered;
+  background:#2d7cfa;
   border-radius: 10px;
   padding: 5px 20px 5px 20px;
   height: 30%;

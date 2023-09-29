@@ -14,11 +14,7 @@ export default {
   },
   data() {
     return {
-      filter: {
-        brewery_name: '',
-        brewery_city: '',
-        brewery_zip: ''
-      },
+      filter: '',
       breweries: []
     }
   },

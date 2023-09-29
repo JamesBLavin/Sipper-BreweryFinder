@@ -53,17 +53,17 @@ export default {
 
 <style scoped>
 .brewery-card:hover {
-  color: brown;
+  color: lightgray;
   cursor: pointer;
 }
 
 .full-details a {
-  color: orangered;
+  color: blue;
   text-decoration: none;
 }
 
 .full-details a:hover {
-  color: brown;
+  color: cyan;
 }
 
 /* .full-details a:visited {

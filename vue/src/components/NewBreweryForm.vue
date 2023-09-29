@@ -6,7 +6,9 @@
       <input type="text" placeholder="brewery name" required class="inputboxes" v-model="brewery.brewery_name">
       </div>
       <div class="form-input-group">
-      <input type="text" placeholder="brewer username" required class="inputboxes" v-model="brewery.brewer">
+      <select placeholder="brewer username" required class="inputboxes" v-model="brewery.brewer">
+        <option v-for="user in users" :key="user.user_id" value="user">{{ user.username }}</option>
+      </select>
       </div>
       <div class="form-input-group">
       <input type="text" placeholder="phone number or email" class="inputboxes" v-model="brewery.contact_info">
@@ -39,10 +41,12 @@
 
 <script>
 import breweryService from '../services/BreweryService';
+import authService from '../services/AuthService';
 export default {
     data() {
         return {
-            brewery: {}
+            brewery: {},
+            users: []
         }
     }, methods: {
         addBrewery() {
@@ -64,10 +68,16 @@ export default {
                 }
             }).catch(err => {
                 console.log(err);
-            })
+            });
+        
+        }
+    },
+    created() {
+          authService.getUsers().then(rspns => {
+            this.users = rspns.data;
+          });
         }
     }
-}
 </script>
 
 <style scoped>
@@ -78,9 +88,10 @@ export default {
 
 div {
   padding-left: 2rem;
-  background: wheat;
+  background: #2d7cfa;
   border-radius: 25px;
   display: flex;
+  color: white;
 }
 
 button:hover {
@@ -95,8 +106,8 @@ button:hover {
 }
 
 button {
-  background:tan;
-  border: solid 5px tan;
+  background: white;
+  border: solid 5px white;
   border-radius: 10px;
   margin-bottom: 10px;
 }
