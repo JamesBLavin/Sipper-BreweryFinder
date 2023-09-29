@@ -31,7 +31,7 @@ public class JdbcReviewDaoTests extends BaseDaoTests {
     @Test
     public void getReview_ReturnsCorrectReview() {
         Review review1 = sut.getReview(1);
-        Assert.assertEquals("Should return brewery for brewery_id 1", REVIEW_1.getReview_id(), review1.getReview_id());
+        Assert.assertEquals("Should return brewery for review_id 1", REVIEW_1.getReview_id(), review1.getReview_id());
     }
 
 

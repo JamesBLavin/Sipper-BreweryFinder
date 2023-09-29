@@ -7,15 +7,19 @@
     <div class="beer-image">
         <img :src="beer.beer_img_url" alt="dust" id="beerpics"/>
     </div>
+
+    <review-card :review="review" v-for="review in reviews" :key="review.review_id" />
 </div>
 
 </template>
 
 <script>
 import beerService from '../services/BeerService';
-
+import ReviewCard from './ReviewCard.vue';
 export default {
     name: "beer-details",
+    components:
+    {ReviewCard},
     data(){
         return {
             beer: {}
