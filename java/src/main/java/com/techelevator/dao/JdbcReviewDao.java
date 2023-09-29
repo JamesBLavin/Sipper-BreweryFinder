@@ -16,8 +16,8 @@ import java.util.List;
 public class JdbcReviewDao implements ReviewDao {
 
     private final JdbcTemplate jdbcTemplate;
-    public JdbcReviewDao(DataSource dataSource){
-        jdbcTemplate = new JdbcTemplate(dataSource);
+    public JdbcReviewDao(JdbcTemplate jdbcTemplate){
+        this.jdbcTemplate = jdbcTemplate;
     }
 
     @Override
@@ -72,19 +72,12 @@ public class JdbcReviewDao implements ReviewDao {
     }
 
     @Override
-    public Review updateReview(Review updatedReview) {
-        Review review = null;
+    public Review updateReview(Review updatedReview, int id) {
         String sql = "UPDATE reviews SET beer_id = ?, star_rating = ?, review_comments = ? WHERE review_id = ?;";
-
+        updatedReview.setReview_id(id);
         try {
-            int numberOfRows = jdbcTemplate.update(sql, review.getBeer_id(), review.getStar_rating(), review.getReview_comments());
+           jdbcTemplate.update(sql, updatedReview.getBeer_id(), updatedReview.getStar_rating(), updatedReview.getReview_comments(), updatedReview.getReview_id());
 
-            if (numberOfRows == 0){
-                throw new DataAccessException("Zero rows affected, expected at least one") {
-                };
-            } else {
-                updatedReview = getReview(review.getReview_id());
-            }
         }catch (CannotGetJdbcConnectionException e) {
             throw new DataAccessException("Unable to connect to server or database", e) {
             };

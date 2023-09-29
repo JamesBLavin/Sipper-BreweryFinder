@@ -107,22 +107,16 @@ public class JdbcBreweryDao implements BreweryDao{
 
 
     @Override
-    public Brewery updateBrewery(Brewery updatedBrewery) {
-        Brewery brewery = null;
-        String sql = "UPDATE breweries SET brewery_name = ?, contact_info = ?, brewery_history = ?, operating_hours = ?," +
-                " brewery_img_url = ?, brewery_address = ?, brewery_city = ?, brewery_state = ?, brewery_zip = ? is_active = ? " +
-                "WHERE brewery_id = ?;";
-        try {
-            int numberOfRows = jdbcTemplate.update(sql, brewery.getBrewery_name(), brewery.getContact_info(), brewery.getBrewery_history(),
-                    brewery.getOperating_hours(), brewery.getBrewery_img_url(), brewery.getBrewery_address(), brewery.getBrewery_city(),
-                    brewery.getBrewery_state(), brewery.getBrewery_zip(), brewery.isActive());
+    public Brewery updateBrewery(Brewery updatedBrewery, int id) {
 
-            if (numberOfRows == 0) {
-                throw new DataAccessException("Zero rows affected, expected at least one") {
-                };
-            } else {
-                updatedBrewery = getBrewery(brewery.getBrewery_id());
-            }
+        String sql = "UPDATE breweries SET brewery_name = ?, contact_info = ?, brewery_history = ?, operating_hours = ?," +
+                " brewery_img_url = ?, brewery_address = ?, brewery_city = ?, brewery_state = ?, brewery_zip = ?, is_active = ?, " +
+                "brewer = ? WHERE brewery_id = ?;";
+        updatedBrewery.setBrewery_id(id);
+        try {
+            jdbcTemplate.update(sql, updatedBrewery.getBrewery_name(), updatedBrewery.getContact_info(), updatedBrewery.getBrewery_history(),
+                    updatedBrewery.getOperating_hours(), updatedBrewery.getBrewery_img_url(), updatedBrewery.getBrewery_address(), updatedBrewery.getBrewery_city(),
+                    updatedBrewery.getBrewery_state(), updatedBrewery.getBrewery_zip(), updatedBrewery.isActive(), updatedBrewery.getBrewer(), updatedBrewery.getBrewery_id());
         } catch (CannotGetJdbcConnectionException e) {
             throw new DataAccessException("Unable to connect to server or database", e) {
             };

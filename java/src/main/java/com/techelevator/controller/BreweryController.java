@@ -42,7 +42,7 @@ public class BreweryController {
     public Brewery updateBrewery(@RequestBody @Valid Brewery updateBrewery, @PathVariable int brewery_id) {
         updateBrewery.setBrewery_id(brewery_id);
         try {
-            return breweryService.updateBrewery(updateBrewery);
+            return breweryService.updateBrewery(updateBrewery, brewery_id);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Auction not found", e);
         }

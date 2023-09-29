@@ -29,7 +29,7 @@ public class BreweryService {
         return breweryDao.addBrewery(newBrewery);
     }
 
-    public Brewery updateBrewery(Brewery updatedBrewery){
-        return breweryDao.updateBrewery(updatedBrewery);
+    public Brewery updateBrewery(Brewery updatedBrewery, int id){
+        return breweryDao.updateBrewery(updatedBrewery, id);
     }
 }
