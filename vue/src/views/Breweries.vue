@@ -17,28 +17,9 @@ export default {
       breweries: []
     }
   },
-  computed: {
-    filteredBreweries() {
-      let sortedBreweries = this.breweries;
-      if (this.$store.state.filter == 'brewery_name') {
-      sortedBreweries = sortedBreweries.filter((brwry) => {
-        return brwry.brewery_name.toLowerCase().includes(this.filter.brewery_name)
-      });
-      } else if (this.$store.state.filter == 'brewery_city') {
-      sortedBreweries = sortedBreweries.filter((brwry) => {
-        return brwry.brewery_city.toLowerCase().includes(this.filter.brewery_city)
-      });
-      } else if (this.$store.state.filter == 'brewery_zip'){
-      sortedBreweries = sortedBreweries.filter((brwry) => {
-        return brwry.brewery_zip == this.filter.brewery_zip
-      });
-      } else{sortedBreweries = this.breweries}
-    return sortedBreweries;
-  }
-  },
   methods: {},
   created() {
-    breweryService.getBreweries().then(rspns => {
+    breweryService.getBreweries(this.$store.state.query, this.$store.state.filter).then(rspns => {
       this.breweries = rspns.data;
     });
   }
@@ -49,3 +30,21 @@ export default {
 
 
 </style>
+
+  //   filteredBreweries() {
+  //     let sortedBreweries = this.breweries;
+  //     if (this.$store.state.filter == 'brewery_name') {
+  //     sortedBreweries = sortedBreweries.filter((brwry) => {
+  //       return brwry.brewery_name.toLowerCase().includes(this.filter.brewery_name)
+  //     });
+  //     } else if (this.$store.state.filter == 'brewery_city') {
+  //     sortedBreweries = sortedBreweries.filter((brwry) => {
+  //       return brwry.brewery_city.toLowerCase().includes(this.filter.brewery_city)
+  //     });
+  //     } else if (this.$store.state.filter == 'brewery_zip'){
+  //     sortedBreweries = sortedBreweries.filter((brwry) => {
+  //       return brwry.brewery_zip == this.filter.brewery_zip
+  //     });
+  //     } else{sortedBreweries = this.breweries}
+  //   return sortedBreweries;
+  // }

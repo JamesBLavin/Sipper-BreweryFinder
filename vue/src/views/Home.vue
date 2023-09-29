@@ -10,6 +10,7 @@
             id="exampleFormControlInput1"
             placeholder="Search by city, state, or zip"
             v-model="searchQuery"
+            @keyup="commitTextToStore(searchQuery)"
           />
         </div>
         <div>
@@ -28,26 +29,29 @@
             <a @click.prevent="updateButton('Zip Code')" class="dropdown-item" href="#">Zip Code</a>
           </div>
         </div>
-        <button id="search-btn">search</button>
+        <button id="search-btn" @click="displayBreweries()">search</button>
       </form>
     </div>
     <h1 v-show="$store.state.token != ''" id="login-greeting">
       thanks for drinking with us, {{ this.$store.state.user.username }}!
     </h1>
-    <breweries :filter="filter" v-show="this.showBr" id="listing"/>
+    <!-- <breweries :filter="filter" v-show="this.showBr" id="listing"/> -->
+    <brewery-card :brewery="brewery" v-for="brewery in breweries" :key="brewery.brewery_id"/>
   </div>
 </template>
 
 <script>
-import Breweries from "./Breweries.vue";
+import breweryService from "../services/BreweryService"
+import BreweryCard from '../components/BreweryCard.vue';
 export default {
-  components: { Breweries },
+  components: {  BreweryCard },
   name: "home",
   data() {
     return {
       showBr: false,
       buttonText: '',
       searchQuery: '',
+      breweries: []
       }
     },
   computed: {
@@ -69,7 +73,12 @@ export default {
       this.$store.commit('CHANGE_FILTER', searchBy);
     },
     commitTextToStore( searchQuery ) {
-      this.$store.coomit('CHANGE_QUERY', searchQuery);
+      this.$store.commit('CHANGE_QUERY', searchQuery);
+    },
+    displayBreweries() {
+      breweryService.getBreweries(this.$store.state.query, this.$store.state.filter).then(rspns => {
+        this.breweries = rspns.data;
+      })
     }
   }
 };
