@@ -14,7 +14,7 @@ public interface BreweryDao {
 
     public Brewery addBrewery(Brewery newBrewery);
 
-    public Brewery updateBrewery(Brewery updatedBrewery);
+    public Brewery updateBrewery(Brewery updatedBrewery, int id);
 
     public void updateUserRoleToBrewer(Brewery brewery);
 
