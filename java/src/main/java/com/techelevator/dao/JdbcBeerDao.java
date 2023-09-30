@@ -23,12 +23,15 @@ public class JdbcBeerDao implements BeerDao{
     }
     @Override
     public List<Beer> getAllBeers() {
-        String sql = "SELECT beer_id, brewery_id, beer_name, beer_description, abv, ibu, beer_img_url, beer_type FROM beers ORDER BY beer_name";
+        String sql = "SELECT AVG(reviews.star_rating) AS avg_stars, beers.beer_id, brewery_id, beer_name, " +
+                "beer_description, abv, ibu, beer_img_url, beer_type " +
+                "FROM reviews JOIN beers ON beers.beer_id = reviews.beer_id " +
+                "GROUP BY beers.beer_id ORDER BY beer_name;";
         List<Beer> results = new ArrayList<>();
         try{
             SqlRowSet queryResults = jdbcTemplate.queryForRowSet(sql);
             while(queryResults.next()){
-                Beer currentBeer = mapBeer(queryResults);
+                Beer currentBeer = mapBeerAndAvg(queryResults);
                 results.add(currentBeer);
             }
         }catch (Exception e){
@@ -139,6 +142,22 @@ public class JdbcBeerDao implements BeerDao{
         String beer_type = row.getString("beer_type");
 
         beer = new Beer(beer_id, brewery_id, beer_name,beer_description, abv, ibu, beer_img_url, beer_type);
+        return beer;
+    }
+
+    private Beer mapBeerAndAvg(SqlRowSet row){
+        Beer beer = new Beer();
+        int beer_id = row.getInt("beer_id");
+        int brewery_id = row.getInt("brewery_id");
+        String beer_name = row.getString("beer_name");
+        String beer_description = row.getString("beer_description");
+        Double abv = row.getDouble("abv");
+        int ibu = row.getInt("ibu");
+        String beer_img_url = row.getString("beer_img_url");
+        String beer_type = row.getString("beer_type");
+        int avg_rating = (int)row.getDouble("avg_stars");
+
+        beer = new Beer(beer_id, brewery_id, beer_name,beer_description, abv, ibu, beer_img_url, beer_type, avg_rating);
         return beer;
     }
 }

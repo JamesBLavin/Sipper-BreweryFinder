@@ -5,6 +5,7 @@
     </router-link>
     <div class="beer-image">
     <img :src="beer.beer_img_url" alt="dust" id="beerpics"/>
+     <img v-for="star in beer.avg_rating" :key="star" src="../assets/star.png" alt="" id="starz">
     </div>
   </div>
 </template>
@@ -61,4 +62,7 @@ h2:hover{
   border-radius: 30px;
 }
 
+#starz {
+  width: 3rem;
+}
 </style>
