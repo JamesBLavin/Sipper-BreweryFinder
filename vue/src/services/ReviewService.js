@@ -3,7 +3,7 @@ import axios from 'axios';
 export default {
 
     getAllReviews() {
-        return axios.get(`/allReviews`);
+        return axios.get(`/reviews`);
     },
     getReview(review_id) {
         return axios.get(`/reviews/${review_id}`)

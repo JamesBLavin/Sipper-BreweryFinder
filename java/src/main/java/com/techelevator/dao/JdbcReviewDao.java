@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Review;
+import com.techelevator.model.User;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
@@ -22,10 +23,28 @@ public class JdbcReviewDao implements ReviewDao {
 
     @Override
     public List<Review> getAllReviews() {
-        String sql = "SELECT b.beer_name, review_id, b.beer_id, star_rating, review_comments, b.beer_name FROM reviews r JOIN beers b ON b.beer_id = r.beer_id;";
+        String sql = "SELECT b.beer_name, review_id, b.beer_id, star_rating, review_comments, b.beer_name FROM reviews r JOIN beers b ON b.beer_id = r.beer_id ORDER BY random();";
         List<Review> results = new ArrayList<>();
         try {
             SqlRowSet queryResults = jdbcTemplate.queryForRowSet(sql);
+            while (queryResults.next()){
+                Review currentReview = mapReviewAndBeerName(queryResults);
+                results.add(currentReview);
+            }
+        }catch (Exception e){
+            System.out.println("Error occurred when connecting to the database. Exception is: ");
+            e.printStackTrace();
+        }
+        return results;
+    }
+
+    @Override
+    public List<Review> getAllReviewsFromAUser(int user_id) {
+        String sql = "SELECT b.beer_name, review_id, b.beer_id, star_rating, review_comments, b.beer_name " +
+                        "FROM reviews r JOIN beers b ON b.beer_id = r.beer_id WHERE r.user_id = ? ORDER BY review_id DESC;";
+        List<Review> results = new ArrayList<>();
+        try {
+            SqlRowSet queryResults = jdbcTemplate.queryForRowSet(sql, user_id);
             while (queryResults.next()){
                 Review currentReview = mapReviewAndBeerName(queryResults);
                 results.add(currentReview);
@@ -123,4 +142,6 @@ public class JdbcReviewDao implements ReviewDao {
         review = new Review(review_id, beer_id, star_rating, review_comments, beer_name);
         return review;
     }
+
+
 }

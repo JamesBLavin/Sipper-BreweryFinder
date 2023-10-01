@@ -20,9 +20,14 @@ public class ReviewController {
     @Autowired
     private ReviewService reviewService;
 
-    @GetMapping(path = "/allReviews")
+    @GetMapping(path = "/reviews")
     public List<Review> getAllReviews() {
         return reviewService.getAllReviews();
+    }
+
+    @GetMapping("/reviews/user")
+    public List<Review> getAllReviewsFromAUser(@RequestParam @Valid int user_id) {
+        return reviewService.getAllReviewsFromAUser(user_id);
     }
 
     @GetMapping(path = "/review/{review_id}")

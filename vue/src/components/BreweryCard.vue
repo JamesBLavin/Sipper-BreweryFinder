@@ -10,7 +10,9 @@
         <p>{{ brewery.contact_info }}</p>
         <p>{{ brewery.brewery_history }}</p>
         <p>{{ brewery.operating_hours }}</p>
-        <p><a :href="getGoogleMapsLink(brewery.brewery_name + ' ' + brewery.brewery_address)" target="_blank">{{ brewery.brewery_address }}, {{ brewery.brewery_city }}, {{ brewery.brewery_state }} {{ brewery.brewery_zip }}</a></p>
+        
+        <p>
+          <a :href="getGoogleMapsLink(brewery.brewery_name + ' ' + brewery.brewery_address)" target="_blank">{{ brewery.brewery_address }}, {{ brewery.brewery_city }}, {{ brewery.brewery_state }} {{ brewery.brewery_zip }}</a></p>
         <h2>Flagship Beers</h2>
        <div v-if="breweryBeers.length >= 4">
          <ul>
@@ -128,5 +130,6 @@ h2 {
 .brewery-card {
   margin-bottom: 10px;
 }
+
 
 </style>
