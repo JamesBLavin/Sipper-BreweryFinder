@@ -44,11 +44,12 @@ public class JdbcBeerDao implements BeerDao{
     @Override
     public Beer getBeer(int beer_id) {
         Beer beer = null;
-        String sql = "SELECT beer_id, brewery_id, beer_name, beer_description, abv, ibu, beer_img_url, beer_type FROM beers WHERE beer_id = ?";
+        String sql = "SELECT AVG(reviews.star_rating) as avg_stars, beers.beer_id, brewery_id, beer_name, beer_description, abv, ibu, beer_img_url, beer_type \n" +
+                "FROM beers JOIN reviews ON reviews.beer_id = beers.beer_id WHERE beers.beer_id = ? GROUP BY beers.beer_id;";
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, beer_id);
             if (results.next()) {
-                beer = mapBeer(results);
+                beer = mapBeerAndAvg(results);
             }
         } catch (Exception e) {
             System.out.println("Error occurred when connecting to the database. Exception is: ");
