@@ -7,6 +7,8 @@
       <h1>Test</h1> 
 
     </div>
+    <review-card :review="review" v-for="review in reviews" :key="review.review_id" />
+
   </div>
 </template>
 

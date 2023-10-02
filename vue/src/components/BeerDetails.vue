@@ -8,7 +8,7 @@
         <img :src="beer.beer_img_url" alt="dust" id="beerpics"/>
     </div>
 
-    <review-card :review="review" v-for="review in reviews" :key="review.review_id" />
+   <review-card :review="review" v-for="review in reviews" :key="review.review_id" />
 </div>
 
 </template>
