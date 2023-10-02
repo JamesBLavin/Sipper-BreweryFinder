@@ -30,14 +30,17 @@
           </div>
         </div>
         <button id="search-btn" @click="displayBreweries()">search</button>
+        <button id="display-btn" @click="displayAllBreweries()">Display All Breweries</button>
       </form>
     </div>
+    
     <h1 v-show="$store.state.token != ''" id="login-greeting">
       thanks for drinking with us, {{ this.$store.state.user.username }}!
     </h1>
     <!-- <breweries :filter="filter" v-show="this.showBr" id="listing"/> -->
     <brewery-card :brewery="brewery" v-for="brewery in breweries" :key="brewery.brewery_id"/>
   </div>
+  
 </template>
 
 <script>
@@ -51,7 +54,8 @@ export default {
       showBr: false,
       buttonText: '',
       searchQuery: '',
-      breweries: []
+      breweries: [],
+      allBreweries: []
       }
     },
   computed: {
@@ -78,7 +82,12 @@ export default {
     displayBreweries() {
       breweryService.getBreweries(this.$store.state.query, this.$store.state.filter).then(rspns => {
         this.breweries = rspns.data;
-      })
+      });
+    },
+    displayAllBreweries() {
+      breweryService.getAllBreweries().then(response => {
+        this.allBreweries = response.data;
+      });
     }
   }
 };
@@ -109,7 +118,6 @@ h1 {
   align-items: flex-end;
   position: relative;
   right: 100px;
-  
 }
 
 .search-container {

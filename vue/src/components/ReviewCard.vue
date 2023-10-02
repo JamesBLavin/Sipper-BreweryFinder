@@ -1,32 +1,19 @@
 <template>
   <div class="review-card">
-    <div class="review-info">
-      <span class="star-rating"><strong>Star Rating Out Of 5 Stars: {{ review.stra_rating }}</strong><br></span>
-      <span class="review-comments"><strong>Review Commentary: {{ review.review_comments }}</strong><br></span>  
-   
-      <h1>Test</h1> 
-
-    </div>
-    <review-card :review="review" v-for="review in reviews" :key="review.review_id" />
-
+      <h1>{{review.beer_name}}</h1>
+      <img v-for="star in review.star_rating" :key="star" src="../assets/star.png" alt="" id="starz">
+      <span class="review-comments"><strong>Review Commentary: {{ review.review_comments }}</strong><br></span>
   </div>
 </template>
 
 <script>
-import reviewService from '../services/ReviewService';
 
 export default {
   name: "review-card",
   props: ["review"],
   data() {
     return {
-      beerReviews: []
     };
-  },
-  created() {
-    reviewService.getReview(this.review.beer_id).then(response => {
-      this.beerReviews = response.data;
-    });
   }
 };
 </script>
@@ -40,5 +27,9 @@ export default {
   flex: 1 1 18.3%;
   justify-content: center;
   align-items: center;
+}
+
+#starz {
+  width: 3rem;
 }
 </style>

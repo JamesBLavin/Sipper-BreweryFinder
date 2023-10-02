@@ -34,6 +34,10 @@ public class BreweryService {
         return breweries;
     }
 
+    public Brewery getBreweryByBrewer(String username) {
+        return breweryDao.getBreweryByBrewer(username);
+    }
+
     public Brewery getBrewery(int brewery_id) {
         return breweryDao.getBrewery(brewery_id);
     }

@@ -47,11 +47,13 @@ CREATE TABLE beers (
  --Created table for reviews
 CREATE TABLE reviews (
     review_id SERIAL,
+    user_id INT NOT NULL,
     beer_id INT NOT NULL,
     star_rating INT,
     review_comments VARCHAR(1000),
     CONSTRAINT PK_review PRIMARY KEY (review_id),
-    CONSTRAINT FK_beer_id FOREIGN KEY(beer_id) REFERENCES beers(beer_id)
+    CONSTRAINT FK_beer_id FOREIGN KEY(beer_id) REFERENCES beers(beer_id),
+    CONSTRAINT FK_user_id FOREIGN KEY(user_id) REFERENCES users(user_id)
 );
 
 COMMIT TRANSACTION;

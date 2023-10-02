@@ -7,6 +7,15 @@ public class Review {
     private int beer_id;
     private int star_rating;
     private String review_comments;
+    private String beer_name;
+
+    public String getBeer_name() {
+        return beer_name;
+    }
+
+    public void setBeer_name(String beer_name) {
+        this.beer_name = beer_name;
+    }
 
     public int getReview_id() {
         return review_id;
@@ -54,5 +63,15 @@ public class Review {
         this.beer_id = beer_id;
         this.star_rating = star_rating;
         this.review_comments = review_comments;
+    }
+
+    //A constructor with all the components (+ a beer name)(to retrieve a review from the database)
+
+    public Review(int review_id, int beer_id, int star_rating, String review_comments, String beer_name) {
+        this.review_id = review_id;
+        this.beer_id = beer_id;
+        this.star_rating = star_rating;
+        this.review_comments = review_comments;
+        this.beer_name = beer_name;
     }
 }

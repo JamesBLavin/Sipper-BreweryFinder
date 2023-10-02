@@ -23,11 +23,12 @@ public class JdbcBreweryDao implements BreweryDao{
     public JdbcBreweryDao(JdbcTemplate jdbcTemplate){
         this.jdbcTemplate = jdbcTemplate;
     }
+
     @Override
     public List<Brewery> getAllBreweries() {
         //sql query to select breweries
         String sql = "SELECT brewery_id, brewery_name, contact_info, brewery_history, operating_hours, brewery_img_url, " +
-                "brewery_address, brewery_city, brewery_state, brewery_zip, is_active FROM breweries ORDER BY brewery_name;";
+                "brewery_address, brewery_city, brewery_state, brewery_zip, is_active, brewer FROM breweries ORDER BY brewery_name;";
         //where breweries get stored
         List<Brewery> results = new ArrayList<>();
         try{
@@ -73,7 +74,7 @@ public class JdbcBreweryDao implements BreweryDao{
     public List<Brewery> getAllBreweriesByCity(String query) {
         //sql query to select breweries bt city name
         String sql = "SELECT brewery_id, brewery_name, contact_info, brewery_history, operating_hours, brewery_img_url, " +
-                "brewery_address, brewery_city, brewery_state, brewery_zip, is_active FROM breweries WHERE brewery_city ILIKE ? ORDER BY brewery_name;";
+                "brewery_address, brewery_city, brewery_state, brewery_zip, is_active, brewer FROM breweries WHERE brewery_city ILIKE ? ORDER BY brewery_name;";
         //where breweries get stored
         List<Brewery> results = new ArrayList<>();
         try{
@@ -113,6 +114,21 @@ public class JdbcBreweryDao implements BreweryDao{
             e.printStackTrace();
         }
         return results;
+    }
+
+    @Override
+    public Brewery getBreweryByBrewer(String username) {
+        Brewery brewery = null;
+        String sql = "SELECT * FROM breweries JOIN users ON breweries.brewer = users.username WHERE users.username = ?;";
+        try {
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, username);
+            if (results.next()) {
+                brewery = mapBrewery(results);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getCause() + "||" + e.getStackTrace() + "||" + "||" +e.getMessage());
+        }
+        return brewery;
     }
 
     @Override
@@ -194,10 +210,13 @@ public class JdbcBreweryDao implements BreweryDao{
         String brewery_state = row.getString("brewery_state");
         int brewery_zip = row.getInt("brewery_zip");
         boolean isActive = row.getBoolean("is_active");
+        String brewer = row.getString("brewer");
 
         brewery = new Brewery(brewery_id, brewery_name, contact_info, brewery_history, operating_hours, brewery_img_url,
-                brewery_address, brewery_city, brewery_state, brewery_zip, isActive);
+                brewery_address, brewery_city, brewery_state, brewery_zip, isActive, brewer);
         return brewery;
 
     }
+
+
 }

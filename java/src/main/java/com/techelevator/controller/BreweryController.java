@@ -23,6 +23,11 @@ public class BreweryController {
     @Autowired
     private BreweryService breweryService;
 
+//    @GetMapping(path="/breweries")
+//    public List<Brewery> getAllBreweries(){
+//        return breweryService.getAllBreweries();
+//    }
+
     @GetMapping(path="/allBreweries")
     public List<Brewery> getAllBreweries(@RequestParam(defaultValue = "") String query,
                                          @RequestParam(defaultValue = "") String searchType){
@@ -42,6 +47,12 @@ public class BreweryController {
 
 
         return breweryService.getBrewery(brewery_id);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/breweries/update/{username}")
+    public Brewery getBreweryByBrewer(@PathVariable @Valid String username) {
+        return breweryService.getBreweryByBrewer(username);
     }
 
     @ResponseStatus(HttpStatus.CREATED)

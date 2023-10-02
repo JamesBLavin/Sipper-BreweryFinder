@@ -20,15 +20,20 @@ public class ReviewController {
     @Autowired
     private ReviewService reviewService;
 
-    @GetMapping(path = "/allReviews")
+    @GetMapping(path = "/reviews")
     public List<Review> getAllReviews() {
         return reviewService.getAllReviews();
+    }
+
+    @GetMapping("/reviews/user")
+    public List<Review> getAllReviewsFromAUser(@RequestParam @Valid int user_id) {
+        return reviewService.getAllReviewsFromAUser(user_id);
     }
 
     @GetMapping(path = "/review/{review_id}")
     public Review getReview(@PathVariable int review_id) {
         Review returnedReview = reviewService.getReview(review_id);
-        if (returnedReview == null){
+        if (returnedReview == null) {
             try {
                 throw new ResourceNotFoundException("This review id does not exist!");
             } catch (ResourceNotFoundException e) {
@@ -60,7 +65,7 @@ public class ReviewController {
 
         try {
             reviewService.deleteReview(review_id);
-        }catch (Exception e) {
+        } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Error deleting beer with ID: " + review_id, e);
         }
     }
