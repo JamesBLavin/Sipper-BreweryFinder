@@ -2,10 +2,6 @@ import axios from 'axios';
 
 export default {
 
-    getAllBreweries() {
-        return axios.get(`/breweries`)
-    },
-
     getBreweries(query, searchBy) {
         return axios.get(`/allBreweries?query=${query}&searchType=${searchBy}`);
     },

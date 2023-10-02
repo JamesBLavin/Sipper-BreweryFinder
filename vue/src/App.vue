@@ -8,6 +8,7 @@
      <div id="links">
       <router-link :to="{ name: 'home' }" tag="h5" class="nav-links">home</router-link>
       <router-link :to="{ name: 'beers' }" tag="h5" class="nav-links">beers</router-link>
+      <router-link :to="{ name: 'breweries' }" tag="h5" class="nav-links">breweries</router-link>
       <router-link :to="{ name: 'profile' }" v-if="$store.state.token != ''" tag="h5" class="nav-links" id="profile">{{ this.$store.state.user.username }}</router-link>
       <router-link :to="{ name: 'add-brewery' }" tag="h5" class="nav-links" v-show="this.$store.state.user.authorities && this.$store.state.user.authorities[0].name == 'ROLE_ADMIN'">+ brewery</router-link>
       <router-link :to="{ name: 'login' }" v-if="loggedIn" tag="h5" class="nav-links">login</router-link>

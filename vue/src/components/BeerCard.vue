@@ -4,8 +4,8 @@
       <h2>{{ beer.beer_name }}</h2>
     </router-link>
     <div class="beer-image">
-    <img :src="beer.beer_img_url" alt="dust" id="beerpics"/>
-     <img v-for="star in beer.avg_rating" :key="star" src="../assets/star.png" alt="" id="starz">
+    <p><img :src="beer.beer_img_url" alt="dust" id="beerpics"/></p>
+    <img v-for="star in beer.avg_rating" :key="star" src="../assets/star.png" alt="" id="starz">
     </div>
   </div>
 </template>
@@ -63,6 +63,6 @@ h2:hover{
 }
 
 #starz {
-  width: 3rem;
+  width: 2rem;
 }
 </style>

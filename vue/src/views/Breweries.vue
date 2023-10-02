@@ -1,5 +1,8 @@
 <template>
 <div>
+  <br>
+  <h1>All Breweries</h1>
+  <br>
   <brewery-card :brewery="brewery" v-for="brewery in breweries" :key="brewery.brewery_id"></brewery-card>
 </div>
 </template>
