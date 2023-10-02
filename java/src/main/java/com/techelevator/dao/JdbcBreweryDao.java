@@ -23,11 +23,12 @@ public class JdbcBreweryDao implements BreweryDao{
     public JdbcBreweryDao(JdbcTemplate jdbcTemplate){
         this.jdbcTemplate = jdbcTemplate;
     }
+
     @Override
     public List<Brewery> getAllBreweries() {
         //sql query to select breweries
         String sql = "SELECT brewery_id, brewery_name, contact_info, brewery_history, operating_hours, brewery_img_url, " +
-                "brewery_address, brewery_city, brewery_state, brewery_zip, is_active FROM breweries ORDER BY brewery_name;";
+                "brewery_address, brewery_city, brewery_state, brewery_zip, is_active, brewer FROM breweries ORDER BY brewery_name;";
         //where breweries get stored
         List<Brewery> results = new ArrayList<>();
         try{
