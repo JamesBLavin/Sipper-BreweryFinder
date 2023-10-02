@@ -72,7 +72,6 @@ public class BreweryController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Error updating brewery", e);
         }
     }
-
     @ExceptionHandler
     public void handleResourceNotFoundException(ResourceNotFoundException e, HttpServletResponse response) throws IOException {
         response.sendError(HttpServletResponse.SC_NOT_FOUND);

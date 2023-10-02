@@ -1,13 +1,13 @@
 <template>
 <div>
-  <form @submit.prevent="addBrewery">
-      <h1 v-show="this.$route.path == '/profile'">update your brewery: {{brewery.brewery_name}}</h1>
-      <h1 v-show="this.$route.path == '/breweries/addBrewery'">add an establishment</h1>
+  <form @submit.prevent="handleSubmission">
+      <h1 >{{this.$route.path == '/profile' ? "update your brewery " + brewery.brewery_name : 
+        this.$route.path == '/breweries/addBrewery' ? "add an establishment" : ""}}</h1>
       <div class="form-input-group">
       <input type="text" placeholder="brewery name" required class="inputboxes" v-model="brewery.brewery_name">
       </div>
       <div class="form-input-group">
-      <select placeholder="brewer username" required class="inputboxes" v-model="brewery.brewer">
+      <select v-show="this.$route.path == '/breweries/addBrewery'" placeholder="brewer username" required class="inputboxes" v-model="brewery.brewer">
         <option v-for="user in users" :key="user.user_id" value="user">{{ user.username }}</option>
       </select>
       </div>
@@ -35,7 +35,8 @@
       <div class="form-input-group">
       <input type="text" placeholder="zip code" class="inputboxes" v-model="brewery.brewery_zip">
       </div>
-      <button>finalize addition</button>
+      <button>{{this.$route.path == '/profile' ? "finalize updates" : this.$route.path == '/breweries/addBrewery' ? "finalize addition" : ""}}</button>
+      
   </form>
   </div>
 </template>
@@ -50,6 +51,13 @@ export default {
             users: []
         }
     }, methods: {
+        handleSubmission() {
+          if (this.$route.path == '/breweries/addBrewery') {
+            this.addBrewery()
+          } else if(this.$route.path == '/profile') {
+             this.updateBrewery()
+          }
+        },
         addBrewery() {
             breweryService.addBrewery(this.brewery).then(rspns => {
                 if(rspns.status == 201 || rspns.status == 200) {
@@ -71,17 +79,42 @@ export default {
                 console.log(err);
             });
         
+        },
+        updateBrewery() {
+          breweryService.updateBrewery(this.brewery).then(response => {
+            if(response.status == 200) {
+              window.alert('Brewery has been updated!');
+              this.brewery= {
+                brewery_name: '',
+                
+                contact_info: '',
+                brewery_history: '',
+                operating_hours: '',
+                brewery_img_url: '',
+                brewery_address: '',
+                brewery_city: '',
+                brewery_state: '',
+                brewery_zip: ''
+          };
         }
-    },
+    }).catch(error => {
+      console.log(error);
+    });
+    }
+  },
+
+    
     created() {
           authService.getUsers().then(rspns => {
             this.users = rspns.data;
           });
+          if (this.$route.path == '/profile') {
           breweryService.getBreweryByBrewer(this.$store.state.user.username).then(rspns => {
             this.brewery = rspns.data;
-          })
-        }
+          });
     }
+}
+    };
 </script>
 
 <style scoped>
