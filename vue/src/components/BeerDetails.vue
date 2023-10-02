@@ -10,32 +10,43 @@
     </div>
     
 
-    <!-- <review-card :review="review" v-for="review in reviews" :key="review.review_id" /> -->
+    <review-card :review="review" v-for="review in reviews" :key="review.review_id" />
 </div>
 
 </template>
 
 <script>
 import beerService from '../services/BeerService';
-// import ReviewCard from './ReviewCard.vue';
+import ReviewService from '../services/ReviewService';
+import ReviewCard from './ReviewCard.vue';
 export default {
     name: "beer-details",
-    // components:
-    // {ReviewCard},
+    components:
+    {ReviewCard},
     data(){
         return {
-            beer: {}
+            beer: {},
+            reviews: []
         };
     },
-    created() {
-        beerService.getBeerByID(this.$route.params.id).then(response => {
-             this.beer = response.data;
-             
-        })
-        .catch(error => {
-            console.error("Error fetching beer details:", error);
-        });
-    }
+  created() {
+    beerService.getBeerByID(this.$route.params.id)
+      .then(response => {
+        this.beer = response.data;
+      })
+      .catch(error => {
+        console.error("Error fetching beer details:", error);
+      });
+
+    
+    ReviewService.getAllReviews()
+      .then(resp => {
+        this.reviews = resp.data;
+      })
+      .catch(error => {
+        console.error("Error fetching reviews:", error);
+      });
+  }
 };
 </script>
 
