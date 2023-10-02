@@ -42,6 +42,10 @@ public class ReviewController {
         }
         return reviewService.getReview(review_id);
     }
+    @GetMapping(path = "/reviews/{beer_id}")
+    public List getReviewsByBeerId(@PathVariable int beer_id) {
+        return reviewService.getReviewsByBeerId(beer_id);
+    }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(path = "/addReview")
