@@ -8,6 +8,7 @@ import java.util.List;
 public interface ReviewDao {
 
     public List<Review> getAllReviews();
+    public List<Review> getReviewsByBeerId(int beer_id);
     public List<Review> getAllReviewsFromAUser(int user_id);
     public Review getReview(int review_id);
     public Review addReview(Review newReview);

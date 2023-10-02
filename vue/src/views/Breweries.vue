@@ -1,6 +1,9 @@
 <template>
 <div>
-  <brewery-card :brewery="brewery" v-for="brewery in breweries" :key="brewery.brewery_id"></brewery-card>
+  <br>
+  <h1>All Breweries</h1>
+  <br>
+  <brewery-card :brewery="brewery" v-for="brewery in allBreweries" :key="brewery.brewery_id"></brewery-card>
 </div>
 </template>
 
@@ -14,13 +17,13 @@ export default {
   },
   data() {
     return {
-      breweries: []
+      allBreweries: []
     }
   },
   methods: {},
   created() {
-    breweryService.getBreweries(this.$store.state.query, this.$store.state.filter).then(rspns => {
-      this.breweries = rspns.data;
+    breweryService.listAllBreweries().then(rspns => {
+      this.allBreweries = rspns.data;
     });
   }
 }

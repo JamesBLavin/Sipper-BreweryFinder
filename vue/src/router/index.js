@@ -10,7 +10,7 @@ import Beers from '../views/Beers.vue'
 import BeerDetails from '../components/BeerDetails.vue'
 import NewBrewery from '../views/NewBrewery.vue'
 import Profile from '../views/Profile.vue'
-import ReviewCard from '../components/ReviewCard.vue'
+import Reviews from '../views/Reviews.vue'
 
 Vue.use(Router)
 
@@ -102,7 +102,7 @@ const router = new Router({
     {
       path: "/reviews",
       name: "reviews",
-      component: ReviewCard,
+      component: Reviews,
       meta: {
         requiresAuth: false
       }

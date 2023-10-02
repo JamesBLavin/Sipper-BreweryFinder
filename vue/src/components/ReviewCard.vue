@@ -4,6 +4,8 @@
       <img v-for="star in review.star_rating" :key="star" src="../assets/star.png" alt="" id="starz">
       <span class="review-comments"><strong>Review Commentary: {{ review.review_comments }}</strong><br></span>
   </div>
+
+  
 </template>
 
 <script>

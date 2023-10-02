@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export default {
 
-    getAllBreweries() {
+    listAllBreweries(){
         return axios.get(`/breweries`)
     },
 
@@ -16,7 +16,7 @@ export default {
         return axios.post('/addBrewery', brewery)
     },
     updateBrewery(brewery){
-        return axios.put(`/breweries`, brewery)
+        return axios.put(`/breweries/${brewery.brewery_id}`, brewery)
     },
     deleteBrewery(id){
         return axios.delete(`breweries/${id}`)

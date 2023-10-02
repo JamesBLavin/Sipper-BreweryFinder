@@ -18,6 +18,9 @@ public class ReviewService {
     public List<Review> getAllReviews() {
         return reviewDao.getAllReviews();
     }
+    public List<Review> getReviewsByBeerId(int beer_id) {
+        return reviewDao.getReviewsByBeerId(beer_id);
+    }
     public List<Review> getAllReviewsFromAUser(int user_id) {
         return reviewDao.getAllReviewsFromAUser(user_id);
     }
