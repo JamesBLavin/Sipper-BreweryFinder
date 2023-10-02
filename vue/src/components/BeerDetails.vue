@@ -5,7 +5,7 @@
   <span class="beer-type"><strong>Beer Type: {{ beer.beer_type }}</strong><br></span>
   <span class="alcohol-info"><strong>ABV: {{ beer.abv }}%,  {{ beer.ibu }} IBU</strong></span>
     <div class="beer-image">
-        <img :src="beer.beer_img_url" alt="dust" id="beerpics"/>
+        <img :src="beer.beer_img_url" alt="dust" id="beerpics"/><br><br>
         <img v-for="star in beer.avg_rating" :key="star" src="../assets/star.png" alt="" id="starz">
     </div>
     
@@ -56,5 +56,9 @@ export default {
     width: 40%;
     height: auto;
     border-radius: 30px;
+}
+
+#starz {
+  width: 3rem;
 }
 </style>

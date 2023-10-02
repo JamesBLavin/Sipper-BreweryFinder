@@ -54,7 +54,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #profile-header {
   font-size: 300px;
 }
