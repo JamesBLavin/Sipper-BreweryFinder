@@ -18,6 +18,10 @@ public class BreweryService {
         this.breweryDao = breweryDao;
     }
 
+    public List<Brewery> listAllBreweries() {
+        return breweryDao.listAllBreweries();
+    }
+
     public List<Brewery> getAllBreweries(String query, String searchType) {
         List<Brewery> breweries = new ArrayList<>();
         if (query.equalsIgnoreCase("")) {

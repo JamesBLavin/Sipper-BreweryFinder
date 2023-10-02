@@ -23,10 +23,10 @@ public class BreweryController {
     @Autowired
     private BreweryService breweryService;
 
-//    @GetMapping(path="/breweries")
-//    public List<Brewery> getAllBreweries(){
-//        return breweryService.getAllBreweries();
-//    }
+    @GetMapping(path="/breweries")
+    public List<Brewery> listAllBreweries(){
+        return breweryService.listAllBreweries();
+    }
 
     @GetMapping(path="/allBreweries")
     public List<Brewery> getAllBreweries(@RequestParam(defaultValue = "") String query,
