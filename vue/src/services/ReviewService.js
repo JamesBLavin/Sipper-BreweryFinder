@@ -5,6 +5,10 @@ export default {
     getAllReviews() {
         return axios.get(`/reviews`);
     },
+    getReviewsByBeerId(beer_id) {
+        beer_id = parseInt(beer_id);
+        return axios.get(`/reviews/${beer_id}`);
+    },
     getAllReviewsFromUser(user_id) {
         return axios.get(`/reviews/user?user_id=${user_id}`);
     },

@@ -10,7 +10,7 @@
     </div>
     
 
-    <review-card :review="review" v-for="review in reviews" :key="review.review_id" />
+    <review-card :review="review" v-for="review in revs" :key="review.review_id" />
 </div>
 
 </template>
@@ -26,7 +26,8 @@ export default {
     data(){
         return {
             beer: {},
-            reviews: []
+            reviews: [],
+            revs: []
         };
     },
   created() {
@@ -39,9 +40,9 @@ export default {
       });
 
     
-    ReviewService.getAllReviews()
+    ReviewService.getReviewsByBeerId(this.$route.params.id)
       .then(resp => {
-        this.reviews = resp.data;
+        this.revs = resp.data;
       })
       .catch(error => {
         console.error("Error fetching reviews:", error);
