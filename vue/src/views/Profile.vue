@@ -15,7 +15,7 @@
         v-show="this.$store.state.user.authorities[0].name == 'ROLE_BREWER'"
         id="updater"
       />
-      <beer-card v-for="beer in beers" :key="beer.id"/>
+      <beer-card v-for="beer in beers" :key="beer.id" />
     </div>
   </div>
 </template>
@@ -26,30 +26,32 @@ import ReviewCard from "../components/ReviewCard.vue";
 import reviewService from "../services/ReviewService";
 import breweryService from "../services/BreweryService";
 import beerService from "../services/BeerService";
-import BeerCard from '../components/BeerCard.vue';
+import BeerCard from "../components/BeerCard.vue";
 export default {
   components: { ReviewCard, NewBreweryForm, BeerCard },
   data() {
     return {
       reviews: [],
       brewery: {},
-      beers: []
+      beers: [],
     };
   },
   created() {
     reviewService
       .getAllReviewsFromUser(this.$store.state.user.id)
-      .then(rspns => {
+      .then((rspns) => {
         this.reviews = rspns.data;
       });
     breweryService
       .getBreweryByBrewer(this.$store.state.user.username)
-      .then(rspns => {
+      .then((rspns) => {
         this.brewery = rspns.data;
+        beerService
+          .getBeersByBreweryId(parseInt(this.brewery.brewery_id))
+          .then((rspns) => {
+            this.beers = rspns.data;
+          });
       });
-    beerService.getBeersByBreweryId(parseInt(this.brewery.brewery_id)).then(rspns => {
-      this.beers = rspns.data;
-    });
   },
 };
 </script>
