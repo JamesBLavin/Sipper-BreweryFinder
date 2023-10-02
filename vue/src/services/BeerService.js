@@ -9,6 +9,7 @@ export default {
         return axios.get(`/beer/${id}`)
     },
     getBeersByBreweryId(breweryId) {
+        breweryId = parseInt(breweryId);
         return axios.get(`/beers/${breweryId}`);
     },
     addBeer(beer) {

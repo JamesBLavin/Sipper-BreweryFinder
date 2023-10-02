@@ -10,6 +10,7 @@ public interface BreweryDao {
     public List<Brewery> getAllBreweriesByName(String query);
     public List<Brewery> getAllBreweriesByCity(String query);
     public List<Brewery> getAllBreweriesByZip(int query);
+    public Brewery getBreweryByBrewer(String username);
     public Brewery getBrewery(int brewery_id);
 
     public Brewery addBrewery(Brewery newBrewery);

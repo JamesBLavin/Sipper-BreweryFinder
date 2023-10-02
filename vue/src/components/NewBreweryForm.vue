@@ -1,7 +1,8 @@
 <template>
 <div>
   <form @submit.prevent="addBrewery">
-      <h1>add an establishment</h1>
+      <h1 v-show="this.$route.path == '/profile'">update your brewery: {{brewery.brewery_name}}</h1>
+      <h1 v-show="this.$route.path == '/breweries/addBrewery'">add an establishment</h1>
       <div class="form-input-group">
       <input type="text" placeholder="brewery name" required class="inputboxes" v-model="brewery.brewery_name">
       </div>
@@ -76,6 +77,9 @@ export default {
           authService.getUsers().then(rspns => {
             this.users = rspns.data;
           });
+          breweryService.getBreweryByBrewer(this.$store.state.user.username).then(rspns => {
+            this.brewery = rspns.data;
+          })
         }
     }
 </script>

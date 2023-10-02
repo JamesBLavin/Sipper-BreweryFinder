@@ -59,7 +59,7 @@ public class JdbcBeerDao implements BeerDao{
 
     @Override
     public List<Beer> getBeersByBrewery(int brewery_id) {
-        String sql = "SELECT beer_id, brewery_id, beer_name, beer_description, abv, ibu, beer_img_url, beer_type FROM beers WHERE brewery_id = ?;";
+        String sql = "SELECT * FROM beers WHERE brewery_id = ?;";
         List<Beer> beers = new ArrayList<>();
 
         try {

@@ -109,7 +109,6 @@ h1 {
   align-items: flex-end;
   position: relative;
   right: 100px;
-  
 }
 
 .search-container {

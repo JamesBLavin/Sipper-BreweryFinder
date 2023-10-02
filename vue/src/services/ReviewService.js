@@ -5,6 +5,9 @@ export default {
     getAllReviews() {
         return axios.get(`/reviews`);
     },
+    getAllReviewsFromUser(user_id) {
+        return axios.get(`/reviews/user?user_id=${user_id}`);
+    },
     getReview(review_id) {
         return axios.get(`/reviews/${review_id}`)
     },

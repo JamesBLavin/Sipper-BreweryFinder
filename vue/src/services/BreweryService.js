@@ -17,4 +17,7 @@ export default {
     deleteBrewery(id){
         return axios.delete(`breweries/${id}`)
     },
+    getBreweryByBrewer(username) {
+        return axios.get(`/breweries/update/${username}`)
+    }
 }

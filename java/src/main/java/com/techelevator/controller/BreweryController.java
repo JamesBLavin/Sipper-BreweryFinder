@@ -44,6 +44,12 @@ public class BreweryController {
         return breweryService.getBrewery(brewery_id);
     }
 
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/breweries/update/{username}")
+    public Brewery getBreweryByBrewer(@PathVariable @Valid String username) {
+        return breweryService.getBreweryByBrewer(username);
+    }
+
     @ResponseStatus(HttpStatus.CREATED)
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping(path = "/addBrewery")
