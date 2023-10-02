@@ -23,10 +23,10 @@ public class BreweryController {
     @Autowired
     private BreweryService breweryService;
 
-//    @GetMapping(path="/breweries")
-//    public List<Brewery> getAllBreweries(){
-//        return breweryService.getAllBreweries();
-//    }
+    @GetMapping(path="/breweries")
+    public List<Brewery> listAllBreweries(){
+        return breweryService.listAllBreweries();
+    }
 
     @GetMapping(path="/allBreweries")
     public List<Brewery> getAllBreweries(@RequestParam(defaultValue = "") String query,
@@ -63,7 +63,7 @@ public class BreweryController {
     }
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_BREWER')")
-    @PutMapping(path = "/updateBrewery/{brewery_id}")
+    @PutMapping(path = "/breweries/{brewery_id}")
     public Brewery updateBrewery(@RequestBody @Valid Brewery updateBrewery, @PathVariable int brewery_id) {
         updateBrewery.setBrewery_id(brewery_id);
         try {
@@ -72,6 +72,7 @@ public class BreweryController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Error updating brewery", e);
         }
     }
+
     @ExceptionHandler
     public void handleResourceNotFoundException(ResourceNotFoundException e, HttpServletResponse response) throws IOException {
         response.sendError(HttpServletResponse.SC_NOT_FOUND);

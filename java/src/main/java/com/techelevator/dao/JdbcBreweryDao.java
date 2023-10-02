@@ -25,10 +25,32 @@ public class JdbcBreweryDao implements BreweryDao{
     }
 
     @Override
+    public List<Brewery> listAllBreweries() {
+        String sql = "SELECT brewery_id, brewery_name, contact_info, brewery_history, operating_hours, brewery_img_url, " +
+                "brewery_address, brewery_city, brewery_state, brewery_zip, is_active, brewer FROM breweries ORDER BY brewery_name;";
+        //where breweries get stored
+        List<Brewery> results = new ArrayList<>();
+        try{
+            //send query
+            SqlRowSet queryResults = jdbcTemplate.queryForRowSet(sql);
+            while(queryResults.next()){
+                //call helper method to map results
+                Brewery currentBrewery = mapBrewery(queryResults);
+                //add brewery to list
+                results.add(currentBrewery);
+            }
+        }catch (Exception e){
+            System.out.println("Error occurred when connecting to the database. Exception is: ");
+            e.printStackTrace();
+        }
+        return results;
+    }
+
+    @Override
     public List<Brewery> getAllBreweries() {
         //sql query to select breweries
         String sql = "SELECT brewery_id, brewery_name, contact_info, brewery_history, operating_hours, brewery_img_url, " +
-                "brewery_address, brewery_city, brewery_state, brewery_zip, is_active, brewer FROM breweries ORDER BY brewery_name;";
+                "brewery_address, brewery_city, brewery_state, brewery_zip, is_active, brewer FROM breweries ORDER BY random();";
         //where breweries get stored
         List<Brewery> results = new ArrayList<>();
         try{
