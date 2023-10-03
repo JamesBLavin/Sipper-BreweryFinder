@@ -2,13 +2,13 @@
   <div class="review-card">
       <h1>{{review.beer_name}}</h1>
       <img v-for="star in review.star_rating" :key="star" src="../assets/star.png" alt="" id="starz">
-      <span class="review-comments"><strong>Review Commentary: {{ review.review_comments }}</strong><br></span>
+      <br>
+      <br>
+      <span class="review-comments"><strong>Review Commentary: &nbsp; {{ review.review_comments }}</strong><br></span>
       <div class="review-image">
       <p><img :src="review.review_img_url" alt="no image to show" id="reviewpics"/></p>
       </div>
   </div>
-
-  
 </template>
 
 <script>
@@ -25,11 +25,14 @@ export default {
 
 <style scoped>
 .review-card {
+  width: 100%;
   border-radius: 20px;
-  padding: 10px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   margin: 10px;
   background-color: wheat;
-  flex: 1 1 18.3%;
   justify-content: center;
   align-items: center;
 }
@@ -39,8 +42,14 @@ export default {
 }
 
 .review-image{
-    width: 100%;
-    border-radius: 40px;
+  width: 100%;
+}
+
+
+#reviewpics{
+  height: auto;
+  width: 50%;
+  margin: 80px;
 }
 
 

@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="beer-form">
+    <br>
       <h1>To add a new beer, please submit the following fields:</h1>
         <div class="form-input">
         <form @submit.prevent="addBeer">
@@ -22,43 +23,57 @@
 </template>
 
 <script>
-import BeerService from '../services/BeerService'
-import BreweryService from '../services/BreweryService'
-
+import BeerService from '../services/BeerService';
 
 export default {
+  props: {
+    breweryId: {
+      type: Number,
+    }
+  },
   data() {
     return {
-      beer: {},
-      // brewery: {}
-    }
+      beer: {
+        brewery_id: this.breweryId,
+        beer_name: '',
+        beer_description: '',
+        abv: '',
+        ibu: '',
+        beer_img_url: '',
+        beer_type: ''
+      }
+    };
   },
   methods: {
-    addBeer() {
-      BeerService.addBeer(this.beer).then(response => {
-        if(response.status == 200 || response.status == 201){
-          window.alert('Brewery added!');
-          this.beer={
-            brewery_id: '',
-            beer_name: '',
-            beer_description: '',
-            abv: '',
-            ibu: '',
-            beer_img_url: '',
-            beer_type: ''
-          };
-        }
-      }).catch(error => {
-        console.log(error)
-      })
+     addBeer() {
+      this.beer.brewery_id = this.breweryId;
+
+      
+      BeerService.addBeer(this.beer)
+        .then(response => {
+          if (response.status === 200 || response.status === 201) {
+            window.alert('Beer added!');
+            this.resetBeer();
+          }
+        })
+        .catch(error => {
+          console.error('Error adding beer:', error);
+        });
+    },
+    resetBeer() {
+      this.beer = {
+        brewery_id: null,
+        beer_name: '',
+        beer_description: '',
+        abv: '',
+        ibu: '',
+        beer_img_url: '',
+        beer_type: ''
+      };
     }
-  },
-  created() {
-    BreweryService.getBreweryByBrewer(this.$store.state.user.username).then(rspns => {
-            this.brewery = rspns.data;
-    });
   }
-}
+};
+
 </script>
 
 <style scoped>
@@ -66,14 +81,13 @@ export default {
   margin-bottom: 1rem;
 }
 
-div {
-  margin: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+.beer-form {
+  display: flex;
+  flex-direction: column;
   background: #2d7cfa;
   border-radius: 25px;
-  display: flex;
   color: white;
+  margin: 1rem;
 }
 
 button:hover {
