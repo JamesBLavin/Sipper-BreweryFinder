@@ -23,7 +23,7 @@ public class JdbcReviewDao implements ReviewDao {
 
     @Override
     public List<Review> getAllReviews() {
-        String sql = "SELECT b.beer_name, review_id, b.beer_id, star_rating, review_comments, b.beer_name FROM reviews r JOIN beers b ON b.beer_id = r.beer_id ORDER BY random();";
+        String sql = "SELECT b.beer_name, review_id, user_id, b.beer_id, star_rating, review_comments FROM reviews r JOIN beers b ON b.beer_id = r.beer_id ORDER BY random();";
         List<Review> results = new ArrayList<>();
         try {
             SqlRowSet queryResults = jdbcTemplate.queryForRowSet(sql);
@@ -39,7 +39,7 @@ public class JdbcReviewDao implements ReviewDao {
     }
     @Override
     public List<Review> getReviewsByBeerId(int beer_id) {
-        String sql = "SELECT review_id, beer_id, star_rating, review_comments FROM reviews WHERE beer_id = ?;";
+        String sql = "SELECT review_id, user_id, beer_id, star_rating, review_comments FROM reviews WHERE beer_id = ?;";
         List<Review> results = new ArrayList<>();
         try {
             SqlRowSet queryResults = jdbcTemplate.queryForRowSet(sql, beer_id);
@@ -56,7 +56,7 @@ public class JdbcReviewDao implements ReviewDao {
 
     @Override
     public List<Review> getAllReviewsFromAUser(int user_id) {
-        String sql = "SELECT b.beer_name, review_id, b.beer_id, star_rating, review_comments, r.user_id " +
+        String sql = "SELECT b.beer_name, review_id, r.user_id, b.beer_id, star_rating, review_comments " +
                         "FROM reviews r JOIN beers b ON b.beer_id = r.beer_id WHERE r.user_id = ? ORDER BY review_id DESC;";
         List<Review> results = new ArrayList<>();
         try {
@@ -94,7 +94,7 @@ public class JdbcReviewDao implements ReviewDao {
         String sql = "INSERT INTO reviews (beer_id, user_id, star_rating, review_comments) VALUES (?, ?, ?, ?) RETURNING review_id;";
 
         try {
-            Integer newReviewId = jdbcTemplate.queryForObject(sql, int.class, newReview.getBeer_id(), newReview.getStar_rating(), newReview.getReview_comments());
+            Integer newReviewId = jdbcTemplate.queryForObject(sql, int.class, newReview.getBeer_id(), newReview.getUser_id(), newReview.getStar_rating(), newReview.getReview_comments());
             newReview = getReview(newReviewId);
         }catch (CannotGetJdbcConnectionException e) {
             throw new DataAccessException("Unable to connect to server or database", e) {
