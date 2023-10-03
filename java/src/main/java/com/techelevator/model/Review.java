@@ -10,6 +10,8 @@ public class Review {
     private String beer_name;
     private int user_id;
 
+    public String review_img_url;
+
     public int getUser_id() {
         return user_id;
     }
@@ -54,6 +56,14 @@ public class Review {
         return review_comments;
     }
 
+    public String getReview_img_url() {
+        return review_img_url;
+    }
+
+    public void setReview_img_url(String review_img_url) {
+        this.review_img_url = review_img_url;
+    }
+
     public void setReview_comments(String review_comments) {
         this.review_comments = review_comments;
     }
@@ -61,27 +71,30 @@ public class Review {
     public Review() {
     }
     //A constructor so we can make a new review with data that gets a review_id
-    public Review(int beer_id, int star_rating, String review_comments) {
+    public Review(int beer_id, int star_rating, String review_comments, String review_img_url) {
         this.beer_id = beer_id;
         this.star_rating = star_rating;
         this.review_comments = review_comments;
+        this.review_img_url = review_img_url;
     }
     //A constructor with all the components (to retrieve a review from the database)
-    public Review(int review_id, int beer_id, int star_rating, String review_comments) {
+    public Review(int review_id, int beer_id, int star_rating, String review_comments, String review_img_url) {
         this.review_id = review_id;
         this.beer_id = beer_id;
         this.star_rating = star_rating;
         this.review_comments = review_comments;
+        this.review_img_url = review_img_url;
     }
 
     //A constructor with all the components (+ a beer name)(to retrieve a review from the database)
 
-    public Review(int review_id, int beer_id, int star_rating, String review_comments, String beer_name, int user_id) {
+    public Review(int review_id, int beer_id, int star_rating, String review_comments, String beer_name, int user_id, String review_img_url) {
         this.review_id = review_id;
         this.beer_id = beer_id;
         this.star_rating = star_rating;
         this.review_comments = review_comments;
         this.beer_name = beer_name;
         this.user_id = user_id;
+        this.review_img_url = review_img_url;
     }
 }

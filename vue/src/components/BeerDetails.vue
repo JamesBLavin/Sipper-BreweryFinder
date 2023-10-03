@@ -5,7 +5,7 @@
   <span class="beer-type"><strong>Beer Type: {{ beer.beer_type }}</strong><br></span>
   <span class="alcohol-info"><strong>ABV: {{ beer.abv }}%,  {{ beer.ibu }} IBU</strong></span>
     <div class="beer-image">
-        <img :src="beer.beer_img_url" alt="dust" id="beerpics"/><br><br>
+        <img :src="beer.beer_img_url" @error="dispDefaultImg" alt="dust" id="beerpics"/><br><br>
         <img v-for="star in beer.avg_rating" :key="star" src="../assets/star.png" alt="" id="starz" v-show="beer.avg_rating > 0">
         <h3 v-show="beer.avg_rating == 0">No ratings yet</h3>
     </div>
@@ -48,6 +48,11 @@ export default {
       .catch(error => {
         console.error("Error fetching reviews:", error);
       });
+  },
+    methods: {
+    dispDefaultImg(event) {
+      event.target.src = require('@/assets/IMG_6794.jpg');
+    }
   }
 };
 </script>
