@@ -3,6 +3,9 @@
       <h1>{{review.beer_name}}</h1>
       <img v-for="star in review.star_rating" :key="star" src="../assets/star.png" alt="" id="starz">
       <span class="review-comments"><strong>Review Commentary: {{ review.review_comments }}</strong><br></span>
+      <div class="review-image">
+      <p><img :src="review.review_img_url" alt="no image to show" id="reviewpics"/></p>
+      </div>
   </div>
 
   
@@ -34,4 +37,11 @@ export default {
 #starz {
   width: 3rem;
 }
+
+.review-image{
+    width: 100%;
+    border-radius: 40px;
+}
+
+
 </style>
