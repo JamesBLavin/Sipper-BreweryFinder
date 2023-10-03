@@ -4,7 +4,7 @@
       <h2>{{ beer.beer_name }}</h2>
     </router-link>
     <div class="beer-image">
-    <p><img :src="beer.beer_img_url" alt="dust" id="beerpics"/></p>
+    <p><img :src="beer.beer_img_url" @error="dispDefaultImg" alt="dust" id="beerpics" /></p>
     <img v-for="star in beer.avg_rating" :key="star" src="../assets/star.png" alt="" id="starz">
     <h3 v-show="beer.avg_rating == 0">No ratings yet</h3>
     </div>
@@ -15,6 +15,11 @@
 export default {
   name: "beer-card",
   props:["beer"],
+  methods: {
+    dispDefaultImg(event) {
+      event.target.src = require('@/assets/IMG_6794.jpg');
+    }
+  }
 };
 </script>
 
