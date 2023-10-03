@@ -8,6 +8,15 @@ public class Review {
     private int star_rating;
     private String review_comments;
     private String beer_name;
+    private int user_id;
+
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
+    }
 
     public String getBeer_name() {
         return beer_name;
@@ -67,11 +76,12 @@ public class Review {
 
     //A constructor with all the components (+ a beer name)(to retrieve a review from the database)
 
-    public Review(int review_id, int beer_id, int star_rating, String review_comments, String beer_name) {
+    public Review(int review_id, int beer_id, int star_rating, String review_comments, String beer_name, int user_id) {
         this.review_id = review_id;
         this.beer_id = beer_id;
         this.star_rating = star_rating;
         this.review_comments = review_comments;
         this.beer_name = beer_name;
+        this.user_id = user_id;
     }
 }

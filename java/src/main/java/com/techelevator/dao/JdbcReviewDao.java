@@ -75,7 +75,7 @@ public class JdbcReviewDao implements ReviewDao {
     @Override
     public Review getReview(int review_id) {
         Review review = null;
-        String sql = "SELECT review_id, beer_id, star_rating, review_comments FROM reviews WHERE review_id = ?;";
+        String sql = "SELECT review_id, beer_id, star_rating, review_comments, user_id FROM reviews WHERE review_id = ?;";
 
         try{
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, review_id);
@@ -91,7 +91,7 @@ public class JdbcReviewDao implements ReviewDao {
 
     @Override
     public Review addReview(Review newReview) {
-        String sql = "INSERT INTO reviews (beer_id, star_rating, review_comments) VALUES (?, ?, ?) RETURNING review_id;";
+        String sql = "INSERT INTO reviews (beer_id, user_id, star_rating, review_comments) VALUES (?, ?, ?, ?) RETURNING review_id;";
 
         try {
             Integer newReviewId = jdbcTemplate.queryForObject(sql, int.class, newReview.getBeer_id(), newReview.getStar_rating(), newReview.getReview_comments());
@@ -154,8 +154,9 @@ public class JdbcReviewDao implements ReviewDao {
         int star_rating = row.getInt("star_rating");
         String review_comments = row.getString("review_comments");
         String beer_name = row.getString("beer_name");
+        int user_id = row.getInt("user_id");
 
-        review = new Review(review_id, beer_id, star_rating, review_comments, beer_name);
+        review = new Review(review_id, beer_id, star_rating, review_comments, beer_name, user_id);
         return review;
     }
 
