@@ -11,6 +11,7 @@ import BeerDetails from '../components/BeerDetails.vue'
 import NewBrewery from '../views/NewBrewery.vue'
 import Profile from '../views/Profile.vue'
 import Reviews from '../views/Reviews.vue'
+import AddBeer from '../components/AddBeer.vue'
 
 Vue.use(Router)
 
@@ -79,6 +80,14 @@ const router = new Router({
       path: "/beers/:id",
       name: "beer-details",
       component: BeerDetails,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/beers/addBeer",
+      name: "add-beer",
+      component: AddBeer,
       meta: {
         requiresAuth: false
       }

@@ -124,7 +124,9 @@ export default {
 }
 
 div {
+  margin: 1rem;
   padding-left: 2rem;
+  padding-right: 2rem;
   background: #2d7cfa;
   border-radius: 25px;
   display: flex;
