@@ -7,6 +7,7 @@
     <p><img :src="beer.beer_img_url" @error="dispDefaultImg" alt="dust" id="beerpics" /></p>
     <img v-for="star in beer.avg_rating" :key="star" src="../assets/star.png" alt="" id="starz">
     <h3 v-show="beer.avg_rating == 0">No ratings yet</h3>
+    <button>testing</button>
     </div>
   </div>
 </template>

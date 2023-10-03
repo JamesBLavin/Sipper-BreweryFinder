@@ -154,11 +154,12 @@ public class JdbcBeerDao implements BeerDao {
 
     @Override
     public int deleteBeer(int beer_id) {
-        Beer deletedBeer = getBeer(beer_id);
-        String sql = "DELETE FROM beers WHERE beer_id = ?";
-        int numberOfRowsDeleted;
+        String sql =    "DELETE FROM reviews WHERE beer_id = ?; " +
+                        "DELETE FROM beers WHERE beer_id = ?;";
+
+        int numberOfRowsDeleted = 0;
         try {
-            numberOfRowsDeleted = jdbcTemplate.update(sql, beer_id);
+            numberOfRowsDeleted = jdbcTemplate.update(sql, beer_id, beer_id);
             if (numberOfRowsDeleted == 0) {
                 throw new DataAccessException("Zero rows deleted, no beer found with ID: " + beer_id) {
                 };
