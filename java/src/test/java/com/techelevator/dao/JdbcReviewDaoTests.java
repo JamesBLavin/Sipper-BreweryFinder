@@ -10,9 +10,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import java.util.List;
 
 public class JdbcReviewDaoTests extends BaseDaoTests {
-    private static final Review REVIEW_1 = new Review(1, 1, 5, "Great beer.");
-    private static final Review REVIEW_2 = new Review(2, 2, 5, "Good Beer.");
-    private static final Review REVIEW_3 = new Review(3, 3, 5, "Ok beer");
+    private static final Review REVIEW_1 = new Review(1, 1, 5, "Great beer.", "image.jpeg");
+    private static final Review REVIEW_2 = new Review(2, 2, 5, "Good Beer.", "image.jpeg");
+    private static final Review REVIEW_3 = new Review(3, 3, 5, "Ok beer", "image.jpeg");
 
     private JdbcReviewDao sut;
 
@@ -43,7 +43,7 @@ public class JdbcReviewDaoTests extends BaseDaoTests {
 
     @Test
     public void addReview_ReturnsNewReview(){
-        Review testReview = new Review(2, 3, "Meh.");
+        Review testReview = new Review(2, 3, "Meh.", "image.jpeg");
         Review addedReview =sut.addReview(testReview);
         int newId = addedReview.getReview_id();
         Assert.assertTrue("This should create a new review id that is greater than 0", newId > 0);
@@ -53,7 +53,7 @@ public class JdbcReviewDaoTests extends BaseDaoTests {
 
     @Test
     public void updateBrewery_ReturnsUpdatedBrewery() {
-        Review testReview = new Review(2, 3, "Meh.");
+        Review testReview = new Review(2, 3, "Meh.", "image.jpeg");
         Review updatedReview = sut.updateReview(testReview, 1);
         Assert.assertEquals(testReview, updatedReview);
     }

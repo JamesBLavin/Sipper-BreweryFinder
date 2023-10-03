@@ -23,7 +23,7 @@ public class JdbcReviewDao implements ReviewDao {
 
     @Override
     public List<Review> getAllReviews() {
-        String sql = "SELECT b.beer_name, review_id, user_id, b.beer_id, star_rating, review_comments FROM reviews r JOIN beers b ON b.beer_id = r.beer_id ORDER BY random();";
+        String sql = "SELECT b.beer_name, review_id, user_id, b.beer_id, star_rating, review_comments, review_img_url FROM reviews r JOIN beers b ON b.beer_id = r.beer_id ORDER BY random();";
         List<Review> results = new ArrayList<>();
         try {
             SqlRowSet queryResults = jdbcTemplate.queryForRowSet(sql);
@@ -39,7 +39,7 @@ public class JdbcReviewDao implements ReviewDao {
     }
     @Override
     public List<Review> getReviewsByBeerId(int beer_id) {
-        String sql = "SELECT review_id, user_id, beer_id, star_rating, review_comments FROM reviews WHERE beer_id = ?;";
+        String sql = "SELECT review_id, user_id, beer_id, star_rating, review_comments, review_img_url FROM reviews WHERE beer_id = ?;";
         List<Review> results = new ArrayList<>();
         try {
             SqlRowSet queryResults = jdbcTemplate.queryForRowSet(sql, beer_id);
@@ -56,7 +56,7 @@ public class JdbcReviewDao implements ReviewDao {
 
     @Override
     public List<Review> getAllReviewsFromAUser(int user_id) {
-        String sql = "SELECT b.beer_name, review_id, r.user_id, b.beer_id, star_rating, review_comments " +
+        String sql = "SELECT b.beer_name, review_id, r.user_id, b.beer_id, star_rating, review_comments, review_img_url " +
                         "FROM reviews r JOIN beers b ON b.beer_id = r.beer_id WHERE r.user_id = ? ORDER BY review_id DESC;";
         List<Review> results = new ArrayList<>();
         try {
@@ -75,7 +75,7 @@ public class JdbcReviewDao implements ReviewDao {
     @Override
     public Review getReview(int review_id) {
         Review review = null;
-        String sql = "SELECT review_id, beer_id, star_rating, review_comments, user_id FROM reviews WHERE review_id = ?;";
+        String sql = "SELECT review_id, beer_id, star_rating, review_comments, user_id, review_img_url FROM reviews WHERE review_id = ?;";
 
         try{
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, review_id);
@@ -91,10 +91,10 @@ public class JdbcReviewDao implements ReviewDao {
 
     @Override
     public Review addReview(Review newReview) {
-        String sql = "INSERT INTO reviews (beer_id, user_id, star_rating, review_comments) VALUES (?, ?, ?, ?) RETURNING review_id;";
+        String sql = "INSERT INTO reviews (beer_id, user_id, star_rating, review_comments, review_img_url) VALUES (?, ?, ?, ?, ?) RETURNING review_id;";
 
         try {
-            Integer newReviewId = jdbcTemplate.queryForObject(sql, int.class, newReview.getBeer_id(), newReview.getUser_id(), newReview.getStar_rating(), newReview.getReview_comments());
+            Integer newReviewId = jdbcTemplate.queryForObject(sql, int.class, newReview.getBeer_id(), newReview.getUser_id(), newReview.getStar_rating(), newReview.getReview_comments(), newReview.getReview_img_url());
             newReview = getReview(newReviewId);
         }catch (CannotGetJdbcConnectionException e) {
             throw new DataAccessException("Unable to connect to server or database", e) {
@@ -108,10 +108,10 @@ public class JdbcReviewDao implements ReviewDao {
 
     @Override
     public Review updateReview(Review updatedReview, int id) {
-        String sql = "UPDATE reviews SET beer_id = ?, star_rating = ?, review_comments = ? WHERE review_id = ?;";
+        String sql = "UPDATE reviews SET beer_id = ?, star_rating = ?, review_comments = ?, review_img_url = ? WHERE review_id = ?;";
         updatedReview.setReview_id(id);
         try {
-           jdbcTemplate.update(sql, updatedReview.getBeer_id(), updatedReview.getStar_rating(), updatedReview.getReview_comments(), updatedReview.getReview_id());
+           jdbcTemplate.update(sql, updatedReview.getBeer_id(), updatedReview.getStar_rating(), updatedReview.getReview_comments(), updatedReview.getReview_img_url(), updatedReview.getReview_id());
 
         }catch (CannotGetJdbcConnectionException e) {
             throw new DataAccessException("Unable to connect to server or database", e) {
@@ -142,8 +142,9 @@ public class JdbcReviewDao implements ReviewDao {
         int beer_id = row.getInt("beer_id");
         int star_rating = row.getInt("star_rating");
         String review_comments = row.getString("review_comments");
+        String review_img_url = row.getString("review_img_url");
 
-        review = new Review(review_id, beer_id, star_rating, review_comments);
+        review = new Review(review_id, beer_id, star_rating, review_comments, review_img_url);
         return review;
     }
 
@@ -155,8 +156,9 @@ public class JdbcReviewDao implements ReviewDao {
         String review_comments = row.getString("review_comments");
         String beer_name = row.getString("beer_name");
         int user_id = row.getInt("user_id");
+        String review_img_url = row.getString("review_img_url");
 
-        review = new Review(review_id, beer_id, star_rating, review_comments, beer_name, user_id);
+        review = new Review(review_id, beer_id, star_rating, review_comments, beer_name, user_id, review_img_url);
         return review;
     }
 
