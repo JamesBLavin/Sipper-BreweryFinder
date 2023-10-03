@@ -6,16 +6,17 @@
       <div class="stuff-container">
         <review-card :review="review" v-for="review in reviews" :key="review.id" id="cards"></review-card>
       </div>
+      <div v-show="this.$store.state.user.authorities[0].name == 'ROLE_BREWER'">
       <new-brewery-form
-        v-show="this.$store.state.user.authorities[0].name == 'ROLE_BREWER'"
         id="updater"
       />
       <h1>{{this.brewery.brewery_name}} beers</h1>
       <div class="stuff-container">
       <beer-card :beer="beer" v-for="beer in beers" :key="beer.id" />
       </div>
+      <add-beer/>
+      </div>
     </div>
-    <add-beer/>
   </div>
 </template>
 

@@ -19,6 +19,6 @@ export default {
         return axios.put(`/beers`, beer)
     },
     deleteBeer(id){
-        return axios.delete(`beers/${id}`)
+        return axios.delete(`/deleteBeer/${id}`)
     },
 }

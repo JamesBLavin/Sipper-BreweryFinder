@@ -7,18 +7,29 @@
     <p><img :src="beer.beer_img_url" @error="dispDefaultImg" alt="dust" id="beerpics" /></p>
     <img v-for="star in beer.avg_rating" :key="star" src="../assets/star.png" alt="" id="starz">
     <h3 v-show="beer.avg_rating == 0">No ratings yet</h3>
-    <button>testing</button>
+    <button @click="deleteBeer" v-show="this.$route.path == '/profile'">testing</button>
     </div>
   </div>
 </template>
 
 <script>
+import beerService from '../services/BeerService';
 export default {
   name: "beer-card",
   props:["beer"],
   methods: {
     dispDefaultImg(event) {
       event.target.src = require('@/assets/IMG_6794.jpg');
+    },
+    deleteBeer() {
+      if (confirm("Do you really want to delete this beer?")) {
+      beerService.deleteBeer(this.beer.beer_id).then(rspns => {
+        if(rspns.status == 204) {
+            window.alert('Brewery removed!');
+        }
+        });
+    }
+      location.reload();
     }
   }
 };
