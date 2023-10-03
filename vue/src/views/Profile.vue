@@ -4,19 +4,15 @@
     <h2>my reviews</h2>
     <div id="profile-container">
       <div id="review-container">
-        <review-card
-          :review="review"
-          v-for="review in reviews"
-          :key="review.id"
-          id="cards"
-        ></review-card>
+        <review-card :review="review" v-for="review in reviews" :key="review.id" id="cards"></review-card>
       </div>
       <new-brewery-form
         v-show="this.$store.state.user.authorities[0].name == 'ROLE_BREWER'"
         id="updater"
       />
-      <beer-card v-for="beer in beers" :key="beer.id" />
+      <!-- <beer-card v-for="beer in beers" :key="beer.id" /> -->
     </div>
+    <add-beer/>
   </div>
 </template>
 
@@ -26,10 +22,12 @@ import ReviewCard from "../components/ReviewCard.vue";
 import reviewService from "../services/ReviewService";
 import breweryService from "../services/BreweryService";
 import beerService from "../services/BeerService";
-import BeerCard from "../components/BeerCard.vue";
+// import BeerCard from "../components/BeerCard.vue";
+import AddBeer from '../components/AddBeer.vue';
 export default {
-  components: { ReviewCard, NewBreweryForm, BeerCard },
-  data() {
+  components: { ReviewCard, NewBreweryForm, AddBeer },
+  data()
+    {
     return {
       reviews: [],
       brewery: {},

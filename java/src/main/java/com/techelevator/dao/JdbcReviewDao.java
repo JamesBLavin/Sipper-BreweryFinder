@@ -56,7 +56,7 @@ public class JdbcReviewDao implements ReviewDao {
 
     @Override
     public List<Review> getAllReviewsFromAUser(int user_id) {
-        String sql = "SELECT b.beer_name, review_id, b.beer_id, star_rating, review_comments, b.beer_name " +
+        String sql = "SELECT b.beer_name, review_id, b.beer_id, star_rating, review_comments, r.user_id " +
                         "FROM reviews r JOIN beers b ON b.beer_id = r.beer_id WHERE r.user_id = ? ORDER BY review_id DESC;";
         List<Review> results = new ArrayList<>();
         try {
