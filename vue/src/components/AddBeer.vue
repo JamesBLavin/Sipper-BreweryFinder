@@ -54,6 +54,7 @@ export default {
           if (response.status === 200 || response.status === 201) {
             window.alert('Beer added!');
             this.resetBeer();
+            location.reload();
           }
         })
         .catch(error => {
