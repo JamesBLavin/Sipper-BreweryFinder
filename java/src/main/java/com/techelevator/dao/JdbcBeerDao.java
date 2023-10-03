@@ -63,19 +63,41 @@ public class JdbcBeerDao implements BeerDao {
 
     @Override
     public Beer getBeer(int beer_id) {
-        Beer beer = null;
-        String sql = "SELECT AVG(reviews.star_rating) as avg_stars, beers.beer_id, brewery_id, beer_name, beer_description, abv, ibu, beer_img_url, beer_type \n" +
-                "FROM beers JOIN reviews ON reviews.beer_id = beers.beer_id WHERE beers.beer_id = ? GROUP BY beers.beer_id;";
+        String sql1 = "SELECT AVG(reviews.star_rating) AS avg_stars, beers.beer_id, brewery_id, beer_name, " +
+                "beer_description, abv, ibu, beer_img_url, beer_type " +
+                "FROM reviews JOIN beers ON beers.beer_id = reviews.beer_id " +
+                "WHERE beers.beer_id = ?" +
+                "GROUP BY beers.beer_id ORDER BY beer_id;";
+        String sql2 = "SELECT beer_id, brewery_id, beer_name, " +
+                "beer_description, abv, ibu, beer_img_url, beer_type " +
+                "FROM beers WHERE beer_id = ? ORDER BY beer_id;";
+        List<Beer> results = new ArrayList<>();
         try {
-            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, beer_id);
-            if (results.next()) {
-                beer = mapBeerAndAvg(results);
+            SqlRowSet queryResults1 = jdbcTemplate.queryForRowSet(sql1, beer_id);
+            while (queryResults1.next()) {
+                Beer currentBeer = mapBeerAndAvg(queryResults1);
+                results.add(currentBeer);
             }
+            SqlRowSet queryResults2 = jdbcTemplate.queryForRowSet(sql2, beer_id);
+            while (queryResults2.next()) {
+                boolean found = false;
+                Beer currentBeer = mapBeer(queryResults2);
+                for (Beer beer : results) {
+                    if (beer.getBeer_id() == currentBeer.getBeer_id()) {
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    results.add(currentBeer);
+                }
+            }
+
         } catch (Exception e) {
             System.out.println("Error occurred when connecting to the database. Exception is: ");
             e.printStackTrace();
         }
-        return beer;
+        return results.get(0);
     }
 
     @Override
