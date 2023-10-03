@@ -3,14 +3,17 @@
     <h1 id="profile-header">{{ this.$store.state.user.username }}</h1>
     <h2>my reviews</h2>
     <div id="profile-container">
-      <div id="review-container">
+      <div class="stuff-container">
         <review-card :review="review" v-for="review in reviews" :key="review.id" id="cards"></review-card>
       </div>
       <new-brewery-form
         v-show="this.$store.state.user.authorities[0].name == 'ROLE_BREWER'"
         id="updater"
       />
-      <!-- <beer-card v-for="beer in beers" :key="beer.id" /> -->
+      <h1>{{this.brewery.brewery_name}} beers</h1>
+      <div class="stuff-container">
+      <beer-card :beer="beer" v-for="beer in beers" :key="beer.id" />
+      </div>
     </div>
     <add-beer/>
   </div>
@@ -22,10 +25,10 @@ import ReviewCard from "../components/ReviewCard.vue";
 import reviewService from "../services/ReviewService";
 import breweryService from "../services/BreweryService";
 import beerService from "../services/BeerService";
-// import BeerCard from "../components/BeerCard.vue";
+import BeerCard from "../components/BeerCard.vue";
 import AddBeer from '../components/AddBeer.vue';
 export default {
-  components: { ReviewCard, NewBreweryForm, AddBeer },
+  components: { ReviewCard, NewBreweryForm, AddBeer, BeerCard },
   data()
     {
     return {
@@ -59,13 +62,14 @@ export default {
   font-size: 300px;
 }
 
-#review-container {
+.stuff-container {
   overflow-y: scroll;
   height: 40vh;
 }
 
 #profile-container {
   display: flex;
+  flex-wrap: wrap;
 }
 
 h2 {
