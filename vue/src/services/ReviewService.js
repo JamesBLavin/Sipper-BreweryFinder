@@ -10,7 +10,7 @@ export default {
         return axios.get(`/reviews/${beer_id}`);
     },
     getAllReviewsFromUser(user_id) {
-        return axios.get(`/reviews/user?user_id=${user_id}`);
+        return axios.get(`/reviewsByUser?user_id=${user_id}`);
     },
     getReview(review_id) {
         return axios.get(`/reviews/${review_id}`)

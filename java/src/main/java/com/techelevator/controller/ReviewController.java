@@ -25,7 +25,7 @@ public class ReviewController {
         return reviewService.getAllReviews();
     }
 
-    @GetMapping("/reviews/user")
+    @GetMapping("/reviewsByUser")
     public List<Review> getAllReviewsFromAUser(@RequestParam @Valid int user_id) {
         return reviewService.getAllReviewsFromAUser(user_id);
     }
