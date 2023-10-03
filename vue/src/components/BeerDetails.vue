@@ -12,6 +12,7 @@
     
 
     <review-card :review="review" v-for="review in revs" :key="review.review_id" />
+    <add-review></add-review>
 </div>
 
 </template>
@@ -19,11 +20,12 @@
 <script>
 import beerService from '../services/BeerService';
 import ReviewService from '../services/ReviewService';
+import AddReview from './AddReview.vue';
 import ReviewCard from './ReviewCard.vue';
 export default {
     name: "beer-details",
     components:
-    {ReviewCard},
+    {ReviewCard, AddReview},
     data(){
         return {
             beer: {},
