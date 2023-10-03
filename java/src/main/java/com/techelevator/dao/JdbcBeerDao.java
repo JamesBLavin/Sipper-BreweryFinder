@@ -14,27 +14,47 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class JdbcBeerDao implements BeerDao{
+public class JdbcBeerDao implements BeerDao {
 
 
     private final JdbcTemplate jdbcTemplate;
-    public JdbcBeerDao(JdbcTemplate jdbcTemplate){
+
+    public JdbcBeerDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
+
     @Override
     public List<Beer> getAllBeers() {
-        String sql = "SELECT AVG(reviews.star_rating) AS avg_stars, beers.beer_id, brewery_id, beer_name, " +
+        String sql1 = "SELECT AVG(reviews.star_rating) AS avg_stars, beers.beer_id, brewery_id, beer_name, " +
                 "beer_description, abv, ibu, beer_img_url, beer_type " +
                 "FROM reviews JOIN beers ON beers.beer_id = reviews.beer_id " +
-                "GROUP BY beers.beer_id ORDER BY beer_name;";
+                "GROUP BY beers.beer_id ORDER BY beer_id;";
+        String sql2 = "SELECT beer_id, brewery_id, beer_name, " +
+                "beer_description, abv, ibu, beer_img_url, beer_type " +
+                "FROM beers ORDER BY beer_id;";
         List<Beer> results = new ArrayList<>();
-        try{
-            SqlRowSet queryResults = jdbcTemplate.queryForRowSet(sql);
-            while(queryResults.next()){
-                Beer currentBeer = mapBeerAndAvg(queryResults);
+        try {
+            SqlRowSet queryResults1 = jdbcTemplate.queryForRowSet(sql1);
+            while (queryResults1.next()) {
+                Beer currentBeer = mapBeerAndAvg(queryResults1);
                 results.add(currentBeer);
             }
-        }catch (Exception e){
+            SqlRowSet queryResults2 = jdbcTemplate.queryForRowSet(sql2);
+            while (queryResults2.next()) {
+                boolean found = false;
+                Beer currentBeer = mapBeer(queryResults2);
+                for (Beer beer : results) {
+                    if (beer.getBeer_id() == currentBeer.getBeer_id()) {
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    results.add(currentBeer);
+                }
+            }
+
+        } catch (Exception e) {
             System.out.println("Error occurred when connecting to the database. Exception is: ");
             e.printStackTrace();
         }
@@ -69,7 +89,7 @@ public class JdbcBeerDao implements BeerDao{
                 Beer currentBeer = mapBeer(queryResults);
                 beers.add(currentBeer);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Error occurred when connecting to the database. Exception is: ");
             e.printStackTrace();
         }
@@ -129,9 +149,7 @@ public class JdbcBeerDao implements BeerDao{
     }
 
 
-
-
-    private Beer mapBeer(SqlRowSet row){
+    private Beer mapBeer(SqlRowSet row) {
         Beer beer = new Beer();
         int beer_id = row.getInt("beer_id");
         int brewery_id = row.getInt("brewery_id");
@@ -142,11 +160,11 @@ public class JdbcBeerDao implements BeerDao{
         String beer_img_url = row.getString("beer_img_url");
         String beer_type = row.getString("beer_type");
 
-        beer = new Beer(beer_id, brewery_id, beer_name,beer_description, abv, ibu, beer_img_url, beer_type);
+        beer = new Beer(beer_id, brewery_id, beer_name, beer_description, abv, ibu, beer_img_url, beer_type);
         return beer;
     }
 
-    private Beer mapBeerAndAvg(SqlRowSet row){
+    private Beer mapBeerAndAvg(SqlRowSet row) {
         Beer beer = new Beer();
         int beer_id = row.getInt("beer_id");
         int brewery_id = row.getInt("brewery_id");
@@ -156,9 +174,9 @@ public class JdbcBeerDao implements BeerDao{
         int ibu = row.getInt("ibu");
         String beer_img_url = row.getString("beer_img_url");
         String beer_type = row.getString("beer_type");
-        int avg_rating = (int)row.getDouble("avg_stars");
+        int avg_rating = (int) row.getDouble("avg_stars");
 
-        beer = new Beer(beer_id, brewery_id, beer_name,beer_description, abv, ibu, beer_img_url, beer_type, avg_rating);
+        beer = new Beer(beer_id, brewery_id, beer_name, beer_description, abv, ibu, beer_img_url, beer_type, avg_rating);
         return beer;
     }
 }
