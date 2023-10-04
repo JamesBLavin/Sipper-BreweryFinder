@@ -86,7 +86,7 @@ export default {
 
 <style scoped>
 h1 {
-  color: black;
+  color: sandybrown;
 }
 
 .search-bar {
@@ -116,27 +116,27 @@ h1 {
 }
 
 .btn-secondary {
-    color: #2d7cfa;
+    color:   #7f513ae1;
     background-color: white;
-    border-color: #2d7cfa;
+    border-color:   #7f513ae1;
 }
 
 .mb-3 {
   margin: 10vw 1vw 10vw 10vw;
   width: 50vw;
-  background: #2d7cfa;
-  border: #2d7cfa 20px solid;
+  background:    #7f513ae1;
+  border:    #7f513ae1 20px solid;
   border-radius: 25px;
 }
 
 #dropdownMenuButton {
-  border: #2d7cfa 20px solid;
+  border:    #7f513ae1 20px solid;
   border-radius: 25px;
   margin-bottom: 25%;
 }
 
 #search-btn {
-  border: #2d7cfa 20px solid;
+  border:    #7f513ae1 20px solid;
   border-radius: 25px;
   margin-bottom: 1%;
   margin-left: 1%;
@@ -148,15 +148,20 @@ h1 {
 
 #welcome {
   position: absolute;
-  left: 250px;
-  background: #2d7cfa;
+  left: 180px;
+  right: 180px;
+  background:rgba(98, 53, 36, 0.5);
+  /* backdrop-filter: blur(15px); */
   padding: 10px 50px 10px 50px;
   border-radius: 25px;
+  border: solid 2px lightgrey;
   color: white;
 }
 
 #login-greeting {
-  color: black;
+  color: #7f513ae1;
   margin-top: -38%;
 }
+
+
 </style>
