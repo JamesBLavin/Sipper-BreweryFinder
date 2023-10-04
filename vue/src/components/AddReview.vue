@@ -5,8 +5,10 @@
 
             <label class="form-label" for="star_rating" >Rating:</label>
             <div class="range">
-           <input type="range" class="form-range" min="1" max="5" oninput="rangeValue.innerText = this.value" id="star_rating" v-model="review.star_rating" /><p id="rangeValue">3</p>
+           <input type="range" class="form-range" min="0" max="5" id="star_rating" v-model="review.star_rating">
+           <img v-for="star in starsArr" :key="star" src="../assets/star.png" alt="" id="starz">
             </div>
+            
 
 <!-- <div class="range">
 <input id="myRange" 
@@ -41,9 +43,19 @@ export default {
         return {
             review: {
                 beer_id: this.$route.params.id,
-                user_id: this.$store.state.user.id
+                user_id: this.$store.state.user.id,
+                star_rating: 0
             },
         }
+    },
+    computed: {
+      starsArr() {
+        const stars = [];
+        for (let i = 0; i < this.review.star_rating; i++) {
+            stars.push(i);
+        }
+        return stars;
+      }
     },
     methods: {
         addReview() {

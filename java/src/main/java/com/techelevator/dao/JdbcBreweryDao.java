@@ -158,7 +158,7 @@ public class JdbcBreweryDao implements BreweryDao{
         Brewery brewery = null;
         // sql query to get a brewery by id
         String sql = "SELECT brewery_id, brewery_name, contact_info, brewery_history, operating_hours, brewery_img_url, " +
-                "brewery_address, brewery_city, brewery_state, brewery_zip, is_active FROM breweries WHERE brewery_id = ?";
+                "brewery_address, brewery_city, brewery_state, brewery_zip, is_active, brewer FROM breweries WHERE brewery_id = ?";
         try {
             // send query
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, brewery_id);
