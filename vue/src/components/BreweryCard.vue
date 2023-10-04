@@ -94,6 +94,7 @@ export default {
  background-size: cover;
   border: 1px solid #d6c29d;
   color: white;
+  border-radius: 50px;
 
 }
 
