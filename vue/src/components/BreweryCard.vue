@@ -94,7 +94,7 @@ export default {
  background-size: cover;
   border: 1px solid #d6c29d;
   color: white;
-  border-radius: 50px;
+  border-radius: 15px;
 
 }
 
@@ -129,6 +129,7 @@ h2 {
   margin: 0;
   padding: 15px;
   background-color: rgba(66, 66, 66, 0.397);
+  border-radius: 15px;
 }
 
 .centered h2 {
