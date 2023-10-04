@@ -14,7 +14,7 @@
       <div class="stuff-container">
       <beer-card :beer="beer" v-for="beer in beers" :key="beer.id" />
       </div>
-      <add-beer/>
+      <add-beer :brewery-id="brewery.brewery_id"/>
       </div>
     </div>
   </div>
