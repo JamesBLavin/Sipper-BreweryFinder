@@ -1,11 +1,11 @@
 <template>
   <div>
       <h1>Leave a review, and tell us what you think! Please fill out the form:</h1>
-      <form>
+      <form @submit.prevent="addReview">
 
-            <label class="form-label" for="star_rating">Rating:</label>
+            <label class="form-label" for="star_rating" >Rating:</label>
             <div class="range">
-           <input type="range" class="form-range" min="1" max="5" id="star_rating" />
+           <input type="range" class="form-range" min="1" max="5" id="star_rating" v-model="review.star_rating" />
             </div>
 
 <!-- <div class="range">
@@ -21,7 +21,7 @@ Current Value:
 </h4>
 </div> -->
             <br>
-            Commentary: <textarea name="review_comments" id="review_comments" cols="40" rows="5" placeholder="Leave comment here"></textarea>
+            Commentary: <textarea name="review_comments" id="review_comments" cols="40" rows="5" placeholder="Leave comment here" v-model="review.review_comments"></textarea>
             <br>
             <label class="form-label" for="review_image_url">Image URL:</label>
             <br> 
@@ -39,21 +39,26 @@ export default {
     name: "add-review",
     data() {
         return {
-            review: {},
+            review: {
+                beer_id: this.$route.params.id,
+                user_id: this.$store.state.user.id
+            },
         }
     },
     methods: {
         addReview() {
+            
             ReviewService.addReview(this.review).then(response => {
                 if(response.status == 200 || response.status == 201){
                     window.alert('Review made!');
-                    this.review={
-                        beer_id: '',
-                        user_id: '',
-                        star_rating: '',
-                        review_comments: '',
-                        review_img_url: ''
-                    };
+                    // this.review={
+                    //     beer_id: '',
+                    //     user_id: '',
+                    //     star_rating: '',
+                    //     review_comments: '',
+                    //     review_img_url: ''
+                    // };
+                    location.reload();
                 }
             }).catch(error => {
                 console.log(error)
