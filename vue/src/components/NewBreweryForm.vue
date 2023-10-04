@@ -6,7 +6,7 @@
       <div class="form-input-group">
       <input type="text" placeholder="brewery name" required class="inputboxes" v-model="brewery.brewery_name"><br><br>
       
-      <select v-show="this.$route.path == '/breweries/addBrewery'" placeholder="brewer username" required class="inputboxes" v-model="brewery.brewer">
+      <select v-show="this.$route.path == '/breweries/addBrewery'" placeholder="brewer username" name="brewer" class="inputboxes" v-model="brewery.brewer">
         <option v-for="user in users" :key="user.user_id" value="user">{{ user.username }}</option>
       </select>
       
@@ -75,18 +75,6 @@ export default {
           breweryService.updateBrewery(this.brewery).then(response => {
             if(response.status == 200) {
               window.alert('Brewery has been updated!');
-              this.brewery= {
-                brewery_name: '',
-                
-                contact_info: '',
-                brewery_history: '',
-                operating_hours: '',
-                brewery_img_url: '',
-                brewery_address: '',
-                brewery_city: '',
-                brewery_state: '',
-                brewery_zip: ''
-          };
         }
     }).catch(error => {
       console.log(error);

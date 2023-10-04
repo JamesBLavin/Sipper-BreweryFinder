@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="review-form">
       <h1>Leave a review, and tell us what you think! Please fill out the form:</h1>
       <form @submit.prevent="addReview">
 
@@ -21,7 +21,7 @@ Current Value:
 </h4>
 </div> -->
             <br>
-            Commentary: <textarea name="review_comments" id="review_comments" cols="40" rows="5" placeholder="Leave comment here" v-model="review.review_comments"></textarea>
+            Commentary: <br> <textarea name="review_comments" id="review_comments" cols="40" rows="5" placeholder="Leave comment here" v-model="review.review_comments"></textarea>
             <br>
             <label class="form-label" for="review_image_url">Image URL:</label>
             <br> 
@@ -82,10 +82,13 @@ export default {
 }
 
 .range {
-  background-color: gold;
-  min-block-size: 10%;
-
+   padding-left: 37%;
 }
+
+.form-range {
+  inline-size: 300px;
+  
+  }
 /* div[data-v-646842d9] {
     margin: 1rem;
     padding-left: 1rem;
@@ -102,7 +105,7 @@ div {
   margin: 1rem;
   padding-left: 1rem;
   padding-right: 1rem;
-  background: #2d7cfa;
+  background: wheat;
   border-radius: 25px;
   display: flex;
   color: white;
@@ -124,6 +127,11 @@ button {
   border: solid 5px white;
   border-radius: 10px;
   margin-bottom: 10px;
+}
+
+.review-form {
+  display: flex;
+  flex-direction: column;
 }
 
 /* .range{

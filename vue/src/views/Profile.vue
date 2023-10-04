@@ -2,8 +2,8 @@
   <div>
     <h1 id="profile-header">{{ this.$store.state.user.username }}</h1>
     <div id="profile-container">
-     <p id="title-left">my reviews</p>
-     <p id="title-right">my beers</p>
+     <p id="title-left">my personal reviews</p>
+     <p id="title-right">{{brewery.brewery_name}}'s beers</p>
       <div class="stuff-container" id="left-one"> 
         
         <review-card :review="review" v-for="review in reviews" :key="review.id" id="cards"></review-card>
@@ -98,14 +98,14 @@ grid-area: one;
 
 #title-left{
   text-decoration:underline;
-  font-size:70px;
+  font-size:250%;
   font-weight:bold;
   grid-area: title-left;
 }
 
 #title-right{
   text-decoration:underline;
-  font-size:70px;
+  font-size:250%;
   font-weight:bold;
   grid-area: title-right;
 }

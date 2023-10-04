@@ -12,7 +12,7 @@
         <br><br>
         <input type="number" placeholder="ibu" required class="input-box" v-model="beer.ibu" />
         <br><br>
-        <input type="text" placeholder="enter an image url from the brewery website or social media" required class="input-box" v-model="beer.beer_image_url" />
+        <input type="text" placeholder="enter an image url from the brewery website or social media" required class="input-box" v-model="beer.beer_img_url" />
         <br><br>
         <input type="text" placeholder="beer type" required class="input-box" v-model="beer.beer_type" />
         <br><br>

@@ -6,13 +6,13 @@
      <h1 id="title">sipper</h1>
      </div>
      <div id="links">
-      <router-link :to="{ name: 'home' }" tag="h1" class="nav-links">home</router-link>
-      <router-link :to="{ name: 'beers' }" tag="h1" class="nav-links">beers</router-link>
-      <router-link :to="{ name: 'breweries' }" tag="h1" class="nav-links">breweries</router-link>
-      <router-link :to="{ name: 'profile' }" v-if="$store.state.token != ''" tag="h1" class="nav-links" id="profile">{{ this.$store.state.user.username }}</router-link>
-      <router-link :to="{ name: 'add-brewery' }" tag="h1" class="nav-links" v-show="this.$store.state.user.authorities && this.$store.state.user.authorities[0].name == 'ROLE_ADMIN'">+ brewery</router-link>
-      <router-link :to="{ name: 'login' }" v-if="loggedIn" tag="h1" class="nav-links">login</router-link>
-      <router-link :to="{ name: 'logout' }" v-if="!loggedIn" tag="h1" class="nav-links">logout</router-link>
+      <router-link :to="{ name: 'home' }" tag="h2" class="nav-links">home</router-link>
+      <router-link :to="{ name: 'beers' }" tag="h2" class="nav-links">beers</router-link>
+      <router-link :to="{ name: 'breweries' }" tag="h2" class="nav-links">breweries</router-link>
+      <router-link :to="{ name: 'profile' }" v-if="$store.state.token != ''" tag="h2" class="nav-links" id="profile">{{ this.$store.state.user.username }}</router-link>
+      <router-link :to="{ name: 'add-brewery' }" tag="h2" class="nav-links" v-show="this.$store.state.user.authorities && this.$store.state.user.authorities[0].name == 'ROLE_ADMIN'">+ brewery</router-link>
+      <router-link :to="{ name: 'login' }" v-if="loggedIn" tag="h2" class="nav-links">login</router-link>
+      <router-link :to="{ name: 'logout' }" v-if="!loggedIn" tag="h2" class="nav-links">logout</router-link>
       </div>
     </div>
     <router-view id="view"/>
@@ -59,14 +59,14 @@ font-family: 'Roboto Flex', sans-serif;
 #main-logo {
   width: 10%;
   margin: 10px;
-  min-width: 100px;
+  min-width: 140px;
 }
 .all-nav {
   color: white;
 }
 #nav-home {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 2fr 3fr;
   grid-template-areas: "namelogo links";
   padding-bottom: 30vw;
   border-radius: 25px;
@@ -77,6 +77,11 @@ font-family: 'Roboto Flex', sans-serif;
   max-width: 100vw;
   background-repeat: no-repeat;
 }
+
+#nav-home .nav-links {
+color: white;
+}
+
 #logo-name {
   grid-area: namelogo;
   display: flex;
