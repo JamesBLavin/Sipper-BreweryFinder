@@ -73,7 +73,7 @@ public class JdbcBreweryDao implements BreweryDao{
     public List<Brewery> getAllBreweriesByName(String query) {
         //sql query to select breweries by brewery name
         String sql = "SELECT brewery_id, brewery_name, contact_info, brewery_history, operating_hours, brewery_img_url, " +
-                "brewery_address, brewery_city, brewery_state, brewery_zip, is_active FROM breweries WHERE brewery_name ILIKE ? ORDER BY brewery_name;";
+                "brewery_address, brewery_city, brewery_state, brewery_zip, is_active, brewer FROM breweries WHERE brewery_name ILIKE ? ORDER BY brewery_name;";
         //where breweries get stored
         List<Brewery> results = new ArrayList<>();
         try{
@@ -116,10 +116,10 @@ public class JdbcBreweryDao implements BreweryDao{
     }
 
     @Override
-    public List<Brewery> getAllBreweriesByZip(int query) {
+    public List<Brewery> getAllBreweriesByZip(String query) {
         //sql query to select breweries by zip code
         String sql = "SELECT brewery_id, brewery_name, contact_info, brewery_history, operating_hours, brewery_img_url, " +
-                "brewery_address, brewery_city, brewery_state, brewery_zip, is_active FROM breweries WHERE brewery_zip = ? ORDER BY brewery_name;";
+                "brewery_address, brewery_city, brewery_state, brewery_zip, is_active, brewer FROM breweries WHERE brewery_zip ILIKE ? ORDER BY brewery_name;";
         //where breweries get stored
         List<Brewery> results = new ArrayList<>();
         try{
@@ -230,7 +230,7 @@ public class JdbcBreweryDao implements BreweryDao{
         String brewery_address = row.getString("brewery_address");
         String brewery_city = row.getString("brewery_city");
         String brewery_state = row.getString("brewery_state");
-        int brewery_zip = row.getInt("brewery_zip");
+        String brewery_zip = row.getString("brewery_zip");
         boolean isActive = row.getBoolean("is_active");
         String brewer = row.getString("brewer");
 
