@@ -59,7 +59,7 @@ font-family: 'Roboto Flex', sans-serif;
 #main-logo {
   width: 10%;
   margin: 10px;
-  min-width: 100px;
+  min-width: 140px;
 }
 .all-nav {
   color: white;

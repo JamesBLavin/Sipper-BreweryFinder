@@ -6,7 +6,7 @@
       <br>
       <span class="review-comments"><strong>Review Commentary: &nbsp; {{ review.review_comments }}</strong><br></span>
       <div class="review-image">
-      <p><img :src="review.review_img_url" alt="no image to show" id="reviewpics"/></p>
+      <p><img v-show="show" @error="dispNothing" :src="review.review_img_url" alt="no image to show" id="reviewpics"/></p>
       </div>
   </div>
 </template>
@@ -18,7 +18,13 @@ export default {
   props: ["review"],
   data() {
     return {
+      show: true
     };
+  },
+  methods: {
+    dispNothing() {
+      this.show = false;
+    }
   }
 };
 </script>
