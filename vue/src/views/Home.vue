@@ -32,11 +32,11 @@
         <button id="search-btn" @click="displayBreweries()">search</button>
       </form>
     </div>
-    <h1 v-show="$store.state.token != ''" id="login-greeting">
+    <!-- <h1 v-show="$store.state.token != ''" id="login-greeting">
       thanks for drinking with us, {{ this.$store.state.user.username }}!
-    </h1>
+    </h1> -->
     <!-- <breweries :filter="filter" v-show="this.showBr" id="listing"/> -->
-    <brewery-card :brewery="brewery" v-for="brewery in breweries" :key="brewery.brewery_id"/>
+    <brewery-card :brewery="brewery" v-for="brewery in breweries" :key="brewery.brewery_id" id="b-card"/>
   </div>
 </template>
 
@@ -107,7 +107,6 @@ h1 {
   justify-content: center;
   padding: 10px 10px 10px 10px;
   align-items: flex-end;
-  position: relative;
   right: 10px;
   /* border: 4px solid rgba(255, 255, 255, 0.815);
   padding: none;
@@ -154,7 +153,6 @@ h1 {
 }
 
 #welcome {
-  position: absolute;
   left: 180px;
   right: 180px;
   /* backdrop-filter: blur(15px); */

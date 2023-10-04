@@ -130,4 +130,8 @@ body {
   padding: 5px;
 
 }
+
+#view {
+  z-index: 3;
+}
 </style>
