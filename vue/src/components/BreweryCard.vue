@@ -66,21 +66,22 @@ export default {
 
 <style scoped>
 .brewery-card:hover {
-  color: lightgray;
+  background-color: wheat;
   cursor: pointer;
 }
 
 .full-details a {
-  color: blue;
+  color: rgb(255, 123, 0);
   text-decoration: none;
 }
 
 .full-details a:hover {
-  color: cyan;
+  color: rgb(58, 202, 202);
 }
 
 #previewpics {
-  width: 300px;
+  /* width: 300px; */
+  width: 20vw;
   border-radius: 30px;
   margin-bottom: 30px;
 }
@@ -90,9 +91,9 @@ export default {
   flex-direction: column;
   border-radius: 20px;
   justify-content: space-between;
-  background-color: wheat;
+  background-color: rgb(247, 215, 157);
   border: 1px solid #d6c29d;
-  color: white;
+  color: rgb(192, 102, 0);
 }
 
 
