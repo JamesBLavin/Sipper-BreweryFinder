@@ -112,7 +112,7 @@ h1 {
 }
 
 .search-container {
-  margin-top: 100vh;
+  margin-top: 121vh;
 }
 
 .btn-secondary {
@@ -124,22 +124,22 @@ h1 {
 .mb-3 {
   margin: 10vw 1vw 10vw 10vw;
   width: 50vw;
-  background:    #7f513ae1;
-  border:    #7f513ae1 20px solid;
-  border-radius: 25px;
+  /* background:    #7f513ae1; */
+  /* border:    #7f513ae1 20px solid; */
+  /* border-radius: 25px; */
 }
 
 #dropdownMenuButton {
-  border:    #7f513ae1 20px solid;
-  border-radius: 25px;
-  margin-bottom: 25%;
+  /* border:    #7f513ae1 20px solid; */
+  /* border-radius: 5px; */
+  margin-bottom: 44%;
 }
 
 #search-btn {
-  border:    #7f513ae1 20px solid;
-  border-radius: 25px;
-  margin-bottom: 1%;
-  margin-left: 1%;
+  /* border:    #7f513ae1 20px solid; */
+  /* border-radius: 25px; */
+  margin-bottom: 20px;
+  margin-left: 1rem;
 }
 
 #listing {
@@ -152,6 +152,7 @@ h1 {
   right: 180px;
   background:rgba(98, 53, 36, 0.5);
   /* backdrop-filter: blur(15px); */
+  margin-top: 35px;
   padding: 10px 50px 10px 50px;
   border-radius: 25px;
   border: solid 2px lightgrey;
@@ -160,7 +161,7 @@ h1 {
 
 #login-greeting {
   color: #7f513ae1;
-  margin-top: -38%;
+  margin-top: -49%;
 }
 
 

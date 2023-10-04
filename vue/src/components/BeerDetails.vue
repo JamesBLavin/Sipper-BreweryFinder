@@ -65,17 +65,33 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #2d7cfa;
+    background-color: wheat;
     border-radius: 25px;
     padding: 40px;
     margin-left: 20%;
     margin-right: 20%;
+    border: 2px solid black;
 }
 
 .beer-image img {
     width: 40%;
     height: auto;
     border-radius: 30px;
+}
+
+h2 {
+  color:rgb(145, 72, 0);
+}
+.description {
+  color:rgb(167, 89, 0);
+}
+/* rgb(255, 123, 0) */
+.beer-type {
+  color:rgb(211, 112, 0);
+}
+
+.alcohol-info {
+  color: rgb(255, 123, 0);
 }
 
 #starz {

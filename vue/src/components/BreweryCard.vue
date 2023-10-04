@@ -90,7 +90,8 @@ export default {
   flex-direction: column;
   border-radius: 20px;
   justify-content: space-between;
-  background-color: #4287f5;
+  background-color: wheat;
+  border: 1px solid #d6c29d;
   color: white;
 }
 
