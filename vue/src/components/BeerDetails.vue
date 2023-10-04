@@ -10,10 +10,12 @@
         <h3 v-show="beer.avg_rating == 0">No ratings yet</h3>
         <hr>
     </div>
+    <div>
     <add-review></add-review>
+    <hr>
+    </div>
     <div class="rev-card">  
     <review-card :review="review" v-for="review in revs" :key="review.review_id" />
-    <hr>
     </div>
 </div>
 
