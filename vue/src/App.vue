@@ -89,10 +89,12 @@ color: white;
   padding: 10px;
   margin: 15px;
 }
+
 #links {
   grid-area: links;
-  margin-top: 125px;
+  // margin-top: 125px;
   display: flex;
+  align-items: flex-end;
   justify-content: space-around;
   margin-right: 10%;
   margin-bottom: 7px;
@@ -100,6 +102,7 @@ color: white;
   // background: #7f513ae1;
   border-radius: 20px;
 }
+
 #nav h1 {
   font-size: 500%;
   margin: 0px;
