@@ -39,7 +39,7 @@ public class JdbcReviewDao implements ReviewDao {
     }
     @Override
     public List<Review> getReviewsByBeerId(int beer_id) {
-        String sql = "SELECT review_id, user_id, beer_id, star_rating, review_comments, review_img_url FROM reviews WHERE beer_id = ?;";
+        String sql = "SELECT review_id, user_id, beer_id, star_rating, review_comments, review_img_url FROM reviews WHERE beer_id = ? ORDER BY review_id DESC;";
         List<Review> results = new ArrayList<>();
         try {
             SqlRowSet queryResults = jdbcTemplate.queryForRowSet(sql, beer_id);
