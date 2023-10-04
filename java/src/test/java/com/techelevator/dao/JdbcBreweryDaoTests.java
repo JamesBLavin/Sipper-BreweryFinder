@@ -13,10 +13,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class JdbcBreweryDaoTests extends BaseDaoTests {
 
-    private static final Brewery BREWERY_1 = new Brewery(1, "Cool name", "(302)444-7788", "Fun and vibey place", "Mon-Fri 1-10pm", "image.test.com", "123 Fun Road", "Middletwon", "OR", 12345, true, "user1");
+    private static final Brewery BREWERY_1 = new Brewery(1, "Cool name", "(302)444-7788", "Fun and vibey place", "Mon-Fri 1-10pm", "image.test.com", "123 Fun Road", "Middletwon", "OR", "12345", true, "user1");
 
-    private static final Brewery BREWERY_2 = new Brewery(2, "Lovely Place", "(302)333-9999", "Since 1992", "Mon-Fri 5-10pm", "image.test.org", "123 Lilac Road", "Middletwon", "OR", 12333, true, "user1");
-    private static final Brewery BREWERY_3 = new Brewery(3, "Yonkers", "(302)989-2211", "Nice place to hang", "Mon-Fri 2-10pm", "image.test.jpeg", "123 Farm Road", "Middletwon", "OR", 12444, true, "user3");
+    private static final Brewery BREWERY_2 = new Brewery(2, "Lovely Place", "(302)333-9999", "Since 1992", "Mon-Fri 5-10pm", "image.test.org", "123 Lilac Road", "Middletwon", "OR", "12333", true, "user1");
+    private static final Brewery BREWERY_3 = new Brewery(3, "Yonkers", "(302)989-2211", "Nice place to hang", "Mon-Fri 2-10pm", "image.test.jpeg", "123 Farm Road", "Middletwon", "OR", "12444", true, "user3");
     private JdbcBreweryDao sut;
 
     @Before
@@ -46,7 +46,7 @@ public class JdbcBreweryDaoTests extends BaseDaoTests {
 
     @Test
     public void addedBrewery_ReturnsNewBrewery(){
-        Brewery testBrewery = new Brewery("New Brewery", "(123)456-7890", "New brewery description", "Mon-Fri 9am-5pm", "newbrewery.com", "456 Elm St", "Springfield", "IL", 12345, true, "user1");
+        Brewery testBrewery = new Brewery("New Brewery", "(123)456-7890", "New brewery description", "Mon-Fri 9am-5pm", "newbrewery.com", "456 Elm St", "Springfield", "IL", "12345", true, "user1");
         Brewery addedBrewery =sut.addBrewery(testBrewery);
 
         int newId = addedBrewery.getBrewery_id();
@@ -58,7 +58,7 @@ public class JdbcBreweryDaoTests extends BaseDaoTests {
     
     @Test
     public void updateBrewery_ReturnsUpdatedBrewery() {
-        Brewery testBrewery = new Brewery("Updated Name", "(123)456-7890", "New brewery description", "Mon-Fri 9am-5pm", "newbrewery.com", "456 Elm St", "Springfield", "IL", 12345, true, "user1");
+        Brewery testBrewery = new Brewery("Updated Name", "(123)456-7890", "New brewery description", "Mon-Fri 9am-5pm", "newbrewery.com", "456 Elm St", "Springfield", "IL", "12345", true, "user1");
         Brewery updatedBrewery = sut.updateBrewery(testBrewery, 1);
         Assert.assertEquals("Updated Name", updatedBrewery.getBrewery_name());
     }
