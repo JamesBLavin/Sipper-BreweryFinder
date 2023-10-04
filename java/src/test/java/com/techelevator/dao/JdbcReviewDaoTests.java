@@ -10,7 +10,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import java.util.List;
 
 public class JdbcReviewDaoTests extends BaseDaoTests {
-    private static final Review REVIEW_1 = new Review(1, 1, 5, "Great beer.", "image.jpeg");
+    private static final Review REVIEW_1 = new Review( 1, 1, 5, "Great beer.", "image.jpeg");
     private static final Review REVIEW_2 = new Review(2, 2, 5, "Good Beer.", "image.jpeg");
     private static final Review REVIEW_3 = new Review(3, 3, 5, "Ok beer", "image.jpeg");
 
@@ -43,7 +43,7 @@ public class JdbcReviewDaoTests extends BaseDaoTests {
 
     @Test
     public void addReview_ReturnsNewReview(){
-        Review testReview = new Review(2, 3, "Meh.", "image.jpeg");
+        Review testReview = new Review(2, 3, "Meh.", "Beer5", 1, "image.jpeg");
         Review addedReview =sut.addReview(testReview);
         int newId = addedReview.getReview_id();
         Assert.assertTrue("This should create a new review id that is greater than 0", newId > 0);
@@ -61,6 +61,7 @@ public class JdbcReviewDaoTests extends BaseDaoTests {
 
 
     private void assertReviewsMatch(Review expected, Review actual) {
+        Assert.assertEquals("The reviewers do not match", expected.getUser_id(), actual.getUser_id());
         Assert.assertEquals("The review ids do not match", expected.getReview_id(), actual.getReview_id());
         Assert.assertEquals("The beer ids do not match", expected.getBeer_id(), actual.getReview_id());
         Assert.assertEquals("The star ratings do not match", expected.getStar_rating(), actual.getStar_rating());

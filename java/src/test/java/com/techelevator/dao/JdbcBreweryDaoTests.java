@@ -46,7 +46,7 @@ public class JdbcBreweryDaoTests extends BaseDaoTests {
 
     @Test
     public void addedBrewery_ReturnsNewBrewery(){
-        Brewery testBrewery = new Brewery("New Brewery", "(123)456-7890", "New brewery description", "Mon-Fri 9am-5pm", "newbrewery.com", "456 Elm St", "Springfield", "IL", "12345", true, "user1");
+        Brewery testBrewery = new Brewery(5,"New Brewery", "(123)456-7890", "New brewery description", "Mon-Fri 9am-5pm", "newbrewery.com", "456 Elm St", "Springfield", "IL", "12345", true, "user4");
         Brewery addedBrewery =sut.addBrewery(testBrewery);
 
         int newId = addedBrewery.getBrewery_id();
@@ -77,6 +77,7 @@ public class JdbcBreweryDaoTests extends BaseDaoTests {
         Assert.assertEquals("The brewery states do not match", expected.getBrewery_state(), actual.getBrewery_state());
         Assert.assertEquals("The brewery zips do not match", expected.getBrewery_zip(), actual.getBrewery_zip());
         Assert.assertEquals("The breweries do not have the same active/inactive status", expected.isActive(), actual.isActive());
+        Assert.assertEquals("Brewers do not match", expected.getBrewer(), actual.getBrewer());
     }
 
 

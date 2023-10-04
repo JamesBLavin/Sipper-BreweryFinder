@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 id="profile-header">{{ this.$store.state.user.username }}</h1>
+    <h1 id="profile-header">{{ this.$store.state.user.username }}'s brew hub</h1>
     <div id="profile-container">
      <p id="title-left">my personal reviews</p>
      <p v-show="this.$store.state.user.authorities[0].name == 'ROLE_BREWER'" id="title-right">{{brewery.brewery_name}}'s beers</p>
@@ -9,6 +9,7 @@
         <review-card :review="review" v-for="review in reviews" :key="review.id" id="cards"></review-card>
       </div>
        <!-- <h1>{{this.brewery.brewery_name}} beers</h1> -->
+       <p id="title-last">product management</p>
       <div v-show="this.$store.state.user.authorities[0].name == 'ROLE_BREWER'" class="stuff-container" id="right-one">
         
       <beer-card :beer="beer" v-for="beer in beers" :key="beer.id"  />
@@ -87,15 +88,17 @@ export default {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: 
-  "title-left title-right"
-  "one two"
+  "title-left title-left"
+  "one one"
+  "title-right title-right"
+  "two two"
+  "title-last title-last"
   "three four";
   gap: 2vw;
+  justify-items: center;
 }
 
-#left-one{
-grid-area: one;
-}
+
 
 #title-left{
   text-decoration:underline;
@@ -111,16 +114,31 @@ grid-area: one;
   grid-area: title-right;
 }
 
+#title-last{
+  text-decoration: underline;
+  font-size:250%;
+  font-weight:bold;
+  grid-area: title-last;
+}
+
+#left-one{
+grid-area: one;
+width: 80vw;
+}
+
 #right-one{
   grid-area: two;
+  width: 80vw;
 }
 
 #left-two{
   grid-area: three;
+  width: 45vw;
 }
 
 #right-two{
   grid-area: four;
+  width: 45vw;
 }
 
 h2 {
