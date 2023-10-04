@@ -33,7 +33,8 @@ public class BreweryService {
             query = "%" + query + "%";
             breweries = breweryDao.getAllBreweriesByCity(query);
         } else if (searchType.equalsIgnoreCase("brewery_zip")) {
-            breweries = breweryDao.getAllBreweriesByZip(Integer.parseInt(query));
+            query = "%" + query + "%";
+            breweries = breweryDao.getAllBreweriesByZip(query);
         }
         return breweries;
     }

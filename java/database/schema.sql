@@ -23,7 +23,7 @@ CREATE TABLE breweries (
     brewery_address VARCHAR(100),
     brewery_city VARCHAR(100),
     brewery_state VARCHAR(50),
-    brewery_zip INT,
+    brewery_zip VARCHAR(500),
     is_active BOOLEAN,
     brewer VARCHAR(50),
     CONSTRAINT PK_brewery PRIMARY KEY (brewery_id),
