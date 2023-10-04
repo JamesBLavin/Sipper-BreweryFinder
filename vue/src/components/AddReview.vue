@@ -5,7 +5,7 @@
 
             <label class="form-label" for="star_rating" >Rating:</label>
             <div class="range">
-           <input type="range" class="form-range" min="1" max="5" id="star_rating" v-model="review.star_rating" />
+           <input type="range" class="form-range" min="1" max="5" oninput="rangeValue.innerText = this.value" id="star_rating" v-model="review.star_rating" /><p id="rangeValue">3</p>
             </div>
 
 <!-- <div class="range">
@@ -132,9 +132,11 @@ button {
 .review-form {
   display: flex;
   flex-direction: column;
+  color: rgb(255, 123, 0);
+}
+#rangeValue {
+  color: rgb(255, 123, 0);
+  
 }
 
-/* .range{
-    background: white;
-} */
 </style>

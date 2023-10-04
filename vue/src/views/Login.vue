@@ -84,7 +84,7 @@ button:hover {
 }
 
 div {
-  background: #2d7cfa;
+  background: rgb(214, 153, 62);
   max-width: 33%;
   margin-left: 33%;
   align-content: center;
