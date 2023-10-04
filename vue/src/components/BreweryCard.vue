@@ -1,5 +1,5 @@
 <template>
-  <div class="brewery-card" @click="toggleShow">
+  <div class="brewery-card" @click="toggleShow" :style="{ 'background-image': 'url(' + brewery.brewery_img_url+ ')'}">
     
     <h2 :class="{ 'centered': show, 'left-aligned': !show }">{{ brewery.brewery_name }} | {{ brewery.brewery_city }} , {{ brewery.brewery_state }}</h2>
     <h3 class="full-details" v-show="show">
@@ -71,7 +71,7 @@ export default {
 }
 
 .full-details a {
-  color: rgb(255, 123, 0);
+  color: rgb(255, 253, 231);
   text-decoration: none;
 }
 
@@ -91,9 +91,10 @@ export default {
   flex-direction: column;
   border-radius: 20px;
   justify-content: space-between;
-  background-color: rgb(247, 215, 157);
+ background-size: cover;
   border: 1px solid #d6c29d;
-  color: rgb(192, 102, 0);
+  color: white;
+
 }
 
 
@@ -101,6 +102,9 @@ export default {
   display: flex;
   flex-direction: row;
   align-items: center;
+  backdrop-filter: blur(10px);
+  margin: 0;
+  background-color: rgba(66, 66, 66, 0.397);
 }
 
 .left-side {
@@ -119,6 +123,11 @@ ul {
 h2 {
   padding: 7px;
   margin-left: 20px;
+  color: white;
+  backdrop-filter: blur(10px);
+  margin: 0;
+  padding: 15px;
+  background-color: rgba(66, 66, 66, 0.397);
 }
 
 .centered h2 {
