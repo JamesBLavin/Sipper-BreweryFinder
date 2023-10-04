@@ -68,11 +68,12 @@ export default {
 }
 
 .stuff-container {
-  border-top: 5px solid sandybrown;
+  /* border-top: 5px solid sandybrown;
   border-bottom: 30px solid sandybrown;
   border-left: 5px solid sandybrown;
   border-right: 30px solid sandybrown;
-  border-radius: 25% 25% 5% 25%;
+  border-radius: 25% 25% 5% 25%; */
+  border: 5px solid sandybrown;
   overflow-y: auto;
   height: 75vh;
   /* width: 50%; */
@@ -89,7 +90,7 @@ export default {
   "title-left title-right"
   "one two"
   "three four";
-  gap: 10px;
+  gap: 2vw;
 }
 
 #left-one{
