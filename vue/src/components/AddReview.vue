@@ -94,7 +94,7 @@ export default {
 }
 
 .range {
-   padding-left: 37%;
+   padding-left: 32%;
 }
 
 .form-range {
