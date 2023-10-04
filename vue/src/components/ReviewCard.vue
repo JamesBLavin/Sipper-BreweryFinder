@@ -25,7 +25,6 @@ export default {
 
 <style scoped>
 .review-card {
-  width: 100%;
   border-radius: 20px;
   padding-right: 20px;
   padding-left: 20px;

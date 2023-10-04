@@ -85,8 +85,14 @@ export default {
 .beer-form {
   display: flex;
   flex-direction: column;
-  background: #2d7cfa;
-  border-radius: 25px;
+  background: wheat;
+  /* border: 2px solid #d6c29d;
+  border-radius: 25px; */
+  border-top: 5px solid sandybrown;
+  border-bottom: 30px solid sandybrown;
+  border-left: 5px solid sandybrown;
+  border-right: 30px solid sandybrown;
+  border-radius: 25% 25% 5% 25%;
   color: white;
   margin: 1rem;
 }
@@ -98,7 +104,8 @@ button:hover {
 .input-box {
   border: solid 5px white;
   border-radius: 10px;
-  width: 50vw;
+  width: 75%;
+  height: auto;
   max-width: 100vw;
 }
 

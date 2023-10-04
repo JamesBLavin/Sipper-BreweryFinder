@@ -19,7 +19,7 @@ export default {
   props:["beer"],
   methods: {
     dispDefaultImg(event) {
-      event.target.src = require('@/assets/IMG_6794.jpg');
+      event.target.src = require('@/assets/IMG_0879.jpg');
     },
     deleteBeer() {
       if (confirm("Do you really want to delete this beer?")) {
@@ -46,9 +46,9 @@ export default {
   align-items: center;
 }
 
-.beer-image {
+/* .beer-image {
   width: 50%;
-}
+} */
 
 h2 {
   color:rgb(145, 72, 0);
@@ -75,7 +75,7 @@ h2:hover{
 }
 
 #beerpics {
-  width: 100%;
+  width: 15vw;
   height: auto;
   border-radius: 30px;
 }

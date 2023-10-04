@@ -53,7 +53,7 @@ export default {
   },
     methods: {
     dispDefaultImg(event) {
-      event.target.src = require('@/assets/IMG_6794.jpg');
+      event.target.src = require('@/assets/IMG_0879.jpg');
     }
   }
 };

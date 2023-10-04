@@ -101,7 +101,7 @@ font-family: 'Roboto Flex', sans-serif;
   font-family: 'Roboto Flex', sans-serif;
 }
 .nav-links:hover {
-  color: lightgray;
+  color:sienna;
   cursor: pointer;
 }
 #profile {

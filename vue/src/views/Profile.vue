@@ -1,20 +1,23 @@
 <template>
   <div>
     <h1 id="profile-header">{{ this.$store.state.user.username }}</h1>
-    <h2>my reviews</h2>
     <div id="profile-container">
-      <div class="stuff-container">
+     <p id="title-left">my reviews</p>
+     <p id="title-right">my beers</p>
+      <div class="stuff-container" id="left-one"> 
+        
         <review-card :review="review" v-for="review in reviews" :key="review.id" id="cards"></review-card>
       </div>
-      <div v-show="this.$store.state.user.authorities[0].name == 'ROLE_BREWER'">
-      <new-brewery-form
-        id="updater"
-      />
-      <h1>{{this.brewery.brewery_name}} beers</h1>
-      <div class="stuff-container">
-      <beer-card :beer="beer" v-for="beer in beers" :key="beer.id" />
+       <!-- <h1>{{this.brewery.brewery_name}} beers</h1> -->
+      <div class="stuff-container" id="right-one">
+        
+      <beer-card :beer="beer" v-for="beer in beers" :key="beer.id"  />
       </div>
-      <add-beer :brewery-id="brewery.brewery_id"/>
+      <div v-show="this.$store.state.user.authorities[0].name == 'ROLE_BREWER'" id="left-two">
+      <new-brewery-form />
+      </div>
+      <div v-show="this.$store.state.user.authorities[0].name == 'ROLE_BREWER'" id="right-two">
+      <add-beer  :brewery-id="brewery.brewery_id" />
       </div>
     </div>
   </div>
@@ -59,18 +62,64 @@ export default {
 </script>
 
 <style scoped>
+
 #profile-header {
-  font-size: 300px;
+  font-size: 150px;
 }
 
 .stuff-container {
-  overflow-y: scroll;
-  height: 40vh;
+  border-top: 5px solid sandybrown;
+  border-bottom: 30px solid sandybrown;
+  border-left: 5px solid sandybrown;
+  border-right: 30px solid sandybrown;
+  border-radius: 25% 25% 5% 25%;
+  overflow-y: auto;
+  height: 75vh;
+  /* width: 50%; */
+}
+
+.stuff-container::webkit-scrollbar-track{
+  height: 10vh;
 }
 
 #profile-container {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 
+  "title-left title-right"
+  "one two"
+  "three four";
+  gap: 10px;
+}
+
+#left-one{
+grid-area: one;
+}
+
+#title-left{
+  text-decoration:underline;
+  font-size:70px;
+  font-weight:bold;
+  grid-area: title-left;
+}
+
+#title-right{
+  text-decoration:underline;
+  font-size:70px;
+  font-weight:bold;
+  grid-area: title-right;
+}
+
+#right-one{
+  grid-area: two;
+}
+
+#left-two{
+  grid-area: three;
+}
+
+#right-two{
+  grid-area: four;
 }
 
 h2 {
