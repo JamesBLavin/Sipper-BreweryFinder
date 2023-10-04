@@ -88,13 +88,10 @@ export default {
   background: wheat;
   /* border: 2px solid #d6c29d;
   border-radius: 25px; */
-  border-top: 5px solid sandybrown;
-  border-bottom: 30px solid sandybrown;
-  border-left: 5px solid sandybrown;
-  border-right: 30px solid sandybrown;
-  border-radius: 25% 25% 5% 25%;
+  border: 5px solid sandybrown;
+  /* border-radius: 25% 25% 5% 25%; */
   color: white;
-  margin: 1rem;
+  /* margin: 1rem; */
 }
 
 button:hover {

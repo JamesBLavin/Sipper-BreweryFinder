@@ -3,15 +3,17 @@
     <h2>{{beer.beer_name}}</h2>
   <span class="description"><strong>{{ beer.beer_description }}</strong><br></span>
   <span class="beer-type"><strong>Beer Type: {{ beer.beer_type }}</strong><br></span>
-  <span class="alcohol-info"><strong>ABV: {{ beer.abv }}%,  {{ beer.ibu }} IBU</strong></span>
+  <span class="alcohol-info"><strong>ABV: {{ beer.abv }}%,  {{ beer.ibu }} IBU</strong><br><br></span>
     <div class="beer-image">
         <img :src="beer.beer_img_url" @error="dispDefaultImg" alt="dust" id="beerpics"/><br><br>
-        <img v-for="star in beer.avg_rating" :key="star" src="../assets/star.png" alt="" id="starz" v-show="beer.avg_rating > 0">
+        <h2>Average Rating:</h2>&nbsp;&nbsp;&nbsp;&nbsp;<img v-for="star in beer.avg_rating" :key="star" src="../assets/star.png" alt="" id="starz" v-show="beer.avg_rating > 0">
         <h3 v-show="beer.avg_rating == 0">No ratings yet</h3>
+        <hr>
     </div>
-    
-
+    <div class="rev-card">  
     <review-card :review="review" v-for="review in revs" :key="review.review_id" />
+    <hr>
+    </div>
     <add-review></add-review>
 </div>
 
@@ -70,7 +72,7 @@ export default {
     padding: 40px;
     margin-left: 20%;
     margin-right: 20%;
-    border: 2px solid black;
+    border: 2px solid #d6c29d;
 }
 
 .beer-image img {
@@ -79,9 +81,18 @@ export default {
     border-radius: 30px;
 }
 
+hr {
+  border: 2px solid saddlebrown;
+}
+
 h2 {
   color:rgb(145, 72, 0);
 }
+
+h2, h2 + #starz {
+  display:inline-flex;
+}
+
 .description {
   color:rgb(167, 89, 0);
 }
@@ -96,5 +107,6 @@ h2 {
 
 #starz {
   width: 3rem;
+  margin-bottom: 1rem;
 }
 </style>

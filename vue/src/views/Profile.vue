@@ -3,13 +3,13 @@
     <h1 id="profile-header">{{ this.$store.state.user.username }}</h1>
     <div id="profile-container">
      <p id="title-left">my personal reviews</p>
-     <p id="title-right">{{brewery.brewery_name}}'s beers</p>
+     <p v-show="this.$store.state.user.authorities[0].name == 'ROLE_BREWER'" id="title-right">{{brewery.brewery_name}}'s beers</p>
       <div class="stuff-container" id="left-one"> 
         
         <review-card :review="review" v-for="review in reviews" :key="review.id" id="cards"></review-card>
       </div>
        <!-- <h1>{{this.brewery.brewery_name}} beers</h1> -->
-      <div class="stuff-container" id="right-one">
+      <div v-show="this.$store.state.user.authorities[0].name == 'ROLE_BREWER'" class="stuff-container" id="right-one">
         
       <beer-card :beer="beer" v-for="beer in beers" :key="beer.id"  />
       </div>
@@ -68,11 +68,12 @@ export default {
 }
 
 .stuff-container {
-  border-top: 5px solid sandybrown;
+  /* border-top: 5px solid sandybrown;
   border-bottom: 30px solid sandybrown;
   border-left: 5px solid sandybrown;
   border-right: 30px solid sandybrown;
-  border-radius: 25% 25% 5% 25%;
+  border-radius: 25% 25% 5% 25%; */
+  border: 5px solid sandybrown;
   overflow-y: auto;
   height: 75vh;
   /* width: 50%; */
@@ -89,7 +90,7 @@ export default {
   "title-left title-right"
   "one two"
   "three four";
-  gap: 10px;
+  gap: 2vw;
 }
 
 #left-one{

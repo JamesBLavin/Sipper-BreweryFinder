@@ -19,7 +19,7 @@ public class  Brewery {
     private String brewery_address;
     private String brewery_city;
     private String brewery_state;
-    private int brewery_zip;
+    private String brewery_zip;
 
     private boolean isActive;
     private String brewer;
@@ -98,11 +98,11 @@ public class  Brewery {
         this.brewery_state = brewery_state;
     }
 
-    public int getBrewery_zip() {
+    public String getBrewery_zip() {
         return brewery_zip;
     }
 
-    public void setBrewery_zip(int brewery_zip) {
+    public void setBrewery_zip(String brewery_zip) {
         this.brewery_zip = brewery_zip;
     }
 
@@ -125,7 +125,7 @@ public class  Brewery {
     public Brewery() {
     }
 
-    public Brewery(String brewery_name, String contact_info, String brewery_history, String operating_hours, String brewery_img_url, String brewery_address, String brewery_city, String brewery_state, int brewery_zip, boolean isActive, String brewer) {
+    public Brewery(String brewery_name, String contact_info, String brewery_history, String operating_hours, String brewery_img_url, String brewery_address, String brewery_city, String brewery_state, String brewery_zip, boolean isActive, String brewer) {
         this.brewery_name = brewery_name;
         this.contact_info = contact_info;
         this.brewery_history = brewery_history;
@@ -139,7 +139,7 @@ public class  Brewery {
         this.brewer = brewer;
     }
 
-    public Brewery(int brewery_id, String brewery_name, String contact_info, String brewery_history, String operating_hours, String brewery_img_url, String brewery_address, String brewery_city, String brewery_state, int brewery_zip, boolean isActive, String brewer) {
+    public Brewery(int brewery_id, String brewery_name, String contact_info, String brewery_history, String operating_hours, String brewery_img_url, String brewery_address, String brewery_city, String brewery_state, String brewery_zip, boolean isActive, String brewer) {
         this.brewery_id = brewery_id;
         this.brewery_name = brewery_name;
         this.contact_info = contact_info;
@@ -154,7 +154,7 @@ public class  Brewery {
         this.brewer = brewer;
     }
 
-    public Brewery(int brewery_id, String brewery_name, String contact_info, String brewery_history, String operating_hours, String brewery_img_url, String brewery_address, String brewery_city, String brewery_state, int brewery_zip, boolean isActive) {
+    public Brewery(int brewery_id, String brewery_name, String contact_info, String brewery_history, String operating_hours, String brewery_img_url, String brewery_address, String brewery_city, String brewery_state, String brewery_zip, boolean isActive) {
         this.brewery_id = brewery_id;
         this.brewery_name = brewery_name;
         this.contact_info = contact_info;
