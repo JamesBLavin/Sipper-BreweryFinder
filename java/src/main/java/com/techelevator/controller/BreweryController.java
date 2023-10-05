@@ -34,7 +34,7 @@ public class BreweryController {
         return breweryService.getAllBreweries(query, searchType);
     }
 
-    @GetMapping(path="/brewery/{brewery_id}")
+    @GetMapping(path="/breweries/{brewery_id}")
     public Brewery getBrewery(@PathVariable int brewery_id){
        Brewery returnedBrewery = breweryService.getBrewery(brewery_id);
        if (returnedBrewery == null){

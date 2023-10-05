@@ -5,6 +5,7 @@
     </router-link>
     <div class="beer-image">
     <p><img :src="beer.beer_img_url" @error="dispDefaultImg" alt="dust" id="beerpics" /></p>
+    <h3>{{brewery.brewery_name}}</h3>
     <img v-for="star in Math.floor(beer.avg_rating)" :key="star" src="../assets/star.png" alt="" id="starz">
     <h3>({{beer.avg_rating.toFixed(2)}}/5)</h3>
     <h3 v-show="beer.avg_rating == 0">No ratings yet</h3>
@@ -16,9 +17,15 @@
 
 <script>
 import beerService from '../services/BeerService';
+import breweryService from '../services/BreweryService';
 export default {
   name: "beer-card",
   props:["beer"],
+  data() {
+    return {
+      brewery: {}
+    }
+  },
   methods: {
     dispDefaultImg(event) {
       event.target.src = require('@/assets/IMG_0879.jpg');
@@ -33,6 +40,11 @@ export default {
     }
       location.reload();
     }
+  },
+  created() {
+            breweryService.getBreweryByID(this.beer.brewery_id).then(resp => {
+          this.brewery = resp.data;
+        });
   }
 };
 </script>

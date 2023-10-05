@@ -4,6 +4,7 @@
   <span class="description"><strong>{{ beer.beer_description }}</strong><br></span>
   <span class="beer-type"><strong>Beer Type: {{ beer.beer_type }}</strong><br></span>
   <span class="alcohol-info"><strong>ABV: {{ beer.abv }}%,  {{ beer.ibu }} IBU</strong><br><br></span>
+  <h3>{{brewery.brewery_name}}</h3>
     <div class="beer-image">
         <img :src="beer.beer_img_url" @error="dispDefaultImg" alt="dust" id="beerpics"/><br><br>
         <h2>Average Rating:</h2>&nbsp;&nbsp;&nbsp;&nbsp;<img v-for="star in Math.floor(beer.avg_rating)" :key="star" src="../assets/star.png" alt="" id="starz" v-show="beer.avg_rating > 0">
@@ -29,6 +30,7 @@ import beerService from '../services/BeerService';
 import ReviewService from '../services/ReviewService';
 import AddReview from './AddReview.vue';
 import ReviewCard from './ReviewCard.vue';
+import breweryService from '../services/BreweryService';
 export default {
     name: "beer-details",
     components:
@@ -37,13 +39,17 @@ export default {
         return {
             beer: {},
             reviews: [],
-            revs: []
+            revs: [],
+            brewery: {}
         };
     },
   created() {
     beerService.getBeerByID(this.$route.params.id)
       .then(response => {
         this.beer = response.data;
+        breweryService.getBreweryByID(this.beer.brewery_id).then(resp => {
+          this.brewery = resp.data;
+        });
       })
       .catch(error => {
         console.error("Error fetching beer details:", error);
@@ -56,7 +62,7 @@ export default {
       })
       .catch(error => {
         console.error("Error fetching reviews:", error);
-      });
+      });  
   },
     methods: {
     dispDefaultImg(event) {
