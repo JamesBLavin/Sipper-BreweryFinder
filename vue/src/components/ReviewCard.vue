@@ -73,5 +73,8 @@ export default {
   border-radius: 25px;
 }
 
+h1 {
+  color: white;
+}
 
 </style>

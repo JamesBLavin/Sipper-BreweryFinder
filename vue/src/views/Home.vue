@@ -139,5 +139,12 @@ button:hover {
 #dropdownMenuButton {
   background-color: white;
   color: black;
+  border-radius: 10px;
+  border: white;
+  margin: 0px 10px 0px 10px;
+}
+
+#exampleFormControlInput1 {
+  border-radius: 10px;
 }
 </style>

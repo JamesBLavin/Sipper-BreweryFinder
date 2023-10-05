@@ -1,8 +1,6 @@
 <template>
-  <div class="beer-card">
-      <router-link class="detailsLink" :to="{ name: 'beer-details', params: { id: beer.beer_id } }">
+  <div class="beer-card" @click="goToBeerDetails">
       <h2>{{ beer.beer_name }}</h2>
-    </router-link>
     <div class="beer-image">
     <p><img :src="beer.beer_img_url" @error="dispDefaultImg" alt="dust" id="beerpics" /></p>
     <h3>{{brewery.brewery_name}}</h3>
@@ -39,6 +37,9 @@ export default {
         });
     }
       location.reload();
+    },
+    goToBeerDetails() {
+      this.$router.push({ name: 'beer-details', params: { id: this.beer.beer_id } });
     }
   },
   created() {
@@ -58,6 +59,7 @@ export default {
   justify-content: center;
   align-items: center;
   background-color: #4a3415;
+  cursor: pointer;
 }
 
 /* .beer-image {
