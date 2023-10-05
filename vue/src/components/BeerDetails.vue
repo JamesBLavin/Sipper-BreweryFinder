@@ -6,7 +6,8 @@
   <span class="alcohol-info"><strong>ABV: {{ beer.abv }}%,  {{ beer.ibu }} IBU</strong><br><br></span>
     <div class="beer-image">
         <img :src="beer.beer_img_url" @error="dispDefaultImg" alt="dust" id="beerpics"/><br><br>
-        <h2>Average Rating:</h2>&nbsp;&nbsp;&nbsp;&nbsp;<img v-for="star in beer.avg_rating" :key="star" src="../assets/star.png" alt="" id="starz" v-show="beer.avg_rating > 0">
+        <h2>Average Rating:</h2>&nbsp;&nbsp;&nbsp;&nbsp;<img v-for="star in Math.floor(beer.avg_rating)" :key="star" src="../assets/star.png" alt="" id="starz" v-show="beer.avg_rating > 0">
+        <h3>({{beer.avg_rating.toFixed(2)}}/5)</h3>
         <h3 v-show="beer.avg_rating == 0">No ratings yet</h3>
         <hr>
     </div>
@@ -70,7 +71,7 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: wheat;
+    background-color: #4a3415;
     border-radius: 25px;
     padding: 40px;
     margin-left: 20%;
@@ -85,7 +86,7 @@ export default {
 }
 
 hr {
-  border: 2px solid saddlebrown;
+  border: 2px solid white;
 }
 
 h2 {
@@ -113,5 +114,11 @@ h2, h2 + #starz {
   margin-bottom: 1rem;
 }
 
+h2, h3, span strong {
+  color: white;
+}
 
+#rvew {
+  border-bottom: solid 15px white;
+}
 </style>

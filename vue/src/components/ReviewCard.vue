@@ -39,7 +39,7 @@ export default {
   background-color: wheat;
   justify-content: center;
   align-items: center;
-  border-bottom: solid 5px #f5cd84;
+  border-radius: 25px;
 }
 
 #starz {

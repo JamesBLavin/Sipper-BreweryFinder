@@ -218,7 +218,7 @@ public class JdbcBeerDao implements BeerDao {
         int ibu = row.getInt("ibu");
         String beer_img_url = row.getString("beer_img_url");
         String beer_type = row.getString("beer_type");
-        int avg_rating = (int) row.getDouble("avg_stars");
+        double avg_rating = row.getDouble("avg_stars");
 
         beer = new Beer(beer_id, brewery_id, beer_name, beer_description, abv, ibu, beer_img_url, beer_type, avg_rating);
         return beer;

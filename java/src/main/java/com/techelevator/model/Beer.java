@@ -13,13 +13,13 @@ public class Beer {
     private int ibu;
     private String beer_img_url;
     private String beer_type;
-    private int avg_rating;
+    private double avg_rating;
 
-    public int getAvg_rating() {
+    public double getAvg_rating() {
         return avg_rating;
     }
 
-    public void setAvg_rating(int avg_rating) {
+    public void setAvg_rating(double avg_rating) {
         this.avg_rating = avg_rating;
     }
 
@@ -110,7 +110,7 @@ public class Beer {
         this.beer_type = beer_type;
     }
 
-    public Beer(int beer_id, int brewery_id, String beer_name, String beer_description, double abv, int ibu, String beer_img_url, String beer_type, int avg_rating) {
+    public Beer(int beer_id, int brewery_id, String beer_name, String beer_description, double abv, int ibu, String beer_img_url, String beer_type, double avg_rating) {
         this.beer_id = beer_id;
         this.brewery_id = brewery_id;
         this.beer_name = beer_name;

@@ -84,7 +84,7 @@ button:hover {
 }
 
 div {
-  background: rgb(214, 153, 62);
+  background: #4a3415;
   max-width: 33%;
   margin-left: 33%;
   align-content: center;
@@ -93,6 +93,10 @@ div {
 }
 
 #reg-link {
+  color: white;
+}
+
+h1 {
   color: white;
 }
 </style>

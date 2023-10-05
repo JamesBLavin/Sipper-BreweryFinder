@@ -147,7 +147,7 @@ body {
 }
 
 h1 {
-  color: rgba(43, 30, 12, 0.815);
+  color: #4a3415;
 }
 
 #nav-home #title {
