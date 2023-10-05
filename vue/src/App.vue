@@ -85,9 +85,7 @@ font-family: 'Roboto Flex', sans-serif;
   background-repeat: no-repeat;
 }
 
-#nav-home .nav-links {
-color: white;
-}
+
 
 #logo-name {
   grid-area: namelogo;

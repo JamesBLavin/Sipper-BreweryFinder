@@ -48,6 +48,7 @@ export default {
       .then((rspns) => {
         this.reviews = rspns.data;
       });
+      if (this.$store.state.user.authorities[0].name == 'ROLE_BREWER') {
     breweryService
       .getBreweryByBrewer(this.$store.state.user.username)
       .then((rspns) => {
@@ -58,6 +59,7 @@ export default {
             this.beers = rspns.data;
           });
       });
+      }
   },
 };
 </script>
