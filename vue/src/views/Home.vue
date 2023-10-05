@@ -76,10 +76,19 @@ export default {
       this.$store.commit('CHANGE_QUERY', searchQuery);
     },
     displayBreweries() {
-      breweryService.getBreweries(this.$store.state.query, this.$store.state.filter).then(rspns => {
+      if (this.$store.state.filter != '') {
+              breweryService.getBreweries(this.$store.state.query, this.$store.state.filter).then(rspns => {
         this.breweries = rspns.data;
       })
+      } else if (this.$store.state.filter == ''){
+                alert("Please use the dropdown to select a filter.");
+      }
+
     }
+  },
+  created() {
+    this.$store.commit('CHANGE_FILTER', '');
+    this.$store.commit('CHANGE_QUERY', '');
   }
 };
 </script>
