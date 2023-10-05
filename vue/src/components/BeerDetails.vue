@@ -8,7 +8,7 @@
     <div class="beer-image">
         <img :src="beer.beer_img_url" @error="dispDefaultImg" alt="dust" id="beerpics"/><br><br>
         <h2>Average Rating:</h2>&nbsp;&nbsp;&nbsp;&nbsp;<img v-for="star in Math.floor(beer.avg_rating)" :key="star" src="../assets/star.png" alt="" id="starz" v-show="beer.avg_rating > 0">
-        <h3>({{beer.avg_rating.toFixed(2)}}/5)</h3>
+        <h3 v-show="beer.avg_rating > 0">({{beer.avg_rating.toFixed(2)}}/5)</h3>
         <h3 v-show="beer.avg_rating == 0">No ratings yet</h3>
         <hr>
     </div>
@@ -17,6 +17,7 @@
     
     </div>
     <div class="rev-card">
+           <router-link v-show="this.$store.state.token == ''"  :to="{ name: 'login' }" tag="h2" id="login">wanna give your two cents? login or make an account</router-link>
       <hr>
       <h2>reviews from users</h2>  
     <review-card :review="review" v-for="review in revs" :key="review.review_id" id="rvew"/>
@@ -127,5 +128,10 @@ h2, h3, span strong {
 
 #rvew {
   border-bottom: solid 15px white;
+}
+
+#login:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 </style>
