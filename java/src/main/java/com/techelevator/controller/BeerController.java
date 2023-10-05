@@ -52,10 +52,9 @@ public class BeerController {
     }
 
     @PutMapping(path = "/updateBeer/{beer_id}")
-    public Beer updateBeer(@RequestBody @Valid Beer updateBeer, @PathVariable int beer_id) {
-        updateBeer.setBeer_id(beer_id);
+    public Beer updateBeer(@RequestBody @Valid Beer updateBeer) {
         try {
-            return beerService.updateBeer(updateBeer, beer_id);
+            return beerService.updateBeer(updateBeer);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Error updating beer", e);
         }

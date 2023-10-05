@@ -15,7 +15,7 @@ public interface BeerDao {
 
     public Beer addBeer(Beer newBeer);
 
-    public Beer updateBeer(Beer updatedBeer, int id);
+    public Beer updateBeer(Beer updatedBeer);
 
     public int deleteBeer(int beer_id);
 

@@ -157,12 +157,11 @@ public class JdbcBeerDao implements BeerDao {
     }
 
     @Override
-    public Beer updateBeer(Beer updatedBeer, int id) {
-        String sql = "UPDATE beers SET brewery_id = ?, beer_name = ?, beer_description = ?, abv = ?, ibu = ?, beer_img_url = ?, beer_type = ? WHERE beer_id = ?";
+    public Beer updateBeer(Beer updatedBeer) {
+        String sql = "UPDATE beers SET beer_name = ?, beer_description = ?, abv = ?, ibu = ?, beer_img_url = ?, beer_type = ? WHERE beer_id = ?";
 
-        updatedBeer.setBeer_id(id);
         try {
-            jdbcTemplate.update(sql, updatedBeer.getBrewery_id(), updatedBeer.getBeer_name(), updatedBeer.getBeer_description(), updatedBeer.getAbv(), updatedBeer.getIbu(), updatedBeer.getBeer_img_url(), updatedBeer.getBeer_type(), updatedBeer.getBeer_id());
+            jdbcTemplate.update(sql, updatedBeer.getBeer_name(), updatedBeer.getBeer_description(), updatedBeer.getAbv(), updatedBeer.getIbu(), updatedBeer.getBeer_img_url(), updatedBeer.getBeer_type(), updatedBeer.getBeer_id());
 
         } catch (CannotGetJdbcConnectionException e) {
             throw new DataAccessException("Unable to connect to server or database", e) {

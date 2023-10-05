@@ -81,7 +81,7 @@ public class JdbcBeerDaoTests extends BaseDaoTests {
         beerToUpdate.setBeer_img_url("testimage.com");
         beerToUpdate.setBeer_type("Beer");
 
-        sut.updateBeer(beerToUpdate, beerToUpdate.getBeer_id());
+        sut.updateBeer(beerToUpdate);
 
         Beer retrievedBeer = sut.getBeer(1);
         assertBeersMatch(beerToUpdate, retrievedBeer);
