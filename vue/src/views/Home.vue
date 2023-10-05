@@ -1,9 +1,10 @@
 <template>
   <div class="home">
+    <div id="welcome-container">
     <h1 id="welcome">sipper is how you keep up with local breweries and find a new fav!</h1>
+    </div>
     <div class="search-container">
-      <form class="search-bar" @submit.prevent="toggleShowBr">
-        <div class="mb-3">
+        <div id="bar">
           <input
             type="text"
             class="form-control"
@@ -30,7 +31,6 @@
           </div>
         </div>
         <button id="search-btn" @click="displayBreweries()">search</button>
-      </form>
     </div>
     <!-- <h1 v-show="$store.state.token != ''" id="login-greeting">
       thanks for drinking with us, {{ this.$store.state.user.username }}!
@@ -85,94 +85,45 @@ export default {
 </script>
 
 <style scoped>
-h1 {
-  color: sandybrown;
-}
-
-.search-bar {
-  /* margin-top: -25%;
-  margin-bottom: 25%;
-  display: flex;
-  justify-content: center;
-  padding-top: 1%;
-  padding-left: -20%;
-  padding-right: -20%;
-  margin-left: 33%;
-  justify-content: center; */
+#welcome {
+  position: relative;
+  top: -425px;
+  color: white; 
   border-radius: 25px;
-  margin-top: -85%;
-  margin-bottom: 50%;
-  padding: 3%;
+  border: 4px solid rgba(88, 61, 45, 0.603);
+  backdrop-filter: blur(45px);
+  background-color: rgba(83, 61, 43, 0.384);
+  padding: 5px 20px 5px 20px;
+}
+
+#welcome-container {
   display: flex;
   justify-content: center;
-  padding: 10px 10px 10px 10px;
-  align-items: flex-end;
-  right: 10px;
-  /* border: 4px solid rgba(255, 255, 255, 0.815);
-  padding: none;
-  margin-left: 25px;
-  backdrop-filter: blur(45px);
-  background-color: rgba(51, 51, 51, 0.384); */
-}
-
-.search-container {
-  margin-top: 121vh;
-}
-
-
-
-.btn-secondary {
-    color:   #7f513ae1;
-    background-color: white;
-    border-color:   #7f513ae1;
-}
-
-.mb-3 {
-  margin: 10vw 1vw 10vw 10vw;
-  width: 50vw;
-  /* background:    #7f513ae1; */
-  /* border:    #7f513ae1 20px solid; */
-  /* border-radius: 25px; */
-}
-
-#dropdownMenuButton {
-  /* border:    #7f513ae1 20px solid; */
-  /* border-radius: 5px; */
-  margin-bottom: 44%;
 }
 
 #search-btn {
-  /* border:    #7f513ae1 20px solid; */
-  /* border-radius: 25px; */
-  margin-bottom: 20px;
-  margin-left: 1rem;
+  background:white;
+  border: solid 5px white;
+  border-radius: 10px;
 }
 
-#listing {
-  margin-top: 0%;
+button:hover {
+  font-weight: bold;
 }
 
-#welcome {
-  left: 180px;
-  right: 180px;
-  /* backdrop-filter: blur(15px); */
-  margin-top: 35px;
-  padding: 10px 50px 10px 50px;
-  border-radius: 25px;
-  /* border: solid 2px lightgrey; */
-  color: white;
-  z-index: 1;
-    border: 4px solid rgba(88, 61, 45, 0.603);
-  padding: none;
-  margin-left: 25px;
-  backdrop-filter: blur(45px);
-  background-color: rgba(83, 61, 43, 0.384);
+.search-container {
+  position: relative;
+  top: -375px;
+  display: flex;
 }
 
-#login-greeting {
-  color: #7f513ae1;
-  margin-top: -49%;
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
 }
 
-
+#bar {
+  width: 30vw;
+}
 </style>

@@ -15,7 +15,7 @@
       <router-link :to="{ name: 'logout' }" v-if="!loggedIn" tag="h2" class="nav-links">logout</router-link>
       </div>
     </div>
-    <router-view id="view"/>
+    <router-view :id="navHome ? 'view' : ''"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,900&display=swap" rel="stylesheet">
@@ -135,6 +135,7 @@ body {
 }
 
 #view {
-  z-index: 3;
+  position: relative;
+  top: -100px;
 }
 </style>
