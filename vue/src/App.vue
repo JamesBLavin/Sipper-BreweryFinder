@@ -2,8 +2,8 @@
   <div id="app">
     <div :id="navHome ? 'nav-home' : 'nav-nothome'" class="all-nav">
       <div id="logo-name">
-     <img src="./assets/clink.png" alt="testing" id="main-logo"/>&nbsp;
-     <h1 id="title">sipper</h1>
+     <img src="./assets/clink.png" alt="testing" id="main-logo" @click="sendHome"/>&nbsp;
+     <h1 id="title" @click="sendHome">sipper</h1>
      </div>
      <div id="links">
       <router-link :to="{ name: 'home' }" tag="h2" class="nav-links">home</router-link>
@@ -36,6 +36,11 @@ export default {
     navHome() {
       return this.$route.path == '/';
     }
+  },
+  methods: {
+    sendHome() {
+      this.$router.push('/');
+    }
   }
 }
 </script>
@@ -44,6 +49,7 @@ export default {
 @import "~@/assets/scss/vendors/bootstrap-vue/index";
 #title {
   font-size: 650%;
+  cursor: pointer;
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -60,6 +66,7 @@ font-family: 'Roboto Flex', sans-serif;
   width: 10%;
   margin: 10px;
   min-width: 140px;
+  cursor: pointer;
 }
 .all-nav {
   color: white;
@@ -129,7 +136,7 @@ body {
 }
 
 #nav-nothome{
-  color: sandybrown;
+  color: rgba(43, 30, 12);
   padding: 5px;
 
 }
@@ -137,5 +144,13 @@ body {
 #view {
   position: relative;
   top: -100px;
+}
+
+h1 {
+  color: rgba(43, 30, 12, 0.815);
+}
+
+#nav-home #title {
+  color: white;
 }
 </style>

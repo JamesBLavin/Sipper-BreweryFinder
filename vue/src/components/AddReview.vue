@@ -1,6 +1,6 @@
 <template>
   <div class="review-form">
-      <h1>Leave a review, and tell us what you think! Please fill out the form:</h1>
+      <h1>what did y'all think of this one?</h1>
       <form @submit.prevent="addReview">
 
             <label class="form-label" for="star_rating" >Rating:</label>
@@ -149,6 +149,10 @@ button {
 #rangeValue {
   color: rgb(255, 123, 0);
   
+}
+
+#starz {
+  width: 3rem;
 }
 
 </style>

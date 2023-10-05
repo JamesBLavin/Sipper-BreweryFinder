@@ -4,7 +4,7 @@
     <h2 :class="{ 'centered': show, 'left-aligned': !show }">{{ brewery.brewery_name }} | {{ brewery.brewery_city }} , {{ brewery.brewery_state }}</h2>
     <h3 class="full-details" v-show="show">
       <div class="left-side">
-        <img :src="brewery.brewery_img_url" alt="dust" id="previewpics"/>
+        <img :src="brewery.brewery_img_url" alt="dust" id="previewpics" />
       </div>
       <div class="right-side">
         <p>{{ brewery.contact_info }}</p>
@@ -12,7 +12,8 @@
         <p>{{ brewery.operating_hours }}</p>
         
         <p>
-          <a :href="getGoogleMapsLink(brewery.brewery_name + ' ' + brewery.brewery_address)" target="_blank">{{ brewery.brewery_address }}, {{ brewery.brewery_city }}, {{ brewery.brewery_state }} {{ brewery.brewery_zip }}</a></p>
+          <svg id="map-icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>&nbsp;&nbsp;<a :href="getGoogleMapsLink(brewery.brewery_name + ' ' + brewery.brewery_address)" target="_blank">{{ brewery.brewery_address }}, {{ brewery.brewery_city }}, {{ brewery.brewery_state }} {{ brewery.brewery_zip }}</a></p>
+          <div id="beerz">
         <h2>Flagship Beers</h2>
        <div v-if="breweryBeers.length >= 4">
          <ul>
@@ -31,6 +32,7 @@
          </ul>
         </div>
          <p v-else>No beers to display</p>
+         </div>
       </div>
     </h3>
   </div>
@@ -76,7 +78,7 @@ export default {
 }
 
 .full-details a:hover {
-  color: rgb(58, 202, 202);
+  text-decoration: underline;
 }
 
 #previewpics {
@@ -121,7 +123,7 @@ ul {
   columns: 2;
 }
 
-h2 {
+.brewery-card > h2 {
   padding: 7px;
   margin-left: 20px;
   color: white;
@@ -144,5 +146,19 @@ h2 {
   margin-bottom: 10px;
 }
 
+#beerz {
+  padding: 7px;
+  margin-left: 20px;
+  color: white;
+  backdrop-filter: blur(10px);
+  margin: 0px 15px 15px 0px;
+  padding: 15px;
+  background-color: rgba(66, 66, 66, 0.774);
+  border-radius: 15px;
+  border: 2px solid rgb(68, 68, 68);
+}
 
+#map-icon {
+  fill: #fffde7;
+}
 </style>

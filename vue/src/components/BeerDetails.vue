@@ -11,11 +11,12 @@
         <hr>
     </div>
     <div>
-    <add-review></add-review>
+    <add-review v-show="this.$store.state.token != ''"></add-review>
     <hr>
     </div>
-    <div class="rev-card">  
-    <review-card :review="review" v-for="review in revs" :key="review.review_id" />
+    <div class="rev-card">
+      <h2>reviews from users</h2>  
+    <review-card :review="review" v-for="review in revs" :key="review.review_id" id="rvew"/>
     </div>
 </div>
 
@@ -63,7 +64,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .beer-details{
     display: flex;
     flex-direction: column;
@@ -88,7 +89,7 @@ hr {
 }
 
 h2 {
-  color:rgb(145, 72, 0);
+  color:rgba(43, 30, 12, 0.815);
 }
 
 h2, h2 + #starz {
@@ -111,4 +112,6 @@ h2, h2 + #starz {
   width: 3rem;
   margin-bottom: 1rem;
 }
+
+
 </style>

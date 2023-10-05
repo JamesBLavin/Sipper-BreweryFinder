@@ -1,7 +1,7 @@
 <template>
 <div>
   <br>
-  <h1>All Breweries</h1>
+  <h1>find your new fav spot</h1>
   <br>
   <brewery-card :brewery="brewery" v-for="brewery in allBreweries" :key="brewery.brewery_id"></brewery-card>
 </div>

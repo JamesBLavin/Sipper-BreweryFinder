@@ -1,6 +1,6 @@
 <template>
   <div class="beer-container">
-    <h1>List of All Beers</h1>
+    <h1>what's good on tap?</h1>
     <div class="beer-list">
       <beer-card class="card" v-for="beer in beers" :key="beer.beer_id" :beer="beer"></beer-card>
     </div>
@@ -38,5 +38,6 @@ export default {
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
 
 </style>

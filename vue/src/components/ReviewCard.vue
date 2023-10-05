@@ -31,7 +31,6 @@ export default {
 
 <style scoped>
 .review-card {
-  border-radius: 20px;
   padding-right: 20px;
   padding-left: 20px;
   padding-top: 20px;
@@ -40,6 +39,7 @@ export default {
   background-color: wheat;
   justify-content: center;
   align-items: center;
+  border-bottom: solid 5px #f5cd84;
 }
 
 #starz {

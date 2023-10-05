@@ -41,10 +41,10 @@ export default {
   border-radius: 20px;
   padding: 10px;
   margin: 10px;
-  background-color: wheat;
   flex: 1 1 18.3%;
   justify-content: center;
   align-items: center;
+  background-color: wheat;
 }
 
 /* .beer-image {
@@ -52,7 +52,9 @@ export default {
 } */
 
 h2 {
-  color:rgb(145, 72, 0);
+  /* rgb(145, 72, 0) */
+  color: rgba(43, 30, 12, 0.815);
+  /* rgba(43, 30, 12, 0.815) */
 }
 
 h2:hover{

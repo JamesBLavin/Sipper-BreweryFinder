@@ -126,4 +126,9 @@ button:hover {
 #bar {
   width: 30vw;
 }
+
+#dropdownMenuButton {
+  background-color: white;
+  color: black;
+}
 </style>

@@ -6,7 +6,7 @@
       <div class="form-input-group">
       <input type="text" placeholder="brewery name" required class="inputboxes" v-model="brewery.brewery_name"><br><br>
       
-      <select v-show="this.$route.path == '/breweries/addBrewery'" placeholder="brewer username" name="brewer" class="inputboxes" v-model="brewery.brewer">
+      <select v-show="this.$route.path == '/breweries/addBrewery'" placeholder="brewer username" name="brewer" class="inputboxes" v-model="brewery.brewer" :id="this.$route.path == '/breweries/addBrewery' ? 'btm-gap' : ''">
         <option v-for="user in users" :key="user.user_id" value="user">{{ user.username }}</option>
       </select>
       
@@ -133,6 +133,10 @@ button {
   border: solid 5px white;
   border-radius: 10px;
   margin-bottom: 10px;
+}
+
+#btm-gap {
+  margin-bottom: 25px;
 }
 
 </style>
