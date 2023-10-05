@@ -9,7 +9,7 @@
         <review-card :review="review" v-for="review in reviews" :key="review.id" id="cards"></review-card>
       </div>
        <!-- <h1>{{this.brewery.brewery_name}} beers</h1> -->
-       <p id="title-last">product management</p>
+       <p v-show="this.$store.state.user.authorities[0].name == 'ROLE_BREWER'" id="title-last">product management</p>
       <div v-show="this.$store.state.user.authorities[0].name == 'ROLE_BREWER'" class="stuff-container" id="right-one">
         
       <beer-card :beer="beer" v-for="beer in beers" :key="beer.id"  />

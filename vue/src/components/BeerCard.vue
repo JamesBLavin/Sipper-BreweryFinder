@@ -88,12 +88,10 @@ h2:hover{
   width: 2rem;
 }
 
-svg {
-  fill:#ffffff
-}
-
 #trash-btn {
-  margin-left: 2rem;
+  fill:white;
+  background-color: brown;
+  border: solid wheat;
 }
 
 h2, h3 {

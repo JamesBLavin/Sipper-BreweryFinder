@@ -13,9 +13,10 @@
     </div>
     <div>
     <add-review v-show="this.$store.state.token != ''"></add-review>
-    <hr>
+    
     </div>
     <div class="rev-card">
+      <hr>
       <h2>reviews from users</h2>  
     <review-card :review="review" v-for="review in revs" :key="review.review_id" id="rvew"/>
     </div>

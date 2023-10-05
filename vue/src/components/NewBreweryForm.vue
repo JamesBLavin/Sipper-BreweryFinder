@@ -7,7 +7,7 @@
       <input type="text" placeholder="brewery name" required class="inputboxes" v-model="brewery.brewery_name"><br><br>
       
       <select v-show="this.$route.path == '/breweries/addBrewery'" placeholder="brewer username" name="brewer" class="inputboxes" v-model="brewery.brewer" :id="this.$route.path == '/breweries/addBrewery' ? 'btm-gap' : ''">
-        <option v-for="user in users" :key="user.user_id" value="user">{{ user.username }}</option>
+        <option v-for="user in users" :key="user.user_id" :value="user.username">{{ user.username }}</option>
       </select>
       
       <input type="text" placeholder="phone number or email" class="inputboxes" v-model="brewery.contact_info"><br><br>
