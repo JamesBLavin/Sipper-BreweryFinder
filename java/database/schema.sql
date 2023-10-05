@@ -38,7 +38,7 @@ CREATE TABLE beers (
    beer_description VARCHAR(1000),
    abv NUMERIC(3,1),
    ibu INT,
-   beer_img_url VARCHAR(200),
+   beer_img_url VARCHAR(600),
    beer_type VARCHAR(30),
    CONSTRAINT PK_beer PRIMARY KEY (beer_id),
    CONSTRAINT FK_beer_brewery FOREIGN KEY(brewery_id) REFERENCES breweries(brewery_id)
@@ -51,7 +51,7 @@ CREATE TABLE reviews (
     beer_id INT NOT NULL,
     star_rating INT,
     review_comments VARCHAR(1000),
-    review_img_url VARCHAR(600),
+    review_img_url VARCHAR(600) DEFAULT ' ',
     CONSTRAINT PK_review PRIMARY KEY (review_id),
     CONSTRAINT FK_beer_id FOREIGN KEY(beer_id) REFERENCES beers(beer_id),
     CONSTRAINT FK_user_id FOREIGN KEY(user_id) REFERENCES users(user_id)

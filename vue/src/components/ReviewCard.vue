@@ -7,6 +7,8 @@
       <span class="review-comments"><strong>Review Commentary: &nbsp; {{ review.review_comments }}</strong><br></span>
       <div class="review-image">
       <p><img v-show="show" @error="dispNothing" :src="review.review_img_url" alt="no image to show" id="reviewpics"/></p>
+<!-- alt="no image to show" -->
+    
       </div>
   </div>
 </template>

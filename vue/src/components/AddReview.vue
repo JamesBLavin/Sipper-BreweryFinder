@@ -27,7 +27,7 @@ Current Value:
             <br>
             <label class="form-label" for="review_image_url">Image URL:</label>
             <br> 
-            <input type="url" id="review_image_url" v-model="review.review_img_url" placeholder="Enter image URL" />
+            <input type="text" id="review_image_url" maxlength="500" v-model="review.review_img_url" placeholder="Enter image URL" />
             <br>
             <br>
             <button>Submit</button>
@@ -59,7 +59,9 @@ export default {
     },
     methods: {
         addReview() {
-            
+           if(this.review.review_img_url == null){
+             this.review.review_img_url = 'image.jpg'
+           }
             ReviewService.addReview(this.review).then(response => {
                 if(response.status == 200 || response.status == 201){
                     window.alert('Review made!');
