@@ -1,5 +1,5 @@
 <template>
-  <div class="review-card">
+  <div :class="this.$route.name == 'beer-details' ? 'review-card' : 'review-card-profile'">
       <h1>{{review.beer_name}}</h1>
       <img v-for="star in review.star_rating" :key="star" src="../assets/star.png" alt="" id="starz">
       <br>
@@ -44,6 +44,19 @@ export default {
   border-radius: 25px;
 }
 
+.review-card-profile {
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin: 10px;
+  background-color: #4a3415;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  color: white;
+}
+
 #starz {
   width: 3rem;
 }
@@ -57,6 +70,7 @@ export default {
   height: auto;
   width: 50%;
   margin: 80px;
+  border-radius: 25px;
 }
 
 

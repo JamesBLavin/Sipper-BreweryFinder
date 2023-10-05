@@ -110,7 +110,8 @@ export default {
   /* padding-left: 2rem;
   padding-right: 2rem; */
   background: wheat;
-  border: 5px solid sandybrown;
+  border: 5px solid wheat;
+  border-radius: 25px;
   /* border-radius: 25% 25% 5% 25%; */
   /* border-radius: 25px;
   border: 2px solid #d6c29d; */

@@ -3,10 +3,12 @@
       <h1>what did y'all think of this one?</h1>
       <form @submit.prevent="addReview">
 
-            <label class="form-label" for="star_rating" >Rating:</label>
+            <!-- <h3>rating</h3> -->
             <div class="range">
            <input type="range" class="form-range" min="0" max="5" id="star_rating" v-model="review.star_rating">
+           <div>
            <img v-for="star in starsArr" :key="star" src="../assets/star.png" alt="" id="starz">
+            </div>
             </div>
             
 
@@ -22,15 +24,10 @@ Current Value:
 <span id="curr"></span>
 </h4>
 </div> -->
-            <br>
-            Commentary: <br> <textarea name="review_comments" id="review_comments" cols="40" rows="5" placeholder="Leave comment here" v-model="review.review_comments"></textarea>
-            <br>
-            <label class="form-label" for="review_image_url">Image URL:</label>
-            <br> 
-            <input type="text" id="review_image_url" maxlength="500" v-model="review.review_img_url" placeholder="Enter image URL" />
-            <br>
-            <br>
-            <button>Submit</button>
+            <textarea name="review_comments" id="review_comments" cols="40" rows="5" placeholder="leave comment here" v-model="review.review_comments" class="inputs"></textarea>
+            <input type="text" id="review_image_url" maxlength="500" v-model="review.review_img_url" placeholder="enter image URL" class="inputs"/>
+            <br><br>
+            <button>submit</button>
       </form>
   </div>
 </template>
@@ -96,7 +93,9 @@ export default {
 }
 
 .range {
-   padding-left: 32%;
+   display: flex;
+   flex-direction: column;
+  align-items: center;
 }
 
 .form-range {
@@ -155,6 +154,12 @@ button {
 
 #starz {
   width: 3rem;
+}
+
+.inputs {
+  border-radius: 10px;
+  border: 5px solid white;
+  width: 75%;
 }
 
 </style>

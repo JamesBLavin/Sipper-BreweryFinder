@@ -86,9 +86,9 @@ export default {
   display: flex;
   flex-direction: column;
   background: wheat;
-  /* border: 2px solid #d6c29d;
-  border-radius: 25px; */
-  border: 5px solid sandybrown;
+  /* border: 2px solid #d6c29d;*/
+  border-radius: 25px;
+  border: 5px solid wheat;
   /* border-radius: 25% 25% 5% 25%; */
   color: white;
   /* margin: 1rem; */
