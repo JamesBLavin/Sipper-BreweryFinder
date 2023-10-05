@@ -1,7 +1,7 @@
 <template>
 <div class="new-brew-form">
   <form @submit.prevent="handleSubmission"><br>
-      <h1 >{{this.$route.path == '/profile' ? "update your brewery " + brewery.brewery_name : 
+      <h1 >{{this.$route.path == '/profile' ? "update your brewery: " + brewery.brewery_name : 
         this.$route.path == '/breweries/addBrewery' ? "add an establishment" : ""}}</h1>
       <div class="form-input-group">
       <input type="text" placeholder="brewery name" required class="inputboxes" v-model="brewery.brewery_name"><br><br>

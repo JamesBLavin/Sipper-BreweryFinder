@@ -1,7 +1,7 @@
 <template>
   <div class="beer-form">
     <br>
-      <h1>To add a new beer, please submit the following fields:</h1>
+      <h1>add a beer</h1>
         <div class="form-input">
         <form @submit.prevent="addBeer">
         <input type="text" placeholder="beer name" required class="input-box" v-model="beer.beer_name"/>
@@ -16,7 +16,7 @@
         <br><br>
         <input type="text" placeholder="beer type" required class="input-box" v-model="beer.beer_type" />
         <br><br>
-        <button>Submit</button>
+        <button>finalize addition</button>
         </form>
         </div>
 </div>

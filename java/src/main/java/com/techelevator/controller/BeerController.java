@@ -52,7 +52,7 @@ public class BeerController {
     }
 
     @PutMapping(path = "/updateBeer/{beer_id}")
-    public Beer updateBeer(@RequestBody @Valid Beer updateBeer) {
+    public Beer updateBeer(@RequestBody @Valid Beer updateBeer, @PathVariable int beer_id) {
         try {
             return beerService.updateBeer(updateBeer);
         } catch (Exception e) {

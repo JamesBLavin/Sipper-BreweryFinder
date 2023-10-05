@@ -16,7 +16,7 @@ export default {
         return axios.post('addBeer', beer)
     },
     updateBeer(beer){
-        return axios.put(`/beers`, beer)
+        return axios.put(`/updateBeer/${beer.beer_id}`, beer)
     },
     deleteBeer(id){
         return axios.delete(`/deleteBeer/${id}`)
