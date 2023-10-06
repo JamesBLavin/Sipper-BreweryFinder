@@ -1,10 +1,10 @@
 <template>
   <div :class="this.$route.name == 'beer-details' ? 'review-card' : 'review-card-profile'">
-      <h1>{{review.beer_name}}</h1>
+      <h1 v-show="this.$route.path != '/profile'">{{this.username}}</h1>
       <img v-for="star in review.star_rating" :key="star" src="../assets/star.png" alt="" id="starz">
       <br>
       <br>
-      <span class="review-comments"><strong>Review Commentary: &nbsp; {{ review.review_comments }}</strong><br></span>
+      <span class="review-comments"><strong>commentary:&nbsp; {{ review.review_comments }}</strong><br></span>
       <div class="review-image">
       <p><img v-show="show" @error="dispNothing" :src="review.review_img_url" alt="no image to show" id="reviewpics"/></p>
 <!-- alt="no image to show" -->
@@ -14,19 +14,25 @@
 </template>
 
 <script>
-
+import reviewService from '../services/ReviewService';
 export default {
   name: "review-card",
   props: ["review"],
   data() {
     return {
-      show: true
+      show: true,
+      username: 'lol'
     };
   },
   methods: {
     dispNothing() {
       this.show = false;
     }
+  },
+  created() {
+    reviewService.getUsernameByReviewUserId(this.review.user_id).then(rspns => {
+      this.username = rspns.data;
+    })
   }
 };
 </script>
@@ -74,7 +80,7 @@ export default {
 }
 
 h1 {
-  color: white;
+  color: #4a3415;
 }
 
 </style>

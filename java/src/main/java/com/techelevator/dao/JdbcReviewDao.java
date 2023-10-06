@@ -44,7 +44,7 @@ public class JdbcReviewDao implements ReviewDao {
         try {
             SqlRowSet queryResults = jdbcTemplate.queryForRowSet(sql, beer_id);
             while (queryResults.next()){
-                Review currentReview = mapReview(queryResults);
+                Review currentReview = mapReviewAndUsername(queryResults);
                 results.add(currentReview);
             }
         }catch (Exception e){
@@ -88,6 +88,23 @@ public class JdbcReviewDao implements ReviewDao {
         }
         return review;
     }
+
+    @Override
+    public String getUsernameByReviewUserId(int user_id) {
+        String username = "";
+        String sql = "SELECT users.username FROM users JOIN reviews on users.user_id = reviews.user_id WHERE reviews.user_id = ? GROUP BY users.username";
+        try {
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, user_id);
+            if (results.next()) {
+                username = results.getString("username");
+            }
+        } catch (Exception e) {
+            System.out.println("Error occurred accessing this username.");
+            e.getStackTrace();
+        }
+        return username;
+    }
+
 
     @Override
     public Review addReview(Review newReview) {
@@ -162,5 +179,17 @@ public class JdbcReviewDao implements ReviewDao {
         return review;
     }
 
+    private Review mapReviewAndUsername(SqlRowSet row){
+        Review review = new Review();
+        int review_id = row.getInt("review_id");
+        int beer_id = row.getInt("beer_id");
+        int star_rating = row.getInt("star_rating");
+        String review_comments = row.getString("review_comments");
+        int user_id = row.getInt("user_id");
+        String review_img_url = row.getString("review_img_url");
+
+        review = new Review(review_id, beer_id, star_rating, review_comments, user_id, review_img_url);
+        return review;
+    }
 
 }

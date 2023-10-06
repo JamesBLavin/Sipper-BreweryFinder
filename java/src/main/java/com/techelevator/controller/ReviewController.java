@@ -47,6 +47,11 @@ public class ReviewController {
         return reviewService.getReviewsByBeerId(beer_id);
     }
 
+    @GetMapping("/usernamebyid/{user_id}")
+    public String getUsernameByReviewUserId(@PathVariable int user_id) {
+        return reviewService.getUsernameByReviewUserId(user_id);
+    }
+
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(path = "/addReview")
     public Review addReview(@RequestBody @Valid Review newReview) {

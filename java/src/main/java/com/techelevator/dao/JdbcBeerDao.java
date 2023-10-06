@@ -37,7 +37,7 @@ public class JdbcBeerDao implements BeerDao {
             SqlRowSet queryResults1 = jdbcTemplate.queryForRowSet(sql1);
             while (queryResults1.next()) {
                 Beer currentBeer = mapBeerAndAvg(queryResults1);
-                results.add(currentBeer);
+                results.add(0, currentBeer);
             }
             SqlRowSet queryResults2 = jdbcTemplate.queryForRowSet(sql2);
             while (queryResults2.next()) {
@@ -50,7 +50,7 @@ public class JdbcBeerDao implements BeerDao {
                     }
                 }
                 if (!found) {
-                    results.add(currentBeer);
+                    results.add(0, currentBeer);
                 }
             }
 

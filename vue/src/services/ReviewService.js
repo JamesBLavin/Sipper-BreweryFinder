@@ -23,6 +23,9 @@ export default {
     },
     deleteReview(review_id){
         return axios.delete(`breweries/${review_id}`)
+    },
+    getUsernameByReviewUserId(user_id) {
+        return axios.get(`/usernamebyid/${user_id}`);
     }
 }
 

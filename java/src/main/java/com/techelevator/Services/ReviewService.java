@@ -36,4 +36,7 @@ public class ReviewService {
     public int deleteReview(int review_id) {
         return reviewDao.deleteReview(review_id);
     }
+    public String getUsernameByReviewUserId(int user_id) {
+        return reviewDao.getUsernameByReviewUserId(user_id);
+    }
 }

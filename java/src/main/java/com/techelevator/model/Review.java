@@ -106,4 +106,13 @@ public class Review {
         this.user_id = user_id;
         this.review_img_url = review_img_url;
     }
+
+    public Review(int review_id, int beer_id, int star_rating, String review_comments, int user_id, String review_img_url) {
+        this.review_id = review_id;
+        this.beer_id = beer_id;
+        this.star_rating = star_rating;
+        this.review_comments = review_comments;
+        this.user_id = user_id;
+        this.review_img_url = review_img_url;
+    }
 }
