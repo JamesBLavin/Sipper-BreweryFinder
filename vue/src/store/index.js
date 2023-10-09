@@ -21,7 +21,8 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     filter: '',
-    query: ''
+    query: '',
+    path: ''
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -45,6 +46,9 @@ export default new Vuex.Store({
     },
     CHANGE_QUERY(state, searchQuery) {
       state.query = searchQuery;
+    },
+    SET_POST_LOGIN_PAGE(state, path) {
+      state.path = path;
     }
   }
 })

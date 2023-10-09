@@ -83,6 +83,14 @@ public class JdbcUserDao implements UserDao {
         return jdbcTemplate.update(insertUserSql, username, password_hash, ssRole) == 1;
     }
 
+    @Override
+    public boolean deleteUser(int user_id) {
+        String sql = "DELETE FROM reviews WHERE user_id = ?; " +
+                "UPDATE breweries SET brewer = null WHERE brewer = (SELECT username FROM users WHERE user_id = ?; " +
+                "DELETE FROM users WHERE user_id = ?; ";
+        return jdbcTemplate.update(sql, user_id, user_id, user_id) == 1;
+    }
+
 
     private User mapRowToUser(SqlRowSet rs) {
         User user = new User();

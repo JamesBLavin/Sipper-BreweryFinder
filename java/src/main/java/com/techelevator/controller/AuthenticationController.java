@@ -68,5 +68,11 @@ public class AuthenticationController {
         return userDao.findAll();
     }
 
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @DeleteMapping("/users/{user_id}")
+    public boolean deleteAccount(@Valid @PathVariable int user_id) {
+        return false;
+    }
+
 }
 

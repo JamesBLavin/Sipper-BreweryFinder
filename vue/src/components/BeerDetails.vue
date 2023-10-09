@@ -17,7 +17,7 @@
     
     </div>
     <div class="rev-card">
-           <router-link v-show="this.$store.state.token == ''"  :to="{ name: 'login' }" tag="h2" id="login">wanna give your two cents? login or make an account</router-link>
+            <h2 v-show="this.$store.state.token == ''" @click="loginAndReroute" id="login-link">wanna give your two cents? login or make an account</h2>
       <hr>
       <h2>reviews from users</h2>  
     <review-card :review="review" v-for="review in revs" :key="review.review_id" id="rvew"/>
@@ -68,6 +68,10 @@ export default {
     methods: {
     dispDefaultImg(event) {
       event.target.src = require('@/assets/IMG_0879.jpg');
+    },
+    loginAndReroute() {
+       this.$store.commit("SET_POST_LOGIN_PAGE", this.$route.path)
+      this.$router.push('/login');
     }
   }
 };
@@ -133,5 +137,9 @@ h2, h3, span strong {
 #login:hover {
   cursor: pointer;
   text-decoration: underline;
+}
+
+#login-link {
+  cursor: pointer;
 }
 </style>
